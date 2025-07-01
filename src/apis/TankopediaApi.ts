@@ -81,14 +81,14 @@ export interface GetEncyclopediaBoostersRequest {
 export interface GetEncyclopediaCrewrolesRequest {
     fields?: Array<string>;
     language?: GetEncyclopediaCrewrolesLanguageEnum;
-    role?: any;
+    role?: Array<string>;
 }
 
 export interface GetEncyclopediaCrewskillsRequest {
     fields?: Array<string>;
     language?: GetEncyclopediaCrewskillsLanguageEnum;
     role?: string;
-    skill?: any;
+    skill?: Array<string>;
 }
 
 export interface GetEncyclopediaInfoRequest {
@@ -97,14 +97,14 @@ export interface GetEncyclopediaInfoRequest {
 }
 
 export interface GetEncyclopediaModulesRequest {
-    extra?: any;
+    extra?: Array<GetEncyclopediaModulesExtraEnum>;
     fields?: Array<string>;
     language?: GetEncyclopediaModulesLanguageEnum;
     limit?: number;
     moduleId?: Array<number>;
-    nation?: any;
+    nation?: Array<string>;
     pageNo?: number;
-    type?: any;
+    type?: Array<GetEncyclopediaModulesTypeEnum>;
 }
 
 export interface GetEncyclopediaPersonalmissionsRequest {
@@ -113,7 +113,7 @@ export interface GetEncyclopediaPersonalmissionsRequest {
     language?: GetEncyclopediaPersonalmissionsLanguageEnum;
     operationId?: Array<number>;
     setId?: Array<number>;
-    tag?: any;
+    tag?: Array<string>;
 }
 
 export interface GetEncyclopediaProvisionsRequest {
@@ -122,7 +122,7 @@ export interface GetEncyclopediaProvisionsRequest {
     limit?: number;
     pageNo?: number;
     provisionId?: Array<number>;
-    type?: any;
+    type?: Array<GetEncyclopediaProvisionsTypeEnum>;
 }
 
 export interface GetEncyclopediaVehicleprofileRequest {
@@ -148,11 +148,11 @@ export interface GetEncyclopediaVehiclesRequest {
     fields?: Array<string>;
     language?: GetEncyclopediaVehiclesLanguageEnum;
     limit?: number;
-    nation?: any;
+    nation?: Array<string>;
     pageNo?: number;
     tankId?: Array<number>;
     tier?: Array<number>;
-    type?: any;
+    type?: Array<GetEncyclopediaVehiclesTypeEnum>;
 }
 
 /**
@@ -348,7 +348,7 @@ export class TankopediaApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['role'] != null) {
-            queryParameters['role'] = requestParameters['role'];
+            queryParameters['role'] = requestParameters['role']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -399,7 +399,7 @@ export class TankopediaApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['skill'] != null) {
-            queryParameters['skill'] = requestParameters['skill'];
+            queryParameters['skill'] = requestParameters['skill']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -481,7 +481,7 @@ export class TankopediaApi extends runtime.BaseAPI {
         const queryParameters: any = {};
 
         if (requestParameters['extra'] != null) {
-            queryParameters['extra'] = requestParameters['extra'];
+            queryParameters['extra'] = requestParameters['extra']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -501,7 +501,7 @@ export class TankopediaApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['nation'] != null) {
-            queryParameters['nation'] = requestParameters['nation'];
+            queryParameters['nation'] = requestParameters['nation']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['pageNo'] != null) {
@@ -509,7 +509,7 @@ export class TankopediaApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['type'] != null) {
-            queryParameters['type'] = requestParameters['type'];
+            queryParameters['type'] = requestParameters['type']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -568,7 +568,7 @@ export class TankopediaApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['tag'] != null) {
-            queryParameters['tag'] = requestParameters['tag'];
+            queryParameters['tag'] = requestParameters['tag']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -627,7 +627,7 @@ export class TankopediaApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['type'] != null) {
-            queryParameters['type'] = requestParameters['type'];
+            queryParameters['type'] = requestParameters['type']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -814,7 +814,7 @@ export class TankopediaApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['nation'] != null) {
-            queryParameters['nation'] = requestParameters['nation'];
+            queryParameters['nation'] = requestParameters['nation']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['pageNo'] != null) {
@@ -830,7 +830,7 @@ export class TankopediaApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['type'] != null) {
-            queryParameters['type'] = requestParameters['type'];
+            queryParameters['type'] = requestParameters['type']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -999,6 +999,13 @@ export type GetEncyclopediaInfoLanguageEnum = typeof GetEncyclopediaInfoLanguage
 /**
  * @export
  */
+export const GetEncyclopediaModulesExtraEnum = {
+    DefaultProfile: 'default_profile'
+} as const;
+export type GetEncyclopediaModulesExtraEnum = typeof GetEncyclopediaModulesExtraEnum[keyof typeof GetEncyclopediaModulesExtraEnum];
+/**
+ * @export
+ */
 export const GetEncyclopediaModulesLanguageEnum = {
     En: 'en',
     Ru: 'ru',
@@ -1015,6 +1022,17 @@ export const GetEncyclopediaModulesLanguageEnum = {
     Ko: 'ko'
 } as const;
 export type GetEncyclopediaModulesLanguageEnum = typeof GetEncyclopediaModulesLanguageEnum[keyof typeof GetEncyclopediaModulesLanguageEnum];
+/**
+ * @export
+ */
+export const GetEncyclopediaModulesTypeEnum = {
+    VehicleRadio: 'vehicleRadio',
+    VehicleEngine: 'vehicleEngine',
+    VehicleGun: 'vehicleGun',
+    VehicleChassis: 'vehicleChassis',
+    VehicleTurret: 'vehicleTurret'
+} as const;
+export type GetEncyclopediaModulesTypeEnum = typeof GetEncyclopediaModulesTypeEnum[keyof typeof GetEncyclopediaModulesTypeEnum];
 /**
  * @export
  */
@@ -1053,6 +1071,14 @@ export const GetEncyclopediaProvisionsLanguageEnum = {
     Ko: 'ko'
 } as const;
 export type GetEncyclopediaProvisionsLanguageEnum = typeof GetEncyclopediaProvisionsLanguageEnum[keyof typeof GetEncyclopediaProvisionsLanguageEnum];
+/**
+ * @export
+ */
+export const GetEncyclopediaProvisionsTypeEnum = {
+    Equipment: 'equipment',
+    OptionalDevice: 'optionalDevice'
+} as const;
+export type GetEncyclopediaProvisionsTypeEnum = typeof GetEncyclopediaProvisionsTypeEnum[keyof typeof GetEncyclopediaProvisionsTypeEnum];
 /**
  * @export
  */
@@ -1118,3 +1144,14 @@ export const GetEncyclopediaVehiclesLanguageEnum = {
     Ko: 'ko'
 } as const;
 export type GetEncyclopediaVehiclesLanguageEnum = typeof GetEncyclopediaVehiclesLanguageEnum[keyof typeof GetEncyclopediaVehiclesLanguageEnum];
+/**
+ * @export
+ */
+export const GetEncyclopediaVehiclesTypeEnum = {
+    HeavyTank: 'heavyTank',
+    AtSpg: 'AT-SPG',
+    MediumTank: 'mediumTank',
+    LightTank: 'lightTank',
+    Spg: 'SPG'
+} as const;
+export type GetEncyclopediaVehiclesTypeEnum = typeof GetEncyclopediaVehiclesTypeEnum[keyof typeof GetEncyclopediaVehiclesTypeEnum];

@@ -32,7 +32,7 @@ export interface ActivateclanreserveRequest {
     accessToken: string;
     reserveLevel: number;
     reserveType: string;
-    fields?: any | null;
+    fields?: Array<string>;
     language?: ActivateclanreserveLanguageEnum;
 }
 
@@ -114,8 +114,8 @@ export class StrongholdsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['fields'] != null) {
-            formParams.append('fields', new Blob([JSON.stringify(Activateclanreserve200ResponseToJSON(requestParameters['fields']))], { type: "application/json", }));
-                    }
+            formParams.append('fields', requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]));
+        }
 
         if (requestParameters['language'] != null) {
             formParams.append('language', requestParameters['language'] as any);

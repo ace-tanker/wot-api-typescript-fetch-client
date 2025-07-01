@@ -97,7 +97,7 @@ export interface GetGlobalmapClanprovincesRequest {
 export interface GetGlobalmapEventaccountinfoRequest {
     accountId: number;
     eventId: string;
-    frontId: any;
+    frontId: Array<string>;
     clanId?: number;
     fields?: Array<string>;
 }
@@ -124,7 +124,7 @@ export interface GetGlobalmapEventaccountratingsRequest {
 export interface GetGlobalmapEventclaninfoRequest {
     clanId: number;
     eventId: string;
-    frontId: any;
+    frontId: Array<string>;
     fields?: Array<string>;
 }
 
@@ -164,7 +164,7 @@ export interface GetGlobalmapEventsRequest {
 
 export interface GetGlobalmapFrontsRequest {
     fields?: Array<string>;
-    frontId?: any;
+    frontId?: Array<string>;
     language?: GetGlobalmapFrontsLanguageEnum;
     limit?: number;
     pageNo?: number;
@@ -186,13 +186,13 @@ export interface GetGlobalmapProvincesRequest {
     orderBy?: GetGlobalmapProvincesOrderByEnum;
     pageNo?: number;
     primeHour?: number;
-    provinceId?: any;
+    provinceId?: Array<string>;
 }
 
 export interface GetGlobalmapSeasonaccountinfoRequest {
     accountId: number;
     seasonId: string;
-    vehicleLevel: any;
+    vehicleLevel: Array<GetGlobalmapSeasonaccountinfoVehicleLevelEnum>;
     fields?: Array<string>;
 }
 
@@ -437,7 +437,7 @@ export class GlobalMapApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId'];
+            queryParameters['front_id'] = requestParameters['frontId']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['clanId'] != null) {
@@ -670,7 +670,7 @@ export class GlobalMapApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId'];
+            queryParameters['front_id'] = requestParameters['frontId']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -994,7 +994,7 @@ export class GlobalMapApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId'];
+            queryParameters['front_id'] = requestParameters['frontId']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['language'] != null) {
@@ -1135,7 +1135,7 @@ export class GlobalMapApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['provinceId'] != null) {
-            queryParameters['province_id'] = requestParameters['provinceId'];
+            queryParameters['province_id'] = requestParameters['provinceId']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1203,7 +1203,7 @@ export class GlobalMapApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['vehicleLevel'] != null) {
-            queryParameters['vehicle_level'] = requestParameters['vehicleLevel'];
+            queryParameters['vehicle_level'] = requestParameters['vehicleLevel']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -1560,6 +1560,15 @@ export const GetGlobalmapProvincesOrderByEnum = {
     PrimeHour2: '-prime_hour'
 } as const;
 export type GetGlobalmapProvincesOrderByEnum = typeof GetGlobalmapProvincesOrderByEnum[keyof typeof GetGlobalmapProvincesOrderByEnum];
+/**
+ * @export
+ */
+export const GetGlobalmapSeasonaccountinfoVehicleLevelEnum = {
+    _6: '6',
+    _8: '8',
+    _10: '10'
+} as const;
+export type GetGlobalmapSeasonaccountinfoVehicleLevelEnum = typeof GetGlobalmapSeasonaccountinfoVehicleLevelEnum[keyof typeof GetGlobalmapSeasonaccountinfoVehicleLevelEnum];
 /**
  * @export
  */

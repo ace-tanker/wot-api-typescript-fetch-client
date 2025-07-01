@@ -51,7 +51,7 @@ export interface GetClansGlossaryRequest {
 export interface GetClansInfoRequest {
     clanId: Array<number>;
     accessToken?: string;
-    extra?: any;
+    extra?: Array<GetClansInfoExtraEnum>;
     fields?: Array<string>;
     language?: GetClansInfoLanguageEnum;
     membersKey?: GetClansInfoMembersKeyEnum;
@@ -201,7 +201,7 @@ export class ClansApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['extra'] != null) {
-            queryParameters['extra'] = requestParameters['extra'];
+            queryParameters['extra'] = requestParameters['extra']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -443,6 +443,13 @@ export const GetClansGlossaryLanguageEnum = {
     Ko: 'ko'
 } as const;
 export type GetClansGlossaryLanguageEnum = typeof GetClansGlossaryLanguageEnum[keyof typeof GetClansGlossaryLanguageEnum];
+/**
+ * @export
+ */
+export const GetClansInfoExtraEnum = {
+    PrivateOnlineMembers: 'private.online_members'
+} as const;
+export type GetClansInfoExtraEnum = typeof GetClansInfoExtraEnum[keyof typeof GetClansInfoExtraEnum];
 /**
  * @export
  */

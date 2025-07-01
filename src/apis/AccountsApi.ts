@@ -39,7 +39,7 @@ export interface GetAccountAchievementsRequest {
 export interface GetAccountInfoRequest {
     accountId: Array<number>;
     accessToken?: string;
-    extra?: any;
+    extra?: Array<GetAccountInfoExtraEnum>;
     fields?: Array<string>;
 }
 
@@ -135,7 +135,7 @@ export class AccountsApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['extra'] != null) {
-            queryParameters['extra'] = requestParameters['extra'];
+            queryParameters['extra'] = requestParameters['extra']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -288,6 +288,31 @@ export class AccountsApi extends runtime.BaseAPI {
 
 }
 
+/**
+ * @export
+ */
+export const GetAccountInfoExtraEnum = {
+    PrivateBoosters: 'private.boosters',
+    PrivateGarage: 'private.garage',
+    PrivateGroupedContacts: 'private.grouped_contacts',
+    PrivatePersonalMissions: 'private.personal_missions',
+    PrivateRented: 'private.rented',
+    StatisticsEpic: 'statistics.epic',
+    StatisticsFallout: 'statistics.fallout',
+    StatisticsGlobalmapAbsolute: 'statistics.globalmap_absolute',
+    StatisticsGlobalmapChampion: 'statistics.globalmap_champion',
+    StatisticsGlobalmapMiddle: 'statistics.globalmap_middle',
+    StatisticsRandom: 'statistics.random',
+    StatisticsRanked10x10: 'statistics.ranked_10x10',
+    StatisticsRanked15x15: 'statistics.ranked_15x15',
+    StatisticsRankedBattles: 'statistics.ranked_battles',
+    StatisticsRankedBattlesCurrent: 'statistics.ranked_battles_current',
+    StatisticsRankedBattlesPrevious: 'statistics.ranked_battles_previous',
+    StatisticsRankedSeason1: 'statistics.ranked_season_1',
+    StatisticsRankedSeason2: 'statistics.ranked_season_2',
+    StatisticsRankedSeason3: 'statistics.ranked_season_3'
+} as const;
+export type GetAccountInfoExtraEnum = typeof GetAccountInfoExtraEnum[keyof typeof GetAccountInfoExtraEnum];
 /**
  * @export
  */

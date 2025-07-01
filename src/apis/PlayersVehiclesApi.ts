@@ -46,7 +46,7 @@ export interface GetTanksMasteryRequest {
 export interface GetTanksStatsRequest {
     accountId: number;
     accessToken?: string;
-    extra?: any;
+    extra?: Array<GetTanksStatsExtraEnum>;
     fields?: Array<string>;
     inGarage?: GetTanksStatsInGarageEnum;
     tankId?: Array<number>;
@@ -207,7 +207,7 @@ export class PlayersVehiclesApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['extra'] != null) {
-            queryParameters['extra'] = requestParameters['extra'];
+            queryParameters['extra'] = requestParameters['extra']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -268,6 +268,17 @@ export const GetTanksMasteryDistributionEnum = {
     Xp: 'xp'
 } as const;
 export type GetTanksMasteryDistributionEnum = typeof GetTanksMasteryDistributionEnum[keyof typeof GetTanksMasteryDistributionEnum];
+/**
+ * @export
+ */
+export const GetTanksStatsExtraEnum = {
+    Epic: 'epic',
+    Fallout: 'fallout',
+    Random: 'random',
+    Ranked10x10: 'ranked_10x10',
+    RankedBattles: 'ranked_battles'
+} as const;
+export type GetTanksStatsExtraEnum = typeof GetTanksStatsExtraEnum[keyof typeof GetTanksStatsExtraEnum];
 /**
  * @export
  */
