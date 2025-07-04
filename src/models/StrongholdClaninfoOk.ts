@@ -20,13 +20,13 @@ import {
     StrongholdClaninfoMetaToJSON,
     StrongholdClaninfoMetaToJSONTyped,
 } from './StrongholdClaninfoMeta.js';
-import type { StrongholdClaninfoValue } from './StrongholdClaninfoValue.js';
+import type { StrongholdClaninfoDataValue } from './StrongholdClaninfoDataValue.js';
 import {
-    StrongholdClaninfoValueFromJSON,
-    StrongholdClaninfoValueFromJSONTyped,
-    StrongholdClaninfoValueToJSON,
-    StrongholdClaninfoValueToJSONTyped,
-} from './StrongholdClaninfoValue.js';
+    StrongholdClaninfoDataValueFromJSON,
+    StrongholdClaninfoDataValueFromJSONTyped,
+    StrongholdClaninfoDataValueToJSON,
+    StrongholdClaninfoDataValueToJSONTyped,
+} from './StrongholdClaninfoDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface StrongholdClaninfoOk {
     meta: StrongholdClaninfoMeta;
     /**
      * 
-     * @type {{ [key: string]: StrongholdClaninfoValue | null; }}
+     * @type {{ [key: string]: StrongholdClaninfoDataValue | undefined; }}
      * @memberof StrongholdClaninfoOk
      */
-    data: { [key: string]: StrongholdClaninfoValue | null; };
+    data: { [key: string]: StrongholdClaninfoDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const StrongholdClaninfoOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type StrongholdClaninfoOkStatusEnum = typeof StrongholdClaninfoOkStatusEnum[keyof typeof StrongholdClaninfoOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum StrongholdClaninfoOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function StrongholdClaninfoOkFromJSONTyped(json: any, ignoreDiscriminator
         
         'status': json['status'],
         'meta': StrongholdClaninfoMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], StrongholdClaninfoValueFromJSON)),
+        'data': (mapValues(json['data'], StrongholdClaninfoDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function StrongholdClaninfoOkToJSONTyped(value?: StrongholdClaninfoOk | n
         
         'status': value['status'],
         'meta': StrongholdClaninfoMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], StrongholdClaninfoValueToJSON)),
+        'data': (mapValues(value['data'], StrongholdClaninfoDataValueToJSON)),
     };
+}
+
+export const StrongholdClaninfoOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

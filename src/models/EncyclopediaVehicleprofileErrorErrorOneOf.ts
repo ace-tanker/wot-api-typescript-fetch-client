@@ -45,22 +45,20 @@ export interface EncyclopediaVehicleprofileErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaVehicleprofileErrorErrorOneOfCodeEnum = {
-    NUMBER_404: 404
-} as const;
-export type EncyclopediaVehicleprofileErrorErrorOneOfCodeEnum = typeof EncyclopediaVehicleprofileErrorErrorOneOfCodeEnum[keyof typeof EncyclopediaVehicleprofileErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaVehicleprofileErrorErrorOneOfCodeEnum {
+    NUMBER_404 = 404
+}
 /**
- * @export
- */
-export const EncyclopediaVehicleprofileErrorErrorOneOfMessageEnum = {
-    IncompatibleModuleIds: 'INCOMPATIBLE_MODULE_IDS'
-} as const;
-export type EncyclopediaVehicleprofileErrorErrorOneOfMessageEnum = typeof EncyclopediaVehicleprofileErrorErrorOneOfMessageEnum[keyof typeof EncyclopediaVehicleprofileErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaVehicleprofileErrorErrorOneOfMessageEnum {
+    IncompatibleModuleIds = 'INCOMPATIBLE_MODULE_IDS'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function EncyclopediaVehicleprofileErrorErrorOneOfToJSONTyped(value?: Enc
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const EncyclopediaVehicleprofileErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

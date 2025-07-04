@@ -64,3 +64,20 @@ export function ClansAccountinfoMetaToJSONTyped(value?: ClansAccountinfoMeta | n
     };
 }
 
+export const ClansAccountinfoMetaPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
+}
+

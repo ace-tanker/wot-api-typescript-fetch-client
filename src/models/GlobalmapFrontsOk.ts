@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { GlobalmapFrontsItem } from './GlobalmapFrontsItem.js';
-import {
-    GlobalmapFrontsItemFromJSON,
-    GlobalmapFrontsItemFromJSONTyped,
-    GlobalmapFrontsItemToJSON,
-    GlobalmapFrontsItemToJSONTyped,
-} from './GlobalmapFrontsItem.js';
 import type { GlobalmapFrontsMeta } from './GlobalmapFrontsMeta.js';
 import {
     GlobalmapFrontsMetaFromJSON,
@@ -27,6 +20,13 @@ import {
     GlobalmapFrontsMetaToJSON,
     GlobalmapFrontsMetaToJSONTyped,
 } from './GlobalmapFrontsMeta.js';
+import type { GlobalmapFrontsDataItem } from './GlobalmapFrontsDataItem.js';
+import {
+    GlobalmapFrontsDataItemFromJSON,
+    GlobalmapFrontsDataItemFromJSONTyped,
+    GlobalmapFrontsDataItemToJSON,
+    GlobalmapFrontsDataItemToJSONTyped,
+} from './GlobalmapFrontsDataItem.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface GlobalmapFrontsOk {
     meta: GlobalmapFrontsMeta;
     /**
      * 
-     * @type {Array<GlobalmapFrontsItem>}
+     * @type {Array<GlobalmapFrontsDataItem>}
      * @memberof GlobalmapFrontsOk
      */
-    data: Array<GlobalmapFrontsItem>;
+    data: Array<GlobalmapFrontsDataItem>;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapFrontsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapFrontsOkStatusEnum = typeof GlobalmapFrontsOkStatusEnum[keyof typeof GlobalmapFrontsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapFrontsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapFrontsOkFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'status': json['status'],
         'meta': GlobalmapFrontsMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(GlobalmapFrontsItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(GlobalmapFrontsDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapFrontsOkToJSONTyped(value?: GlobalmapFrontsOk | null, i
         
         'status': value['status'],
         'meta': GlobalmapFrontsMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(GlobalmapFrontsItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(GlobalmapFrontsDataItemToJSON)),
     };
+}
+
+export const GlobalmapFrontsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

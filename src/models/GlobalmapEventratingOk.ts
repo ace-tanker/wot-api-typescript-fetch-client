@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { GlobalmapEventratingItem } from './GlobalmapEventratingItem.js';
+import type { GlobalmapEventratingDataItem } from './GlobalmapEventratingDataItem.js';
 import {
-    GlobalmapEventratingItemFromJSON,
-    GlobalmapEventratingItemFromJSONTyped,
-    GlobalmapEventratingItemToJSON,
-    GlobalmapEventratingItemToJSONTyped,
-} from './GlobalmapEventratingItem.js';
+    GlobalmapEventratingDataItemFromJSON,
+    GlobalmapEventratingDataItemFromJSONTyped,
+    GlobalmapEventratingDataItemToJSON,
+    GlobalmapEventratingDataItemToJSONTyped,
+} from './GlobalmapEventratingDataItem.js';
 import type { GlobalmapEventratingMeta } from './GlobalmapEventratingMeta.js';
 import {
     GlobalmapEventratingMetaFromJSON,
@@ -48,20 +48,19 @@ export interface GlobalmapEventratingOk {
     meta: GlobalmapEventratingMeta;
     /**
      * 
-     * @type {Array<GlobalmapEventratingItem>}
+     * @type {Array<GlobalmapEventratingDataItem>}
      * @memberof GlobalmapEventratingOk
      */
-    data: Array<GlobalmapEventratingItem>;
+    data: Array<GlobalmapEventratingDataItem>;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapEventratingOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapEventratingOkStatusEnum = typeof GlobalmapEventratingOkStatusEnum[keyof typeof GlobalmapEventratingOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventratingOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapEventratingOkFromJSONTyped(json: any, ignoreDiscriminat
         
         'status': json['status'],
         'meta': GlobalmapEventratingMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(GlobalmapEventratingItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(GlobalmapEventratingDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapEventratingOkToJSONTyped(value?: GlobalmapEventratingOk
         
         'status': value['status'],
         'meta': GlobalmapEventratingMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(GlobalmapEventratingItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(GlobalmapEventratingDataItemToJSON)),
     };
+}
+
+export const GlobalmapEventratingOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

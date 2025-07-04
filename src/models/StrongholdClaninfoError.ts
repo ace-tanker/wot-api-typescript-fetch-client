@@ -41,14 +41,13 @@ export interface StrongholdClaninfoError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const StrongholdClaninfoErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type StrongholdClaninfoErrorStatusEnum = typeof StrongholdClaninfoErrorStatusEnum[keyof typeof StrongholdClaninfoErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum StrongholdClaninfoErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function StrongholdClaninfoErrorToJSONTyped(value?: StrongholdClaninfoErr
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const StrongholdClaninfoErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

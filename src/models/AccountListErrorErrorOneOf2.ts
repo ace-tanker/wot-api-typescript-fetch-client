@@ -45,22 +45,20 @@ export interface AccountListErrorErrorOneOf2 {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const AccountListErrorErrorOneOf2CodeEnum = {
-    NUMBER_407: 407
-} as const;
-export type AccountListErrorErrorOneOf2CodeEnum = typeof AccountListErrorErrorOneOf2CodeEnum[keyof typeof AccountListErrorErrorOneOf2CodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum AccountListErrorErrorOneOf2CodeEnum {
+    NUMBER_407 = 407
+}
 /**
- * @export
- */
-export const AccountListErrorErrorOneOf2MessageEnum = {
-    SearchListLimitExceeded: 'SEARCH_LIST_LIMIT_EXCEEDED'
-} as const;
-export type AccountListErrorErrorOneOf2MessageEnum = typeof AccountListErrorErrorOneOf2MessageEnum[keyof typeof AccountListErrorErrorOneOf2MessageEnum];
+* @export
+* @enum {string}
+*/
+export enum AccountListErrorErrorOneOf2MessageEnum {
+    SearchListLimitExceeded = 'SEARCH_LIST_LIMIT_EXCEEDED'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function AccountListErrorErrorOneOf2ToJSONTyped(value?: AccountListErrorE
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const AccountListErrorErrorOneOf2PropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

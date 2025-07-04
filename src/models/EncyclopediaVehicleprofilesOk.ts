@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
+import type { EncyclopediaVehicleprofilesDataValueItem } from './EncyclopediaVehicleprofilesDataValueItem.js';
+import {
+    EncyclopediaVehicleprofilesDataValueItemFromJSON,
+    EncyclopediaVehicleprofilesDataValueItemFromJSONTyped,
+    EncyclopediaVehicleprofilesDataValueItemToJSON,
+    EncyclopediaVehicleprofilesDataValueItemToJSONTyped,
+} from './EncyclopediaVehicleprofilesDataValueItem.js';
 import type { EncyclopediaVehicleprofilesMeta } from './EncyclopediaVehicleprofilesMeta.js';
 import {
     EncyclopediaVehicleprofilesMetaFromJSON,
@@ -20,13 +27,6 @@ import {
     EncyclopediaVehicleprofilesMetaToJSON,
     EncyclopediaVehicleprofilesMetaToJSONTyped,
 } from './EncyclopediaVehicleprofilesMeta.js';
-import type { EncyclopediaVehicleprofilesValueItem } from './EncyclopediaVehicleprofilesValueItem.js';
-import {
-    EncyclopediaVehicleprofilesValueItemFromJSON,
-    EncyclopediaVehicleprofilesValueItemFromJSONTyped,
-    EncyclopediaVehicleprofilesValueItemToJSON,
-    EncyclopediaVehicleprofilesValueItemToJSONTyped,
-} from './EncyclopediaVehicleprofilesValueItem.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface EncyclopediaVehicleprofilesOk {
     meta: EncyclopediaVehicleprofilesMeta;
     /**
      * 
-     * @type {{ [key: string]: Array<EncyclopediaVehicleprofilesValueItem> | null; }}
+     * @type {{ [key: string]: Array<EncyclopediaVehicleprofilesDataValueItem> | undefined | null; }}
      * @memberof EncyclopediaVehicleprofilesOk
      */
-    data: { [key: string]: Array<EncyclopediaVehicleprofilesValueItem> | null; };
+    data: { [key: string]: Array<EncyclopediaVehicleprofilesDataValueItem> | undefined | null; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaVehicleprofilesOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaVehicleprofilesOkStatusEnum = typeof EncyclopediaVehicleprofilesOkStatusEnum[keyof typeof EncyclopediaVehicleprofilesOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaVehicleprofilesOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function EncyclopediaVehicleprofilesOkToJSONTyped(value?: EncyclopediaVeh
         'meta': EncyclopediaVehicleprofilesMetaToJSON(value['meta']),
         'data': value['data'],
     };
+}
+
+export const EncyclopediaVehicleprofilesOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

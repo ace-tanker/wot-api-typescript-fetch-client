@@ -15,80 +15,149 @@
 
 import * as runtime from '../runtime.js';
 import type {
-  GetTanksAchievements200Response,
-  GetTanksMastery200Response,
-  GetTanksStats200Response,
+  TanksAchievementsResponse,
+  TanksMasteryResponse,
+  TanksStatsResponse,
 } from '../models/index.js';
 import {
-    GetTanksAchievements200ResponseFromJSON,
-    GetTanksAchievements200ResponseToJSON,
-    GetTanksMastery200ResponseFromJSON,
-    GetTanksMastery200ResponseToJSON,
-    GetTanksStats200ResponseFromJSON,
-    GetTanksStats200ResponseToJSON,
+    TanksAchievementsResponseFromJSON,
+    TanksAchievementsResponseToJSON,
+    TanksMasteryResponseFromJSON,
+    TanksMasteryResponseToJSON,
+    TanksStatsResponseFromJSON,
+    TanksStatsResponseToJSON,
 } from '../models/index.js';
 
 export interface GetTanksAchievementsRequest {
-    accountId: number;
-    accessToken?: string;
+    account_id: number;
+    access_token?: string;
     fields?: Array<string>;
-    inGarage?: GetTanksAchievementsInGarageEnum;
-    tankId?: Array<number>;
+    in_garage?: GetTanksAchievementsInGarageEnum;
+    tank_id?: Array<number>;
 }
 
 export interface GetTanksMasteryRequest {
     distribution: GetTanksMasteryDistributionEnum;
     percentile: Array<number>;
     fields?: Array<string>;
-    tankId?: Array<number>;
+    tank_id?: Array<number>;
 }
 
 export interface GetTanksStatsRequest {
-    accountId: number;
-    accessToken?: string;
+    account_id: number;
+    access_token?: string;
     extra?: Array<GetTanksStatsExtraEnum>;
     fields?: Array<string>;
-    inGarage?: GetTanksStatsInGarageEnum;
-    tankId?: Array<number>;
+    in_garage?: GetTanksStatsInGarageEnum;
+    tank_id?: Array<number>;
 }
 
 /**
+ * PlayersVehiclesApi - interface
  * 
+ * @export
+ * @interface PlayersVehiclesApiInterface
  */
-export class PlayersVehiclesApi extends runtime.BaseAPI {
+export interface PlayersVehiclesApiInterface {
+    /**
+     * Method returns list of achievements on all player\'s vehicles.  Achievement properties define the **achievements** field values:   * 1-4 for Mastery Badges and Stage Achievements (type: \"class\");  * maximum value of Achievement series (type: \"series\");  * number of achievements earned from sections: Battle Hero, Epic Achievements, Group Achievements, Special Achievements, etc. (type: \"repeatable, single, custom\"). 
+     * @summary Vehicle achievements
+     * @param {number} account_id Player account ID
+     * @param {string} [access_token] [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'1' | '0'} [in_garage] Filter by vehicle availability in the Garage. If the parameter is not specified, all vehicles are returned. Parameter processing requires a valid access_token for the specified account_id.
+     * @param {Array<number>} [tank_id] Player\&#39;s vehicle ID.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PlayersVehiclesApiInterface
+     */
+    getTanksAchievementsRaw(requestParameters: GetTanksAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TanksAchievementsResponse>>;
 
     /**
      * Method returns list of achievements on all player\'s vehicles.  Achievement properties define the **achievements** field values:   * 1-4 for Mastery Badges and Stage Achievements (type: \"class\");  * maximum value of Achievement series (type: \"series\");  * number of achievements earned from sections: Battle Hero, Epic Achievements, Group Achievements, Special Achievements, etc. (type: \"repeatable, single, custom\"). 
      * Vehicle achievements
      */
-    async getTanksAchievementsRaw(requestParameters: GetTanksAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTanksAchievements200Response>> {
-        if (requestParameters['accountId'] == null) {
+    getTanksAchievements(requestParameters: GetTanksAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TanksAchievementsResponse>;
+
+    /**
+     * The method returns percentiles of the distribution of average damage or experience values for each piece of equipment
+     * @summary Vehicle mastery distribution
+     * @param {'damage' | 'xp'} distribution Type of data.
+     * @param {Array<number>} percentile A list of percentiles to be included in the response.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {Array<number>} [tank_id] Player\&#39;s vehicle ID.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PlayersVehiclesApiInterface
+     */
+    getTanksMasteryRaw(requestParameters: GetTanksMasteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TanksMasteryResponse>>;
+
+    /**
+     * The method returns percentiles of the distribution of average damage or experience values for each piece of equipment
+     * Vehicle mastery distribution
+     */
+    getTanksMastery(requestParameters: GetTanksMasteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TanksMasteryResponse>;
+
+    /**
+     * Method returns overall statistics, Tank Company statistics, and clan statistics per each vehicle for each user.
+     * @summary Vehicle statistics
+     * @param {number} account_id Player account ID
+     * @param {string} [access_token] [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {Array<'epic' | 'fallout' | 'random' | 'ranked_10x10' | 'ranked_battles'>} [extra] Extra fields that will be added to the response.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'1' | '0'} [in_garage] Filter by vehicle availability in the Garage. If the parameter is not specified, all vehicles are returned. Parameter processing requires a valid access_token for the specified account_id.
+     * @param {Array<number>} [tank_id] Player\&#39;s vehicle ID.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PlayersVehiclesApiInterface
+     */
+    getTanksStatsRaw(requestParameters: GetTanksStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TanksStatsResponse>>;
+
+    /**
+     * Method returns overall statistics, Tank Company statistics, and clan statistics per each vehicle for each user.
+     * Vehicle statistics
+     */
+    getTanksStats(requestParameters: GetTanksStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TanksStatsResponse>;
+
+}
+
+/**
+ * 
+ */
+export class PlayersVehiclesApi extends runtime.BaseAPI implements PlayersVehiclesApiInterface {
+
+    /**
+     * Method returns list of achievements on all player\'s vehicles.  Achievement properties define the **achievements** field values:   * 1-4 for Mastery Badges and Stage Achievements (type: \"class\");  * maximum value of Achievement series (type: \"series\");  * number of achievements earned from sections: Battle Hero, Epic Achievements, Group Achievements, Special Achievements, etc. (type: \"repeatable, single, custom\"). 
+     * Vehicle achievements
+     */
+    async getTanksAchievementsRaw(requestParameters: GetTanksAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TanksAchievementsResponse>> {
+        if (requestParameters['account_id'] == null) {
             throw new runtime.RequiredError(
-                'accountId',
-                'Required parameter "accountId" was null or undefined when calling getTanksAchievements().'
+                'account_id',
+                'Required parameter "account_id" was null or undefined when calling getTanksAchievements().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['accountId'] != null) {
-            queryParameters['account_id'] = requestParameters['accountId'];
+        if (requestParameters['account_id'] != null) {
+            queryParameters['account_id'] = requestParameters['account_id'];
         }
 
-        if (requestParameters['accessToken'] != null) {
-            queryParameters['access_token'] = requestParameters['accessToken'];
+        if (requestParameters['access_token'] != null) {
+            queryParameters['access_token'] = requestParameters['access_token'];
         }
 
         if (requestParameters['fields'] != null) {
             queryParameters['fields'] = requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['inGarage'] != null) {
-            queryParameters['in_garage'] = requestParameters['inGarage'];
+        if (requestParameters['in_garage'] != null) {
+            queryParameters['in_garage'] = requestParameters['in_garage'];
         }
 
-        if (requestParameters['tankId'] != null) {
-            queryParameters['tank_id'] = requestParameters['tankId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['tank_id'] != null) {
+            queryParameters['tank_id'] = requestParameters['tank_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -107,14 +176,14 @@ export class PlayersVehiclesApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetTanksAchievements200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => TanksAchievementsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns list of achievements on all player\'s vehicles.  Achievement properties define the **achievements** field values:   * 1-4 for Mastery Badges and Stage Achievements (type: \"class\");  * maximum value of Achievement series (type: \"series\");  * number of achievements earned from sections: Battle Hero, Epic Achievements, Group Achievements, Special Achievements, etc. (type: \"repeatable, single, custom\"). 
      * Vehicle achievements
      */
-    async getTanksAchievements(requestParameters: GetTanksAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTanksAchievements200Response> {
+    async getTanksAchievements(requestParameters: GetTanksAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TanksAchievementsResponse> {
         const response = await this.getTanksAchievementsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -123,7 +192,7 @@ export class PlayersVehiclesApi extends runtime.BaseAPI {
      * The method returns percentiles of the distribution of average damage or experience values for each piece of equipment
      * Vehicle mastery distribution
      */
-    async getTanksMasteryRaw(requestParameters: GetTanksMasteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTanksMastery200Response>> {
+    async getTanksMasteryRaw(requestParameters: GetTanksMasteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TanksMasteryResponse>> {
         if (requestParameters['distribution'] == null) {
             throw new runtime.RequiredError(
                 'distribution',
@@ -152,8 +221,8 @@ export class PlayersVehiclesApi extends runtime.BaseAPI {
             queryParameters['fields'] = requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['tankId'] != null) {
-            queryParameters['tank_id'] = requestParameters['tankId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['tank_id'] != null) {
+            queryParameters['tank_id'] = requestParameters['tank_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -172,14 +241,14 @@ export class PlayersVehiclesApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetTanksMastery200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => TanksMasteryResponseFromJSON(jsonValue));
     }
 
     /**
      * The method returns percentiles of the distribution of average damage or experience values for each piece of equipment
      * Vehicle mastery distribution
      */
-    async getTanksMastery(requestParameters: GetTanksMasteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTanksMastery200Response> {
+    async getTanksMastery(requestParameters: GetTanksMasteryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TanksMasteryResponse> {
         const response = await this.getTanksMasteryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -188,22 +257,22 @@ export class PlayersVehiclesApi extends runtime.BaseAPI {
      * Method returns overall statistics, Tank Company statistics, and clan statistics per each vehicle for each user.
      * Vehicle statistics
      */
-    async getTanksStatsRaw(requestParameters: GetTanksStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetTanksStats200Response>> {
-        if (requestParameters['accountId'] == null) {
+    async getTanksStatsRaw(requestParameters: GetTanksStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TanksStatsResponse>> {
+        if (requestParameters['account_id'] == null) {
             throw new runtime.RequiredError(
-                'accountId',
-                'Required parameter "accountId" was null or undefined when calling getTanksStats().'
+                'account_id',
+                'Required parameter "account_id" was null or undefined when calling getTanksStats().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['accountId'] != null) {
-            queryParameters['account_id'] = requestParameters['accountId'];
+        if (requestParameters['account_id'] != null) {
+            queryParameters['account_id'] = requestParameters['account_id'];
         }
 
-        if (requestParameters['accessToken'] != null) {
-            queryParameters['access_token'] = requestParameters['accessToken'];
+        if (requestParameters['access_token'] != null) {
+            queryParameters['access_token'] = requestParameters['access_token'];
         }
 
         if (requestParameters['extra'] != null) {
@@ -214,12 +283,12 @@ export class PlayersVehiclesApi extends runtime.BaseAPI {
             queryParameters['fields'] = requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['inGarage'] != null) {
-            queryParameters['in_garage'] = requestParameters['inGarage'];
+        if (requestParameters['in_garage'] != null) {
+            queryParameters['in_garage'] = requestParameters['in_garage'];
         }
 
-        if (requestParameters['tankId'] != null) {
-            queryParameters['tank_id'] = requestParameters['tankId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['tank_id'] != null) {
+            queryParameters['tank_id'] = requestParameters['tank_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -238,14 +307,14 @@ export class PlayersVehiclesApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetTanksStats200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => TanksStatsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns overall statistics, Tank Company statistics, and clan statistics per each vehicle for each user.
      * Vehicle statistics
      */
-    async getTanksStats(requestParameters: GetTanksStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetTanksStats200Response> {
+    async getTanksStats(requestParameters: GetTanksStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TanksStatsResponse> {
         const response = await this.getTanksStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -253,37 +322,37 @@ export class PlayersVehiclesApi extends runtime.BaseAPI {
 }
 
 /**
- * @export
- */
-export const GetTanksAchievementsInGarageEnum = {
-    _1: '1',
-    _0: '0'
-} as const;
-export type GetTanksAchievementsInGarageEnum = typeof GetTanksAchievementsInGarageEnum[keyof typeof GetTanksAchievementsInGarageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetTanksAchievementsInGarageEnum {
+    _1 = '1',
+    _0 = '0'
+}
 /**
- * @export
- */
-export const GetTanksMasteryDistributionEnum = {
-    Damage: 'damage',
-    Xp: 'xp'
-} as const;
-export type GetTanksMasteryDistributionEnum = typeof GetTanksMasteryDistributionEnum[keyof typeof GetTanksMasteryDistributionEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetTanksMasteryDistributionEnum {
+    Damage = 'damage',
+    Xp = 'xp'
+}
 /**
- * @export
- */
-export const GetTanksStatsExtraEnum = {
-    Epic: 'epic',
-    Fallout: 'fallout',
-    Random: 'random',
-    Ranked10x10: 'ranked_10x10',
-    RankedBattles: 'ranked_battles'
-} as const;
-export type GetTanksStatsExtraEnum = typeof GetTanksStatsExtraEnum[keyof typeof GetTanksStatsExtraEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetTanksStatsExtraEnum {
+    Epic = 'epic',
+    Fallout = 'fallout',
+    Random = 'random',
+    Ranked10x10 = 'ranked_10x10',
+    RankedBattles = 'ranked_battles'
+}
 /**
- * @export
- */
-export const GetTanksStatsInGarageEnum = {
-    _1: '1',
-    _0: '0'
-} as const;
-export type GetTanksStatsInGarageEnum = typeof GetTanksStatsInGarageEnum[keyof typeof GetTanksStatsInGarageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetTanksStatsInGarageEnum {
+    _1 = '1',
+    _0 = '0'
+}

@@ -1,16 +1,19 @@
 {
   "name": "wot-api-fetch-client",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "OpenAPI client for wot-api-fetch-client",
   "author": "OpenAPI-Generator",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+    "url": "https://github.com/ace-tanker/wot-api-typescript-fetch-client.git"
   },
+  "license": "MIT",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "sideEffects": false,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc -p tsconfig.esm.json",
     "prepare": "npm run build"
   },
   "devDependencies": {

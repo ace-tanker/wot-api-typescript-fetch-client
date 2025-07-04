@@ -45,22 +45,20 @@ export interface GlobalmapSeasonratingneighborsErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapSeasonratingneighborsErrorErrorOneOfCodeEnum = {
-    NUMBER_404: 404
-} as const;
-export type GlobalmapSeasonratingneighborsErrorErrorOneOfCodeEnum = typeof GlobalmapSeasonratingneighborsErrorErrorOneOfCodeEnum[keyof typeof GlobalmapSeasonratingneighborsErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum GlobalmapSeasonratingneighborsErrorErrorOneOfCodeEnum {
+    NUMBER_404 = 404
+}
 /**
- * @export
- */
-export const GlobalmapSeasonratingneighborsErrorErrorOneOfMessageEnum = {
-    RatingsNotFound: 'RATINGS_NOT_FOUND'
-} as const;
-export type GlobalmapSeasonratingneighborsErrorErrorOneOfMessageEnum = typeof GlobalmapSeasonratingneighborsErrorErrorOneOfMessageEnum[keyof typeof GlobalmapSeasonratingneighborsErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapSeasonratingneighborsErrorErrorOneOfMessageEnum {
+    RatingsNotFound = 'RATINGS_NOT_FOUND'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function GlobalmapSeasonratingneighborsErrorErrorOneOfToJSONTyped(value?:
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const GlobalmapSeasonratingneighborsErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

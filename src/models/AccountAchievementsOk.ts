@@ -20,13 +20,13 @@ import {
     AccountAchievementsMetaToJSON,
     AccountAchievementsMetaToJSONTyped,
 } from './AccountAchievementsMeta.js';
-import type { AccountAchievementsValue } from './AccountAchievementsValue.js';
+import type { AccountAchievementsDataValue } from './AccountAchievementsDataValue.js';
 import {
-    AccountAchievementsValueFromJSON,
-    AccountAchievementsValueFromJSONTyped,
-    AccountAchievementsValueToJSON,
-    AccountAchievementsValueToJSONTyped,
-} from './AccountAchievementsValue.js';
+    AccountAchievementsDataValueFromJSON,
+    AccountAchievementsDataValueFromJSONTyped,
+    AccountAchievementsDataValueToJSON,
+    AccountAchievementsDataValueToJSONTyped,
+} from './AccountAchievementsDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface AccountAchievementsOk {
     meta: AccountAchievementsMeta;
     /**
      * 
-     * @type {{ [key: string]: AccountAchievementsValue | null; }}
+     * @type {{ [key: string]: AccountAchievementsDataValue | undefined; }}
      * @memberof AccountAchievementsOk
      */
-    data: { [key: string]: AccountAchievementsValue | null; };
+    data: { [key: string]: AccountAchievementsDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const AccountAchievementsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type AccountAchievementsOkStatusEnum = typeof AccountAchievementsOkStatusEnum[keyof typeof AccountAchievementsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum AccountAchievementsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function AccountAchievementsOkFromJSONTyped(json: any, ignoreDiscriminato
         
         'status': json['status'],
         'meta': AccountAchievementsMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], AccountAchievementsValueFromJSON)),
+        'data': (mapValues(json['data'], AccountAchievementsDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function AccountAchievementsOkToJSONTyped(value?: AccountAchievementsOk |
         
         'status': value['status'],
         'meta': AccountAchievementsMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], AccountAchievementsValueToJSON)),
+        'data': (mapValues(value['data'], AccountAchievementsDataValueToJSON)),
     };
+}
+
+export const AccountAchievementsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { GlobalmapEventaccountratingsItem } from './GlobalmapEventaccountratingsItem.js';
+import type { GlobalmapEventaccountratingsDataItem } from './GlobalmapEventaccountratingsDataItem.js';
 import {
-    GlobalmapEventaccountratingsItemFromJSON,
-    GlobalmapEventaccountratingsItemFromJSONTyped,
-    GlobalmapEventaccountratingsItemToJSON,
-    GlobalmapEventaccountratingsItemToJSONTyped,
-} from './GlobalmapEventaccountratingsItem.js';
+    GlobalmapEventaccountratingsDataItemFromJSON,
+    GlobalmapEventaccountratingsDataItemFromJSONTyped,
+    GlobalmapEventaccountratingsDataItemToJSON,
+    GlobalmapEventaccountratingsDataItemToJSONTyped,
+} from './GlobalmapEventaccountratingsDataItem.js';
 import type { GlobalmapEventaccountratingsMeta } from './GlobalmapEventaccountratingsMeta.js';
 import {
     GlobalmapEventaccountratingsMetaFromJSON,
@@ -48,20 +48,19 @@ export interface GlobalmapEventaccountratingsOk {
     meta: GlobalmapEventaccountratingsMeta;
     /**
      * 
-     * @type {Array<GlobalmapEventaccountratingsItem>}
+     * @type {Array<GlobalmapEventaccountratingsDataItem>}
      * @memberof GlobalmapEventaccountratingsOk
      */
-    data: Array<GlobalmapEventaccountratingsItem>;
+    data: Array<GlobalmapEventaccountratingsDataItem>;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapEventaccountratingsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapEventaccountratingsOkStatusEnum = typeof GlobalmapEventaccountratingsOkStatusEnum[keyof typeof GlobalmapEventaccountratingsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventaccountratingsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapEventaccountratingsOkFromJSONTyped(json: any, ignoreDis
         
         'status': json['status'],
         'meta': GlobalmapEventaccountratingsMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(GlobalmapEventaccountratingsItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(GlobalmapEventaccountratingsDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapEventaccountratingsOkToJSONTyped(value?: GlobalmapEvent
         
         'status': value['status'],
         'meta': GlobalmapEventaccountratingsMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(GlobalmapEventaccountratingsItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(GlobalmapEventaccountratingsDataItemToJSON)),
     };
+}
+
+export const GlobalmapEventaccountratingsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

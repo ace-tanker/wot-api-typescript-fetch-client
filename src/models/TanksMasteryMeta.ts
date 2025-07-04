@@ -64,3 +64,20 @@ export function TanksMasteryMetaToJSONTyped(value?: TanksMasteryMeta | null, ign
     };
 }
 
+export const TanksMasteryMetaPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
+}
+

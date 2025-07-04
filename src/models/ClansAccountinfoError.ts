@@ -41,14 +41,13 @@ export interface ClansAccountinfoError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const ClansAccountinfoErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type ClansAccountinfoErrorStatusEnum = typeof ClansAccountinfoErrorStatusEnum[keyof typeof ClansAccountinfoErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum ClansAccountinfoErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function ClansAccountinfoErrorToJSONTyped(value?: ClansAccountinfoError |
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const ClansAccountinfoErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

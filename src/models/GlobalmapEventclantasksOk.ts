@@ -47,14 +47,13 @@ export interface GlobalmapEventclantasksOk {
     data: Array<any>;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapEventclantasksOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapEventclantasksOkStatusEnum = typeof GlobalmapEventclantasksOkStatusEnum[keyof typeof GlobalmapEventclantasksOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventclantasksOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -98,5 +97,22 @@ export function GlobalmapEventclantasksOkToJSONTyped(value?: GlobalmapEventclant
         'meta': GlobalmapEventclantasksMetaToJSON(value['meta']),
         'data': value['data'],
     };
+}
+
+export const GlobalmapEventclantasksOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

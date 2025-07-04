@@ -20,13 +20,13 @@ import {
     EncyclopediaCrewskillsMetaToJSON,
     EncyclopediaCrewskillsMetaToJSONTyped,
 } from './EncyclopediaCrewskillsMeta.js';
-import type { EncyclopediaCrewskillsValue } from './EncyclopediaCrewskillsValue.js';
+import type { EncyclopediaCrewskillsDataValue } from './EncyclopediaCrewskillsDataValue.js';
 import {
-    EncyclopediaCrewskillsValueFromJSON,
-    EncyclopediaCrewskillsValueFromJSONTyped,
-    EncyclopediaCrewskillsValueToJSON,
-    EncyclopediaCrewskillsValueToJSONTyped,
-} from './EncyclopediaCrewskillsValue.js';
+    EncyclopediaCrewskillsDataValueFromJSON,
+    EncyclopediaCrewskillsDataValueFromJSONTyped,
+    EncyclopediaCrewskillsDataValueToJSON,
+    EncyclopediaCrewskillsDataValueToJSONTyped,
+} from './EncyclopediaCrewskillsDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface EncyclopediaCrewskillsOk {
     meta: EncyclopediaCrewskillsMeta;
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaCrewskillsValue | null; }}
+     * @type {{ [key: string]: EncyclopediaCrewskillsDataValue | undefined; }}
      * @memberof EncyclopediaCrewskillsOk
      */
-    data: { [key: string]: EncyclopediaCrewskillsValue | null; };
+    data: { [key: string]: EncyclopediaCrewskillsDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaCrewskillsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaCrewskillsOkStatusEnum = typeof EncyclopediaCrewskillsOkStatusEnum[keyof typeof EncyclopediaCrewskillsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaCrewskillsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function EncyclopediaCrewskillsOkFromJSONTyped(json: any, ignoreDiscrimin
         
         'status': json['status'],
         'meta': EncyclopediaCrewskillsMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], EncyclopediaCrewskillsValueFromJSON)),
+        'data': (mapValues(json['data'], EncyclopediaCrewskillsDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function EncyclopediaCrewskillsOkToJSONTyped(value?: EncyclopediaCrewskil
         
         'status': value['status'],
         'meta': EncyclopediaCrewskillsMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], EncyclopediaCrewskillsValueToJSON)),
+        'data': (mapValues(value['data'], EncyclopediaCrewskillsDataValueToJSON)),
     };
+}
+
+export const EncyclopediaCrewskillsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

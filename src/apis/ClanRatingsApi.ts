@@ -15,30 +15,30 @@
 
 import * as runtime from '../runtime.js';
 import type {
-  GetClanratingsClans200Response,
+  ClanratingsClansResponse,
+  ClanratingsDatesResponse,
+  ClanratingsNeighborsResponse,
+  ClanratingsTopResponse,
+  ClanratingsTypesResponse,
   GetClanratingsClansDateParameter,
-  GetClanratingsDates200Response,
-  GetClanratingsNeighbors200Response,
-  GetClanratingsTop200Response,
-  GetClanratingsTypes200Response,
 } from '../models/index.js';
 import {
-    GetClanratingsClans200ResponseFromJSON,
-    GetClanratingsClans200ResponseToJSON,
+    ClanratingsClansResponseFromJSON,
+    ClanratingsClansResponseToJSON,
+    ClanratingsDatesResponseFromJSON,
+    ClanratingsDatesResponseToJSON,
+    ClanratingsNeighborsResponseFromJSON,
+    ClanratingsNeighborsResponseToJSON,
+    ClanratingsTopResponseFromJSON,
+    ClanratingsTopResponseToJSON,
+    ClanratingsTypesResponseFromJSON,
+    ClanratingsTypesResponseToJSON,
     GetClanratingsClansDateParameterFromJSON,
     GetClanratingsClansDateParameterToJSON,
-    GetClanratingsDates200ResponseFromJSON,
-    GetClanratingsDates200ResponseToJSON,
-    GetClanratingsNeighbors200ResponseFromJSON,
-    GetClanratingsNeighbors200ResponseToJSON,
-    GetClanratingsTop200ResponseFromJSON,
-    GetClanratingsTop200ResponseToJSON,
-    GetClanratingsTypes200ResponseFromJSON,
-    GetClanratingsTypes200ResponseToJSON,
 } from '../models/index.js';
 
 export interface GetClanratingsClansRequest {
-    clanId: Array<number>;
+    clan_id: Array<number>;
     date?: GetClanratingsClansDateParameter;
     fields?: Array<string>;
 }
@@ -48,42 +48,140 @@ export interface GetClanratingsDatesRequest {
 }
 
 export interface GetClanratingsNeighborsRequest {
-    clanId: number;
-    rankField: string;
+    clan_id: number;
+    rank_field: string;
     date?: GetClanratingsClansDateParameter;
     fields?: Array<string>;
     limit?: number;
 }
 
 export interface GetClanratingsTopRequest {
-    rankField: string;
+    rank_field: string;
     date?: GetClanratingsClansDateParameter;
     fields?: Array<string>;
     limit?: number;
-    pageNo?: number;
+    page_no?: number;
 }
 
 /**
+ * ClanRatingsApi - interface
  * 
+ * @export
+ * @interface ClanRatingsApiInterface
  */
-export class ClanRatingsApi extends runtime.BaseAPI {
+export interface ClanRatingsApiInterface {
+    /**
+     * Method returns clan ratings by specified IDs.
+     * @summary Clan ratings
+     * @param {Array<number>} clan_id Clan IDs.
+     * @param {GetClanratingsClansDateParameter} [date] Ratings calculation date. Date in UNIX timestamp or ISO 8601 format. E.g.: 1376542800 or 2013-08-15T00:00:00
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClanRatingsApiInterface
+     */
+    getClanratingsClansRaw(requestParameters: GetClanratingsClansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsClansResponse>>;
 
     /**
      * Method returns clan ratings by specified IDs.
      * Clan ratings
      */
-    async getClanratingsClansRaw(requestParameters: GetClanratingsClansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClanratingsClans200Response>> {
-        if (requestParameters['clanId'] == null) {
+    getClanratingsClans(requestParameters: GetClanratingsClansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsClansResponse>;
+
+    /**
+     * Method returns dates with available rating data.
+     * @summary Dates with available ratings
+     * @param {number} [limit] Number of returned entries.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClanRatingsApiInterface
+     */
+    getClanratingsDatesRaw(requestParameters: GetClanratingsDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsDatesResponse>>;
+
+    /**
+     * Method returns dates with available rating data.
+     * Dates with available ratings
+     */
+    getClanratingsDates(requestParameters: GetClanratingsDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsDatesResponse>;
+
+    /**
+     * Method returns list of adjacent positions in specified clan rating.
+     * @summary Adjacent positions in clan rating
+     * @param {number} clan_id Clan ID
+     * @param {string} rank_field Rating category
+     * @param {GetClanratingsClansDateParameter} [date] Ratings calculation date. Date in UNIX timestamp or ISO 8601 format. E.g.: 1376542800 or 2013-08-15T00:00:00
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {number} [limit] Number of returned entries.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClanRatingsApiInterface
+     */
+    getClanratingsNeighborsRaw(requestParameters: GetClanratingsNeighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsNeighborsResponse>>;
+
+    /**
+     * Method returns list of adjacent positions in specified clan rating.
+     * Adjacent positions in clan rating
+     */
+    getClanratingsNeighbors(requestParameters: GetClanratingsNeighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsNeighborsResponse>;
+
+    /**
+     * Method returns the list of top clans by specified parameters.
+     * @summary Top Clans
+     * @param {string} rank_field Rating category
+     * @param {GetClanratingsClansDateParameter} [date] Ratings calculation date. Date in UNIX timestamp or ISO 8601 format. E.g.: 1376542800 or 2013-08-15T00:00:00
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {number} [limit] Number of returned entries.
+     * @param {number} [page_no] Page number.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClanRatingsApiInterface
+     */
+    getClanratingsTopRaw(requestParameters: GetClanratingsTopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsTopResponse>>;
+
+    /**
+     * Method returns the list of top clans by specified parameters.
+     * Top Clans
+     */
+    getClanratingsTop(requestParameters: GetClanratingsTopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsTopResponse>;
+
+    /**
+     * Method returns details on ratings types and categories.
+     * @summary Types of ratings
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClanRatingsApiInterface
+     */
+    getClanratingsTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsTypesResponse>>;
+
+    /**
+     * Method returns details on ratings types and categories.
+     * Types of ratings
+     */
+    getClanratingsTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsTypesResponse>;
+
+}
+
+/**
+ * 
+ */
+export class ClanRatingsApi extends runtime.BaseAPI implements ClanRatingsApiInterface {
+
+    /**
+     * Method returns clan ratings by specified IDs.
+     * Clan ratings
+     */
+    async getClanratingsClansRaw(requestParameters: GetClanratingsClansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsClansResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getClanratingsClans().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getClanratingsClans().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['date'] != null) {
@@ -110,14 +208,14 @@ export class ClanRatingsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClanratingsClans200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClanratingsClansResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns clan ratings by specified IDs.
      * Clan ratings
      */
-    async getClanratingsClans(requestParameters: GetClanratingsClansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClanratingsClans200Response> {
+    async getClanratingsClans(requestParameters: GetClanratingsClansRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsClansResponse> {
         const response = await this.getClanratingsClansRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -126,7 +224,7 @@ export class ClanRatingsApi extends runtime.BaseAPI {
      * Method returns dates with available rating data.
      * Dates with available ratings
      */
-    async getClanratingsDatesRaw(requestParameters: GetClanratingsDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClanratingsDates200Response>> {
+    async getClanratingsDatesRaw(requestParameters: GetClanratingsDatesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsDatesResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['limit'] != null) {
@@ -149,14 +247,14 @@ export class ClanRatingsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClanratingsDates200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClanratingsDatesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns dates with available rating data.
      * Dates with available ratings
      */
-    async getClanratingsDates(requestParameters: GetClanratingsDatesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClanratingsDates200Response> {
+    async getClanratingsDates(requestParameters: GetClanratingsDatesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsDatesResponse> {
         const response = await this.getClanratingsDatesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -165,29 +263,29 @@ export class ClanRatingsApi extends runtime.BaseAPI {
      * Method returns list of adjacent positions in specified clan rating.
      * Adjacent positions in clan rating
      */
-    async getClanratingsNeighborsRaw(requestParameters: GetClanratingsNeighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClanratingsNeighbors200Response>> {
-        if (requestParameters['clanId'] == null) {
+    async getClanratingsNeighborsRaw(requestParameters: GetClanratingsNeighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsNeighborsResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getClanratingsNeighbors().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getClanratingsNeighbors().'
             );
         }
 
-        if (requestParameters['rankField'] == null) {
+        if (requestParameters['rank_field'] == null) {
             throw new runtime.RequiredError(
-                'rankField',
-                'Required parameter "rankField" was null or undefined when calling getClanratingsNeighbors().'
+                'rank_field',
+                'Required parameter "rank_field" was null or undefined when calling getClanratingsNeighbors().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId'];
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id'];
         }
 
-        if (requestParameters['rankField'] != null) {
-            queryParameters['rank_field'] = requestParameters['rankField'];
+        if (requestParameters['rank_field'] != null) {
+            queryParameters['rank_field'] = requestParameters['rank_field'];
         }
 
         if (requestParameters['date'] != null) {
@@ -218,14 +316,14 @@ export class ClanRatingsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClanratingsNeighbors200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClanratingsNeighborsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns list of adjacent positions in specified clan rating.
      * Adjacent positions in clan rating
      */
-    async getClanratingsNeighbors(requestParameters: GetClanratingsNeighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClanratingsNeighbors200Response> {
+    async getClanratingsNeighbors(requestParameters: GetClanratingsNeighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsNeighborsResponse> {
         const response = await this.getClanratingsNeighborsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -234,18 +332,18 @@ export class ClanRatingsApi extends runtime.BaseAPI {
      * Method returns the list of top clans by specified parameters.
      * Top Clans
      */
-    async getClanratingsTopRaw(requestParameters: GetClanratingsTopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClanratingsTop200Response>> {
-        if (requestParameters['rankField'] == null) {
+    async getClanratingsTopRaw(requestParameters: GetClanratingsTopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsTopResponse>> {
+        if (requestParameters['rank_field'] == null) {
             throw new runtime.RequiredError(
-                'rankField',
-                'Required parameter "rankField" was null or undefined when calling getClanratingsTop().'
+                'rank_field',
+                'Required parameter "rank_field" was null or undefined when calling getClanratingsTop().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['rankField'] != null) {
-            queryParameters['rank_field'] = requestParameters['rankField'];
+        if (requestParameters['rank_field'] != null) {
+            queryParameters['rank_field'] = requestParameters['rank_field'];
         }
 
         if (requestParameters['date'] != null) {
@@ -260,8 +358,8 @@ export class ClanRatingsApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -280,14 +378,14 @@ export class ClanRatingsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClanratingsTop200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClanratingsTopResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns the list of top clans by specified parameters.
      * Top Clans
      */
-    async getClanratingsTop(requestParameters: GetClanratingsTopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClanratingsTop200Response> {
+    async getClanratingsTop(requestParameters: GetClanratingsTopRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsTopResponse> {
         const response = await this.getClanratingsTopRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -296,7 +394,7 @@ export class ClanRatingsApi extends runtime.BaseAPI {
      * Method returns details on ratings types and categories.
      * Types of ratings
      */
-    async getClanratingsTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClanratingsTypes200Response>> {
+    async getClanratingsTypesRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClanratingsTypesResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -315,14 +413,14 @@ export class ClanRatingsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClanratingsTypes200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClanratingsTypesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns details on ratings types and categories.
      * Types of ratings
      */
-    async getClanratingsTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClanratingsTypes200Response> {
+    async getClanratingsTypes(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClanratingsTypesResponse> {
         const response = await this.getClanratingsTypesRaw(initOverrides);
         return await response.value();
     }

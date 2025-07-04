@@ -20,13 +20,13 @@ import {
     ClansInfoMetaToJSON,
     ClansInfoMetaToJSONTyped,
 } from './ClansInfoMeta.js';
-import type { ClansInfoValue } from './ClansInfoValue.js';
+import type { ClansInfoDataValue } from './ClansInfoDataValue.js';
 import {
-    ClansInfoValueFromJSON,
-    ClansInfoValueFromJSONTyped,
-    ClansInfoValueToJSON,
-    ClansInfoValueToJSONTyped,
-} from './ClansInfoValue.js';
+    ClansInfoDataValueFromJSON,
+    ClansInfoDataValueFromJSONTyped,
+    ClansInfoDataValueToJSON,
+    ClansInfoDataValueToJSONTyped,
+} from './ClansInfoDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface ClansInfoOk {
     meta: ClansInfoMeta;
     /**
      * 
-     * @type {{ [key: string]: ClansInfoValue | null; }}
+     * @type {{ [key: string]: ClansInfoDataValue | undefined; }}
      * @memberof ClansInfoOk
      */
-    data: { [key: string]: ClansInfoValue | null; };
+    data: { [key: string]: ClansInfoDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const ClansInfoOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type ClansInfoOkStatusEnum = typeof ClansInfoOkStatusEnum[keyof typeof ClansInfoOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum ClansInfoOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function ClansInfoOkFromJSONTyped(json: any, ignoreDiscriminator: boolean
         
         'status': json['status'],
         'meta': ClansInfoMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], ClansInfoValueFromJSON)),
+        'data': (mapValues(json['data'], ClansInfoDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function ClansInfoOkToJSONTyped(value?: ClansInfoOk | null, ignoreDiscrim
         
         'status': value['status'],
         'meta': ClansInfoMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], ClansInfoValueToJSON)),
+        'data': (mapValues(value['data'], ClansInfoDataValueToJSON)),
     };
+}
+
+export const ClansInfoOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

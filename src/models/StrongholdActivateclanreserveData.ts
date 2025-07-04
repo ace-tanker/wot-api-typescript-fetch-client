@@ -24,14 +24,14 @@ export interface StrongholdActivateclanreserveData {
      * @type {number}
      * @memberof StrongholdActivateclanreserveData
      */
-    activatedAt: number;
+    activated_at: number;
 }
 
 /**
  * Check if a given object implements the StrongholdActivateclanreserveData interface.
  */
 export function instanceOfStrongholdActivateclanreserveData(value: object): value is StrongholdActivateclanreserveData {
-    if (!('activatedAt' in value) || value['activatedAt'] === undefined) return false;
+    if (!('activated_at' in value) || value['activated_at'] === undefined) return false;
     return true;
 }
 
@@ -45,7 +45,7 @@ export function StrongholdActivateclanreserveDataFromJSONTyped(json: any, ignore
     }
     return {
         
-        'activatedAt': json['activated_at'],
+        'activated_at': json['activated_at'],
     };
 }
 
@@ -60,7 +60,24 @@ export function StrongholdActivateclanreserveDataToJSONTyped(value?: StrongholdA
 
     return {
         
-        'activated_at': value['activatedAt'],
+        'activated_at': value['activated_at'],
     };
+}
+
+export const StrongholdActivateclanreserveDataPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

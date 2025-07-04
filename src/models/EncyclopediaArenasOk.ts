@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { EncyclopediaArenasValue } from './EncyclopediaArenasValue.js';
+import type { EncyclopediaArenasDataValue } from './EncyclopediaArenasDataValue.js';
 import {
-    EncyclopediaArenasValueFromJSON,
-    EncyclopediaArenasValueFromJSONTyped,
-    EncyclopediaArenasValueToJSON,
-    EncyclopediaArenasValueToJSONTyped,
-} from './EncyclopediaArenasValue.js';
+    EncyclopediaArenasDataValueFromJSON,
+    EncyclopediaArenasDataValueFromJSONTyped,
+    EncyclopediaArenasDataValueToJSON,
+    EncyclopediaArenasDataValueToJSONTyped,
+} from './EncyclopediaArenasDataValue.js';
 import type { EncyclopediaArenasMeta } from './EncyclopediaArenasMeta.js';
 import {
     EncyclopediaArenasMetaFromJSON,
@@ -48,20 +48,19 @@ export interface EncyclopediaArenasOk {
     meta: EncyclopediaArenasMeta;
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaArenasValue; }}
+     * @type {{ [key: string]: EncyclopediaArenasDataValue | undefined; }}
      * @memberof EncyclopediaArenasOk
      */
-    data: { [key: string]: EncyclopediaArenasValue; };
+    data: { [key: string]: EncyclopediaArenasDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaArenasOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaArenasOkStatusEnum = typeof EncyclopediaArenasOkStatusEnum[keyof typeof EncyclopediaArenasOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaArenasOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function EncyclopediaArenasOkFromJSONTyped(json: any, ignoreDiscriminator
         
         'status': json['status'],
         'meta': EncyclopediaArenasMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], EncyclopediaArenasValueFromJSON)),
+        'data': (mapValues(json['data'], EncyclopediaArenasDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function EncyclopediaArenasOkToJSONTyped(value?: EncyclopediaArenasOk | n
         
         'status': value['status'],
         'meta': EncyclopediaArenasMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], EncyclopediaArenasValueToJSON)),
+        'data': (mapValues(value['data'], EncyclopediaArenasDataValueToJSON)),
     };
+}
+
+export const EncyclopediaArenasOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

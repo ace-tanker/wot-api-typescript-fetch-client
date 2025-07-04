@@ -45,22 +45,20 @@ export interface AuthLoginErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const AuthLoginErrorErrorOneOfCodeEnum = {
-    NUMBER_401: 401
-} as const;
-export type AuthLoginErrorErrorOneOfCodeEnum = typeof AuthLoginErrorErrorOneOfCodeEnum[keyof typeof AuthLoginErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum AuthLoginErrorErrorOneOfCodeEnum {
+    NUMBER_401 = 401
+}
 /**
- * @export
- */
-export const AuthLoginErrorErrorOneOfMessageEnum = {
-    AuthCancel: 'AUTH_CANCEL'
-} as const;
-export type AuthLoginErrorErrorOneOfMessageEnum = typeof AuthLoginErrorErrorOneOfMessageEnum[keyof typeof AuthLoginErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum AuthLoginErrorErrorOneOfMessageEnum {
+    AuthCancel = 'AUTH_CANCEL'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function AuthLoginErrorErrorOneOfToJSONTyped(value?: AuthLoginErrorErrorO
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const AuthLoginErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

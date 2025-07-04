@@ -39,14 +39,13 @@ export interface AuthLogoutOk {
     data: object;
 }
 
-
 /**
- * @export
- */
-export const AuthLogoutOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type AuthLogoutOkStatusEnum = typeof AuthLogoutOkStatusEnum[keyof typeof AuthLogoutOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum AuthLogoutOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -90,5 +89,22 @@ export function AuthLogoutOkToJSONTyped(value?: AuthLogoutOk | null, ignoreDiscr
         'meta': value['meta'],
         'data': value['data'],
     };
+}
+
+export const AuthLogoutOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

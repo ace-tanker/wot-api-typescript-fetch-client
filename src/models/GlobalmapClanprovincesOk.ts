@@ -20,13 +20,13 @@ import {
     GlobalmapClanprovincesMetaToJSON,
     GlobalmapClanprovincesMetaToJSONTyped,
 } from './GlobalmapClanprovincesMeta.js';
-import type { GlobalmapClanprovincesValueItem } from './GlobalmapClanprovincesValueItem.js';
+import type { GlobalmapClanprovincesDataValueItem } from './GlobalmapClanprovincesDataValueItem.js';
 import {
-    GlobalmapClanprovincesValueItemFromJSON,
-    GlobalmapClanprovincesValueItemFromJSONTyped,
-    GlobalmapClanprovincesValueItemToJSON,
-    GlobalmapClanprovincesValueItemToJSONTyped,
-} from './GlobalmapClanprovincesValueItem.js';
+    GlobalmapClanprovincesDataValueItemFromJSON,
+    GlobalmapClanprovincesDataValueItemFromJSONTyped,
+    GlobalmapClanprovincesDataValueItemToJSON,
+    GlobalmapClanprovincesDataValueItemToJSONTyped,
+} from './GlobalmapClanprovincesDataValueItem.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface GlobalmapClanprovincesOk {
     meta: GlobalmapClanprovincesMeta;
     /**
      * 
-     * @type {{ [key: string]: Array<GlobalmapClanprovincesValueItem> | null; }}
+     * @type {{ [key: string]: Array<GlobalmapClanprovincesDataValueItem> | undefined | null; }}
      * @memberof GlobalmapClanprovincesOk
      */
-    data: { [key: string]: Array<GlobalmapClanprovincesValueItem> | null; };
+    data: { [key: string]: Array<GlobalmapClanprovincesDataValueItem> | undefined | null; };
 }
 
-
 /**
- * @export
- */
-export const GlobalmapClanprovincesOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapClanprovincesOkStatusEnum = typeof GlobalmapClanprovincesOkStatusEnum[keyof typeof GlobalmapClanprovincesOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapClanprovincesOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function GlobalmapClanprovincesOkToJSONTyped(value?: GlobalmapClanprovinc
         'meta': GlobalmapClanprovincesMetaToJSON(value['meta']),
         'data': value['data'],
     };
+}
+
+export const GlobalmapClanprovincesOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

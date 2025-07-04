@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { TanksStatsValueItem } from './TanksStatsValueItem.js';
+import type { TanksStatsDataValueItem } from './TanksStatsDataValueItem.js';
 import {
-    TanksStatsValueItemFromJSON,
-    TanksStatsValueItemFromJSONTyped,
-    TanksStatsValueItemToJSON,
-    TanksStatsValueItemToJSONTyped,
-} from './TanksStatsValueItem.js';
+    TanksStatsDataValueItemFromJSON,
+    TanksStatsDataValueItemFromJSONTyped,
+    TanksStatsDataValueItemToJSON,
+    TanksStatsDataValueItemToJSONTyped,
+} from './TanksStatsDataValueItem.js';
 import type { TanksStatsMeta } from './TanksStatsMeta.js';
 import {
     TanksStatsMetaFromJSON,
@@ -48,20 +48,19 @@ export interface TanksStatsOk {
     meta: TanksStatsMeta;
     /**
      * 
-     * @type {{ [key: string]: Array<TanksStatsValueItem> | null; }}
+     * @type {{ [key: string]: Array<TanksStatsDataValueItem> | undefined | null; }}
      * @memberof TanksStatsOk
      */
-    data: { [key: string]: Array<TanksStatsValueItem> | null; };
+    data: { [key: string]: Array<TanksStatsDataValueItem> | undefined | null; };
 }
 
-
 /**
- * @export
- */
-export const TanksStatsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type TanksStatsOkStatusEnum = typeof TanksStatsOkStatusEnum[keyof typeof TanksStatsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum TanksStatsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function TanksStatsOkToJSONTyped(value?: TanksStatsOk | null, ignoreDiscr
         'meta': TanksStatsMetaToJSON(value['meta']),
         'data': value['data'],
     };
+}
+
+export const TanksStatsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { TanksAchievementsValueItem } from './TanksAchievementsValueItem.js';
-import {
-    TanksAchievementsValueItemFromJSON,
-    TanksAchievementsValueItemFromJSONTyped,
-    TanksAchievementsValueItemToJSON,
-    TanksAchievementsValueItemToJSONTyped,
-} from './TanksAchievementsValueItem.js';
 import type { TanksAchievementsMeta } from './TanksAchievementsMeta.js';
 import {
     TanksAchievementsMetaFromJSON,
@@ -27,6 +20,13 @@ import {
     TanksAchievementsMetaToJSON,
     TanksAchievementsMetaToJSONTyped,
 } from './TanksAchievementsMeta.js';
+import type { TanksAchievementsDataValueItem } from './TanksAchievementsDataValueItem.js';
+import {
+    TanksAchievementsDataValueItemFromJSON,
+    TanksAchievementsDataValueItemFromJSONTyped,
+    TanksAchievementsDataValueItemToJSON,
+    TanksAchievementsDataValueItemToJSONTyped,
+} from './TanksAchievementsDataValueItem.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface TanksAchievementsOk {
     meta: TanksAchievementsMeta;
     /**
      * 
-     * @type {{ [key: string]: Array<TanksAchievementsValueItem> | null; }}
+     * @type {{ [key: string]: Array<TanksAchievementsDataValueItem> | undefined | null; }}
      * @memberof TanksAchievementsOk
      */
-    data: { [key: string]: Array<TanksAchievementsValueItem> | null; };
+    data: { [key: string]: Array<TanksAchievementsDataValueItem> | undefined | null; };
 }
 
-
 /**
- * @export
- */
-export const TanksAchievementsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type TanksAchievementsOkStatusEnum = typeof TanksAchievementsOkStatusEnum[keyof typeof TanksAchievementsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum TanksAchievementsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function TanksAchievementsOkToJSONTyped(value?: TanksAchievementsOk | nul
         'meta': TanksAchievementsMetaToJSON(value['meta']),
         'data': value['data'],
     };
+}
+
+export const TanksAchievementsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

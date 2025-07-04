@@ -45,22 +45,20 @@ export interface StrongholdActivateclanreserveErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const StrongholdActivateclanreserveErrorErrorOneOfCodeEnum = {
-    NUMBER_409: 409
-} as const;
-export type StrongholdActivateclanreserveErrorErrorOneOfCodeEnum = typeof StrongholdActivateclanreserveErrorErrorOneOfCodeEnum[keyof typeof StrongholdActivateclanreserveErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum StrongholdActivateclanreserveErrorErrorOneOfCodeEnum {
+    NUMBER_409 = 409
+}
 /**
- * @export
- */
-export const StrongholdActivateclanreserveErrorErrorOneOfMessageEnum = {
-    ReserveActivationError: 'RESERVE_ACTIVATION_ERROR'
-} as const;
-export type StrongholdActivateclanreserveErrorErrorOneOfMessageEnum = typeof StrongholdActivateclanreserveErrorErrorOneOfMessageEnum[keyof typeof StrongholdActivateclanreserveErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum StrongholdActivateclanreserveErrorErrorOneOfMessageEnum {
+    ReserveActivationError = 'RESERVE_ACTIVATION_ERROR'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function StrongholdActivateclanreserveErrorErrorOneOfToJSONTyped(value?: 
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const StrongholdActivateclanreserveErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

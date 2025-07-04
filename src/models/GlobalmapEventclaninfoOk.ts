@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { GlobalmapEventclaninfoValue } from './GlobalmapEventclaninfoValue.js';
-import {
-    GlobalmapEventclaninfoValueFromJSON,
-    GlobalmapEventclaninfoValueFromJSONTyped,
-    GlobalmapEventclaninfoValueToJSON,
-    GlobalmapEventclaninfoValueToJSONTyped,
-} from './GlobalmapEventclaninfoValue.js';
 import type { GlobalmapEventclaninfoMeta } from './GlobalmapEventclaninfoMeta.js';
 import {
     GlobalmapEventclaninfoMetaFromJSON,
@@ -27,6 +20,13 @@ import {
     GlobalmapEventclaninfoMetaToJSON,
     GlobalmapEventclaninfoMetaToJSONTyped,
 } from './GlobalmapEventclaninfoMeta.js';
+import type { GlobalmapEventclaninfoDataValue } from './GlobalmapEventclaninfoDataValue.js';
+import {
+    GlobalmapEventclaninfoDataValueFromJSON,
+    GlobalmapEventclaninfoDataValueFromJSONTyped,
+    GlobalmapEventclaninfoDataValueToJSON,
+    GlobalmapEventclaninfoDataValueToJSONTyped,
+} from './GlobalmapEventclaninfoDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface GlobalmapEventclaninfoOk {
     meta: GlobalmapEventclaninfoMeta;
     /**
      * 
-     * @type {{ [key: string]: GlobalmapEventclaninfoValue; }}
+     * @type {{ [key: string]: GlobalmapEventclaninfoDataValue | undefined; }}
      * @memberof GlobalmapEventclaninfoOk
      */
-    data: { [key: string]: GlobalmapEventclaninfoValue; };
+    data: { [key: string]: GlobalmapEventclaninfoDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const GlobalmapEventclaninfoOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapEventclaninfoOkStatusEnum = typeof GlobalmapEventclaninfoOkStatusEnum[keyof typeof GlobalmapEventclaninfoOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventclaninfoOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapEventclaninfoOkFromJSONTyped(json: any, ignoreDiscrimin
         
         'status': json['status'],
         'meta': GlobalmapEventclaninfoMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], GlobalmapEventclaninfoValueFromJSON)),
+        'data': (mapValues(json['data'], GlobalmapEventclaninfoDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapEventclaninfoOkToJSONTyped(value?: GlobalmapEventclanin
         
         'status': value['status'],
         'meta': GlobalmapEventclaninfoMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], GlobalmapEventclaninfoValueToJSON)),
+        'data': (mapValues(value['data'], GlobalmapEventclaninfoDataValueToJSON)),
     };
+}
+
+export const GlobalmapEventclaninfoOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

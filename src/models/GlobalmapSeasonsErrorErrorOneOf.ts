@@ -45,22 +45,20 @@ export interface GlobalmapSeasonsErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapSeasonsErrorErrorOneOfCodeEnum = {
-    NUMBER_404: 404
-} as const;
-export type GlobalmapSeasonsErrorErrorOneOfCodeEnum = typeof GlobalmapSeasonsErrorErrorOneOfCodeEnum[keyof typeof GlobalmapSeasonsErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum GlobalmapSeasonsErrorErrorOneOfCodeEnum {
+    NUMBER_404 = 404
+}
 /**
- * @export
- */
-export const GlobalmapSeasonsErrorErrorOneOfMessageEnum = {
-    SeasonNotFound: 'SEASON_NOT_FOUND'
-} as const;
-export type GlobalmapSeasonsErrorErrorOneOfMessageEnum = typeof GlobalmapSeasonsErrorErrorOneOfMessageEnum[keyof typeof GlobalmapSeasonsErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapSeasonsErrorErrorOneOfMessageEnum {
+    SeasonNotFound = 'SEASON_NOT_FOUND'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function GlobalmapSeasonsErrorErrorOneOfToJSONTyped(value?: GlobalmapSeas
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const GlobalmapSeasonsErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

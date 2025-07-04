@@ -41,14 +41,13 @@ export interface EncyclopediaCrewskillsError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaCrewskillsErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type EncyclopediaCrewskillsErrorStatusEnum = typeof EncyclopediaCrewskillsErrorStatusEnum[keyof typeof EncyclopediaCrewskillsErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaCrewskillsErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function EncyclopediaCrewskillsErrorToJSONTyped(value?: EncyclopediaCrews
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const EncyclopediaCrewskillsErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

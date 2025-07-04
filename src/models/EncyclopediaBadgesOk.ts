@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
+import type { EncyclopediaBadgesDataValue } from './EncyclopediaBadgesDataValue.js';
+import {
+    EncyclopediaBadgesDataValueFromJSON,
+    EncyclopediaBadgesDataValueFromJSONTyped,
+    EncyclopediaBadgesDataValueToJSON,
+    EncyclopediaBadgesDataValueToJSONTyped,
+} from './EncyclopediaBadgesDataValue.js';
 import type { EncyclopediaBadgesMeta } from './EncyclopediaBadgesMeta.js';
 import {
     EncyclopediaBadgesMetaFromJSON,
@@ -20,13 +27,6 @@ import {
     EncyclopediaBadgesMetaToJSON,
     EncyclopediaBadgesMetaToJSONTyped,
 } from './EncyclopediaBadgesMeta.js';
-import type { EncyclopediaBadgesValue } from './EncyclopediaBadgesValue.js';
-import {
-    EncyclopediaBadgesValueFromJSON,
-    EncyclopediaBadgesValueFromJSONTyped,
-    EncyclopediaBadgesValueToJSON,
-    EncyclopediaBadgesValueToJSONTyped,
-} from './EncyclopediaBadgesValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface EncyclopediaBadgesOk {
     meta: EncyclopediaBadgesMeta;
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaBadgesValue; }}
+     * @type {{ [key: string]: EncyclopediaBadgesDataValue | undefined; }}
      * @memberof EncyclopediaBadgesOk
      */
-    data: { [key: string]: EncyclopediaBadgesValue; };
+    data: { [key: string]: EncyclopediaBadgesDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaBadgesOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaBadgesOkStatusEnum = typeof EncyclopediaBadgesOkStatusEnum[keyof typeof EncyclopediaBadgesOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaBadgesOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function EncyclopediaBadgesOkFromJSONTyped(json: any, ignoreDiscriminator
         
         'status': json['status'],
         'meta': EncyclopediaBadgesMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], EncyclopediaBadgesValueFromJSON)),
+        'data': (mapValues(json['data'], EncyclopediaBadgesDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function EncyclopediaBadgesOkToJSONTyped(value?: EncyclopediaBadgesOk | n
         
         'status': value['status'],
         'meta': EncyclopediaBadgesMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], EncyclopediaBadgesValueToJSON)),
+        'data': (mapValues(value['data'], EncyclopediaBadgesDataValueToJSON)),
     };
+}
+
+export const EncyclopediaBadgesOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

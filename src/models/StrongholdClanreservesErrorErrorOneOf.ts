@@ -45,22 +45,20 @@ export interface StrongholdClanreservesErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const StrongholdClanreservesErrorErrorOneOfCodeEnum = {
-    NUMBER_409: 409
-} as const;
-export type StrongholdClanreservesErrorErrorOneOfCodeEnum = typeof StrongholdClanreservesErrorErrorOneOfCodeEnum[keyof typeof StrongholdClanreservesErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum StrongholdClanreservesErrorErrorOneOfCodeEnum {
+    NUMBER_409 = 409
+}
 /**
- * @export
- */
-export const StrongholdClanreservesErrorErrorOneOfMessageEnum = {
-    AccountNotInClan: 'ACCOUNT_NOT_IN_CLAN'
-} as const;
-export type StrongholdClanreservesErrorErrorOneOfMessageEnum = typeof StrongholdClanreservesErrorErrorOneOfMessageEnum[keyof typeof StrongholdClanreservesErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum StrongholdClanreservesErrorErrorOneOfMessageEnum {
+    AccountNotInClan = 'ACCOUNT_NOT_IN_CLAN'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function StrongholdClanreservesErrorErrorOneOfToJSONTyped(value?: Strongh
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const StrongholdClanreservesErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

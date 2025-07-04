@@ -41,14 +41,13 @@ export interface EncyclopediaAchievementsError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaAchievementsErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type EncyclopediaAchievementsErrorStatusEnum = typeof EncyclopediaAchievementsErrorStatusEnum[keyof typeof EncyclopediaAchievementsErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaAchievementsErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function EncyclopediaAchievementsErrorToJSONTyped(value?: EncyclopediaAch
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const EncyclopediaAchievementsErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

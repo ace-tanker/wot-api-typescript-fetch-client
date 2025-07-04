@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { EncyclopediaInfoAchievementSectionsValue } from './EncyclopediaInfoAchievementSectionsValue.js';
+import type { EncyclopediaInfoDataAchievementSectionsValue } from './EncyclopediaInfoDataAchievementSectionsValue.js';
 import {
-    EncyclopediaInfoAchievementSectionsValueFromJSON,
-    EncyclopediaInfoAchievementSectionsValueFromJSONTyped,
-    EncyclopediaInfoAchievementSectionsValueToJSON,
-    EncyclopediaInfoAchievementSectionsValueToJSONTyped,
-} from './EncyclopediaInfoAchievementSectionsValue.js';
+    EncyclopediaInfoDataAchievementSectionsValueFromJSON,
+    EncyclopediaInfoDataAchievementSectionsValueFromJSONTyped,
+    EncyclopediaInfoDataAchievementSectionsValueToJSON,
+    EncyclopediaInfoDataAchievementSectionsValueToJSONTyped,
+} from './EncyclopediaInfoDataAchievementSectionsValue.js';
 
 /**
  * 
@@ -32,56 +32,56 @@ export interface EncyclopediaInfoData {
      * @type {string}
      * @memberof EncyclopediaInfoData
      */
-    gameVersion: string;
+    game_version: string;
     /**
      * Time when vehicles details in Tankopedia were updated
      * @type {number}
      * @memberof EncyclopediaInfoData
      */
-    tanksUpdatedAt: number;
+    tanks_updated_at: number;
     /**
      * Available vehicle types
-     * @type {{ [key: string]: string; }}
+     * @type {{ [key: string]: string | undefined; }}
      * @memberof EncyclopediaInfoData
      */
-    vehicleTypes: { [key: string]: string; };
+    vehicle_types: { [key: string]: string | undefined; };
     /**
      * Nations available
-     * @type {{ [key: string]: string; }}
+     * @type {{ [key: string]: string | undefined; }}
      * @memberof EncyclopediaInfoData
      */
-    vehicleNations: { [key: string]: string; };
+    vehicle_nations: { [key: string]: string | undefined; };
     /**
      * Available crew qualifications
-     * @type {{ [key: string]: string; }}
+     * @type {{ [key: string]: string | undefined; }}
      * @memberof EncyclopediaInfoData
      */
-    vehicleCrewRoles: { [key: string]: string; };
+    vehicle_crew_roles: { [key: string]: string | undefined; };
     /**
      * List of supported languages
-     * @type {{ [key: string]: string; }}
+     * @type {{ [key: string]: string | undefined; }}
      * @memberof EncyclopediaInfoData
      */
-    languages: { [key: string]: string; };
+    languages: { [key: string]: string | undefined; };
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaInfoAchievementSectionsValue; }}
+     * @type {{ [key: string]: EncyclopediaInfoDataAchievementSectionsValue | undefined; }}
      * @memberof EncyclopediaInfoData
      */
-    achievementSections: { [key: string]: EncyclopediaInfoAchievementSectionsValue; };
+    achievement_sections: { [key: string]: EncyclopediaInfoDataAchievementSectionsValue | undefined; };
 }
 
 /**
  * Check if a given object implements the EncyclopediaInfoData interface.
  */
 export function instanceOfEncyclopediaInfoData(value: object): value is EncyclopediaInfoData {
-    if (!('gameVersion' in value) || value['gameVersion'] === undefined) return false;
-    if (!('tanksUpdatedAt' in value) || value['tanksUpdatedAt'] === undefined) return false;
-    if (!('vehicleTypes' in value) || value['vehicleTypes'] === undefined) return false;
-    if (!('vehicleNations' in value) || value['vehicleNations'] === undefined) return false;
-    if (!('vehicleCrewRoles' in value) || value['vehicleCrewRoles'] === undefined) return false;
+    if (!('game_version' in value) || value['game_version'] === undefined) return false;
+    if (!('tanks_updated_at' in value) || value['tanks_updated_at'] === undefined) return false;
+    if (!('vehicle_types' in value) || value['vehicle_types'] === undefined) return false;
+    if (!('vehicle_nations' in value) || value['vehicle_nations'] === undefined) return false;
+    if (!('vehicle_crew_roles' in value) || value['vehicle_crew_roles'] === undefined) return false;
     if (!('languages' in value) || value['languages'] === undefined) return false;
-    if (!('achievementSections' in value) || value['achievementSections'] === undefined) return false;
+    if (!('achievement_sections' in value) || value['achievement_sections'] === undefined) return false;
     return true;
 }
 
@@ -95,13 +95,13 @@ export function EncyclopediaInfoDataFromJSONTyped(json: any, ignoreDiscriminator
     }
     return {
         
-        'gameVersion': json['game_version'],
-        'tanksUpdatedAt': json['tanks_updated_at'],
-        'vehicleTypes': json['vehicle_types'],
-        'vehicleNations': json['vehicle_nations'],
-        'vehicleCrewRoles': json['vehicle_crew_roles'],
+        'game_version': json['game_version'],
+        'tanks_updated_at': json['tanks_updated_at'],
+        'vehicle_types': json['vehicle_types'],
+        'vehicle_nations': json['vehicle_nations'],
+        'vehicle_crew_roles': json['vehicle_crew_roles'],
         'languages': json['languages'],
-        'achievementSections': (mapValues(json['achievement_sections'], EncyclopediaInfoAchievementSectionsValueFromJSON)),
+        'achievement_sections': (mapValues(json['achievement_sections'], EncyclopediaInfoDataAchievementSectionsValueFromJSON)),
     };
 }
 
@@ -116,13 +116,30 @@ export function EncyclopediaInfoDataToJSONTyped(value?: EncyclopediaInfoData | n
 
     return {
         
-        'game_version': value['gameVersion'],
-        'tanks_updated_at': value['tanksUpdatedAt'],
-        'vehicle_types': value['vehicleTypes'],
-        'vehicle_nations': value['vehicleNations'],
-        'vehicle_crew_roles': value['vehicleCrewRoles'],
+        'game_version': value['game_version'],
+        'tanks_updated_at': value['tanks_updated_at'],
+        'vehicle_types': value['vehicle_types'],
+        'vehicle_nations': value['vehicle_nations'],
+        'vehicle_crew_roles': value['vehicle_crew_roles'],
         'languages': value['languages'],
-        'achievement_sections': (mapValues(value['achievementSections'], EncyclopediaInfoAchievementSectionsValueToJSON)),
+        'achievement_sections': (mapValues(value['achievement_sections'], EncyclopediaInfoDataAchievementSectionsValueToJSON)),
     };
+}
+
+export const EncyclopediaInfoDataPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

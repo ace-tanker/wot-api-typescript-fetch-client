@@ -41,14 +41,13 @@ export interface StrongholdActivateclanreserveError {
     error: StrongholdActivateclanreserveErrorError;
 }
 
-
 /**
- * @export
- */
-export const StrongholdActivateclanreserveErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type StrongholdActivateclanreserveErrorStatusEnum = typeof StrongholdActivateclanreserveErrorStatusEnum[keyof typeof StrongholdActivateclanreserveErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum StrongholdActivateclanreserveErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function StrongholdActivateclanreserveErrorToJSONTyped(value?: Stronghold
         'status': value['status'],
         'error': StrongholdActivateclanreserveErrorErrorToJSON(value['error']),
     };
+}
+
+export const StrongholdActivateclanreserveErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { EncyclopediaPersonalmissionsValue } from './EncyclopediaPersonalmissionsValue.js';
+import type { EncyclopediaPersonalmissionsDataValue } from './EncyclopediaPersonalmissionsDataValue.js';
 import {
-    EncyclopediaPersonalmissionsValueFromJSON,
-    EncyclopediaPersonalmissionsValueFromJSONTyped,
-    EncyclopediaPersonalmissionsValueToJSON,
-    EncyclopediaPersonalmissionsValueToJSONTyped,
-} from './EncyclopediaPersonalmissionsValue.js';
+    EncyclopediaPersonalmissionsDataValueFromJSON,
+    EncyclopediaPersonalmissionsDataValueFromJSONTyped,
+    EncyclopediaPersonalmissionsDataValueToJSON,
+    EncyclopediaPersonalmissionsDataValueToJSONTyped,
+} from './EncyclopediaPersonalmissionsDataValue.js';
 import type { EncyclopediaPersonalmissionsMeta } from './EncyclopediaPersonalmissionsMeta.js';
 import {
     EncyclopediaPersonalmissionsMetaFromJSON,
@@ -48,20 +48,19 @@ export interface EncyclopediaPersonalmissionsOk {
     meta: EncyclopediaPersonalmissionsMeta;
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaPersonalmissionsValue; }}
+     * @type {{ [key: string]: EncyclopediaPersonalmissionsDataValue | undefined; }}
      * @memberof EncyclopediaPersonalmissionsOk
      */
-    data: { [key: string]: EncyclopediaPersonalmissionsValue; };
+    data: { [key: string]: EncyclopediaPersonalmissionsDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaPersonalmissionsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaPersonalmissionsOkStatusEnum = typeof EncyclopediaPersonalmissionsOkStatusEnum[keyof typeof EncyclopediaPersonalmissionsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaPersonalmissionsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function EncyclopediaPersonalmissionsOkFromJSONTyped(json: any, ignoreDis
         
         'status': json['status'],
         'meta': EncyclopediaPersonalmissionsMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], EncyclopediaPersonalmissionsValueFromJSON)),
+        'data': (mapValues(json['data'], EncyclopediaPersonalmissionsDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function EncyclopediaPersonalmissionsOkToJSONTyped(value?: EncyclopediaPe
         
         'status': value['status'],
         'meta': EncyclopediaPersonalmissionsMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], EncyclopediaPersonalmissionsValueToJSON)),
+        'data': (mapValues(value['data'], EncyclopediaPersonalmissionsDataValueToJSON)),
     };
+}
+
+export const EncyclopediaPersonalmissionsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

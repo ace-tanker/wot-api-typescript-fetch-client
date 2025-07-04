@@ -20,13 +20,13 @@ import {
     EncyclopediaModulesMetaToJSON,
     EncyclopediaModulesMetaToJSONTyped,
 } from './EncyclopediaModulesMeta.js';
-import type { EncyclopediaModulesValue } from './EncyclopediaModulesValue.js';
+import type { EncyclopediaModulesDataValue } from './EncyclopediaModulesDataValue.js';
 import {
-    EncyclopediaModulesValueFromJSON,
-    EncyclopediaModulesValueFromJSONTyped,
-    EncyclopediaModulesValueToJSON,
-    EncyclopediaModulesValueToJSONTyped,
-} from './EncyclopediaModulesValue.js';
+    EncyclopediaModulesDataValueFromJSON,
+    EncyclopediaModulesDataValueFromJSONTyped,
+    EncyclopediaModulesDataValueToJSON,
+    EncyclopediaModulesDataValueToJSONTyped,
+} from './EncyclopediaModulesDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface EncyclopediaModulesOk {
     meta: EncyclopediaModulesMeta;
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaModulesValue | null; }}
+     * @type {{ [key: string]: EncyclopediaModulesDataValue | undefined; }}
      * @memberof EncyclopediaModulesOk
      */
-    data: { [key: string]: EncyclopediaModulesValue | null; };
+    data: { [key: string]: EncyclopediaModulesDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaModulesOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaModulesOkStatusEnum = typeof EncyclopediaModulesOkStatusEnum[keyof typeof EncyclopediaModulesOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaModulesOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function EncyclopediaModulesOkFromJSONTyped(json: any, ignoreDiscriminato
         
         'status': json['status'],
         'meta': EncyclopediaModulesMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], EncyclopediaModulesValueFromJSON)),
+        'data': (mapValues(json['data'], EncyclopediaModulesDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function EncyclopediaModulesOkToJSONTyped(value?: EncyclopediaModulesOk |
         
         'status': value['status'],
         'meta': EncyclopediaModulesMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], EncyclopediaModulesValueToJSON)),
+        'data': (mapValues(value['data'], EncyclopediaModulesDataValueToJSON)),
     };
+}
+
+export const EncyclopediaModulesOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

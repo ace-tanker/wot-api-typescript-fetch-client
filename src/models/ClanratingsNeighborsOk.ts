@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { ClanratingsNeighborsItem } from './ClanratingsNeighborsItem.js';
+import type { ClanratingsNeighborsDataItem } from './ClanratingsNeighborsDataItem.js';
 import {
-    ClanratingsNeighborsItemFromJSON,
-    ClanratingsNeighborsItemFromJSONTyped,
-    ClanratingsNeighborsItemToJSON,
-    ClanratingsNeighborsItemToJSONTyped,
-} from './ClanratingsNeighborsItem.js';
+    ClanratingsNeighborsDataItemFromJSON,
+    ClanratingsNeighborsDataItemFromJSONTyped,
+    ClanratingsNeighborsDataItemToJSON,
+    ClanratingsNeighborsDataItemToJSONTyped,
+} from './ClanratingsNeighborsDataItem.js';
 import type { ClanratingsNeighborsMeta } from './ClanratingsNeighborsMeta.js';
 import {
     ClanratingsNeighborsMetaFromJSON,
@@ -48,20 +48,19 @@ export interface ClanratingsNeighborsOk {
     meta: ClanratingsNeighborsMeta;
     /**
      * 
-     * @type {Array<ClanratingsNeighborsItem>}
+     * @type {Array<ClanratingsNeighborsDataItem>}
      * @memberof ClanratingsNeighborsOk
      */
-    data: Array<ClanratingsNeighborsItem>;
+    data: Array<ClanratingsNeighborsDataItem>;
 }
 
-
 /**
- * @export
- */
-export const ClanratingsNeighborsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type ClanratingsNeighborsOkStatusEnum = typeof ClanratingsNeighborsOkStatusEnum[keyof typeof ClanratingsNeighborsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum ClanratingsNeighborsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function ClanratingsNeighborsOkFromJSONTyped(json: any, ignoreDiscriminat
         
         'status': json['status'],
         'meta': ClanratingsNeighborsMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(ClanratingsNeighborsItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(ClanratingsNeighborsDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function ClanratingsNeighborsOkToJSONTyped(value?: ClanratingsNeighborsOk
         
         'status': value['status'],
         'meta': ClanratingsNeighborsMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(ClanratingsNeighborsItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(ClanratingsNeighborsDataItemToJSON)),
     };
+}
+
+export const ClanratingsNeighborsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -20,13 +20,13 @@ import {
     ClanratingsDatesMetaToJSON,
     ClanratingsDatesMetaToJSONTyped,
 } from './ClanratingsDatesMeta.js';
-import type { ClanratingsDatesValue } from './ClanratingsDatesValue.js';
+import type { ClanratingsDatesDataValue } from './ClanratingsDatesDataValue.js';
 import {
-    ClanratingsDatesValueFromJSON,
-    ClanratingsDatesValueFromJSONTyped,
-    ClanratingsDatesValueToJSON,
-    ClanratingsDatesValueToJSONTyped,
-} from './ClanratingsDatesValue.js';
+    ClanratingsDatesDataValueFromJSON,
+    ClanratingsDatesDataValueFromJSONTyped,
+    ClanratingsDatesDataValueToJSON,
+    ClanratingsDatesDataValueToJSONTyped,
+} from './ClanratingsDatesDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface ClanratingsDatesOk {
     meta: ClanratingsDatesMeta;
     /**
      * 
-     * @type {{ [key: string]: ClanratingsDatesValue; }}
+     * @type {{ [key: string]: ClanratingsDatesDataValue | undefined; }}
      * @memberof ClanratingsDatesOk
      */
-    data: { [key: string]: ClanratingsDatesValue; };
+    data: { [key: string]: ClanratingsDatesDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const ClanratingsDatesOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type ClanratingsDatesOkStatusEnum = typeof ClanratingsDatesOkStatusEnum[keyof typeof ClanratingsDatesOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum ClanratingsDatesOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function ClanratingsDatesOkFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'status': json['status'],
         'meta': ClanratingsDatesMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], ClanratingsDatesValueFromJSON)),
+        'data': (mapValues(json['data'], ClanratingsDatesDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function ClanratingsDatesOkToJSONTyped(value?: ClanratingsDatesOk | null,
         
         'status': value['status'],
         'meta': ClanratingsDatesMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], ClanratingsDatesValueToJSON)),
+        'data': (mapValues(value['data'], ClanratingsDatesDataValueToJSON)),
     };
+}
+
+export const ClanratingsDatesOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

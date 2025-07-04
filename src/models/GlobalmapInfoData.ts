@@ -30,19 +30,19 @@ export interface GlobalmapInfoData {
      * @type {number}
      * @memberof GlobalmapInfoData
      */
-    lastTurn: number;
+    last_turn: number;
     /**
      * Creation time of the last calculated turn in UTC
      * @type {number}
      * @memberof GlobalmapInfoData
      */
-    lastTurnCreatedAt: number;
+    last_turn_created_at: number;
     /**
      * Calculation time of the last turn in UTC
      * @type {number}
      * @memberof GlobalmapInfoData
      */
-    lastTurnCalculatedAt: number;
+    last_turn_calculated_at: number;
 }
 
 /**
@@ -50,9 +50,9 @@ export interface GlobalmapInfoData {
  */
 export function instanceOfGlobalmapInfoData(value: object): value is GlobalmapInfoData {
     if (!('state' in value) || value['state'] === undefined) return false;
-    if (!('lastTurn' in value) || value['lastTurn'] === undefined) return false;
-    if (!('lastTurnCreatedAt' in value) || value['lastTurnCreatedAt'] === undefined) return false;
-    if (!('lastTurnCalculatedAt' in value) || value['lastTurnCalculatedAt'] === undefined) return false;
+    if (!('last_turn' in value) || value['last_turn'] === undefined) return false;
+    if (!('last_turn_created_at' in value) || value['last_turn_created_at'] === undefined) return false;
+    if (!('last_turn_calculated_at' in value) || value['last_turn_calculated_at'] === undefined) return false;
     return true;
 }
 
@@ -67,9 +67,9 @@ export function GlobalmapInfoDataFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
         
         'state': json['state'],
-        'lastTurn': json['last_turn'],
-        'lastTurnCreatedAt': json['last_turn_created_at'],
-        'lastTurnCalculatedAt': json['last_turn_calculated_at'],
+        'last_turn': json['last_turn'],
+        'last_turn_created_at': json['last_turn_created_at'],
+        'last_turn_calculated_at': json['last_turn_calculated_at'],
     };
 }
 
@@ -85,9 +85,26 @@ export function GlobalmapInfoDataToJSONTyped(value?: GlobalmapInfoData | null, i
     return {
         
         'state': value['state'],
-        'last_turn': value['lastTurn'],
-        'last_turn_created_at': value['lastTurnCreatedAt'],
-        'last_turn_calculated_at': value['lastTurnCalculatedAt'],
+        'last_turn': value['last_turn'],
+        'last_turn_created_at': value['last_turn_created_at'],
+        'last_turn_calculated_at': value['last_turn_calculated_at'],
     };
+}
+
+export const GlobalmapInfoDataPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

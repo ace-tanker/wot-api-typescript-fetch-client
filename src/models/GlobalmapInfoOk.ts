@@ -54,14 +54,13 @@ export interface GlobalmapInfoOk {
     data: GlobalmapInfoData;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapInfoOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapInfoOkStatusEnum = typeof GlobalmapInfoOkStatusEnum[keyof typeof GlobalmapInfoOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapInfoOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function GlobalmapInfoOkToJSONTyped(value?: GlobalmapInfoOk | null, ignor
         'meta': GlobalmapInfoMetaToJSON(value['meta']),
         'data': GlobalmapInfoDataToJSON(value['data']),
     };
+}
+
+export const GlobalmapInfoOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

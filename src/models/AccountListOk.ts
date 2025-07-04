@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { AccountListItem } from './AccountListItem.js';
+import type { AccountListDataItem } from './AccountListDataItem.js';
 import {
-    AccountListItemFromJSON,
-    AccountListItemFromJSONTyped,
-    AccountListItemToJSON,
-    AccountListItemToJSONTyped,
-} from './AccountListItem.js';
+    AccountListDataItemFromJSON,
+    AccountListDataItemFromJSONTyped,
+    AccountListDataItemToJSON,
+    AccountListDataItemToJSONTyped,
+} from './AccountListDataItem.js';
 import type { AccountListMeta } from './AccountListMeta.js';
 import {
     AccountListMetaFromJSON,
@@ -48,20 +48,19 @@ export interface AccountListOk {
     meta: AccountListMeta;
     /**
      * 
-     * @type {Array<AccountListItem>}
+     * @type {Array<AccountListDataItem>}
      * @memberof AccountListOk
      */
-    data: Array<AccountListItem>;
+    data: Array<AccountListDataItem>;
 }
 
-
 /**
- * @export
- */
-export const AccountListOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type AccountListOkStatusEnum = typeof AccountListOkStatusEnum[keyof typeof AccountListOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum AccountListOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function AccountListOkFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'status': json['status'],
         'meta': AccountListMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(AccountListItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(AccountListDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function AccountListOkToJSONTyped(value?: AccountListOk | null, ignoreDis
         
         'status': value['status'],
         'meta': AccountListMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(AccountListItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(AccountListDataItemToJSON)),
     };
+}
+
+export const AccountListOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -54,14 +54,13 @@ export interface StrongholdActivateclanreserveOk {
     data: StrongholdActivateclanreserveData;
 }
 
-
 /**
- * @export
- */
-export const StrongholdActivateclanreserveOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type StrongholdActivateclanreserveOkStatusEnum = typeof StrongholdActivateclanreserveOkStatusEnum[keyof typeof StrongholdActivateclanreserveOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum StrongholdActivateclanreserveOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function StrongholdActivateclanreserveOkToJSONTyped(value?: StrongholdAct
         'meta': StrongholdActivateclanreserveMetaToJSON(value['meta']),
         'data': StrongholdActivateclanreserveDataToJSON(value['data']),
     };
+}
+
+export const StrongholdActivateclanreserveOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

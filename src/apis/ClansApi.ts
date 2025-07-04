@@ -15,30 +15,30 @@
 
 import * as runtime from '../runtime.js';
 import type {
-  GetClansAccountinfo200Response,
-  GetClansGlossary200Response,
-  GetClansInfo200Response,
-  GetClansList200Response,
-  GetClansMemberhistory200Response,
-  GetClansMessageboard200Response,
+  ClansAccountinfoResponse,
+  ClansGlossaryResponse,
+  ClansInfoResponse,
+  ClansListResponse,
+  ClansMemberhistoryResponse,
+  ClansMessageboardResponse,
 } from '../models/index.js';
 import {
-    GetClansAccountinfo200ResponseFromJSON,
-    GetClansAccountinfo200ResponseToJSON,
-    GetClansGlossary200ResponseFromJSON,
-    GetClansGlossary200ResponseToJSON,
-    GetClansInfo200ResponseFromJSON,
-    GetClansInfo200ResponseToJSON,
-    GetClansList200ResponseFromJSON,
-    GetClansList200ResponseToJSON,
-    GetClansMemberhistory200ResponseFromJSON,
-    GetClansMemberhistory200ResponseToJSON,
-    GetClansMessageboard200ResponseFromJSON,
-    GetClansMessageboard200ResponseToJSON,
+    ClansAccountinfoResponseFromJSON,
+    ClansAccountinfoResponseToJSON,
+    ClansGlossaryResponseFromJSON,
+    ClansGlossaryResponseToJSON,
+    ClansInfoResponseFromJSON,
+    ClansInfoResponseToJSON,
+    ClansListResponseFromJSON,
+    ClansListResponseToJSON,
+    ClansMemberhistoryResponseFromJSON,
+    ClansMemberhistoryResponseToJSON,
+    ClansMessageboardResponseFromJSON,
+    ClansMessageboardResponseToJSON,
 } from '../models/index.js';
 
 export interface GetClansAccountinfoRequest {
-    accountId: Array<number>;
+    account_id: Array<number>;
     fields?: Array<string>;
     language?: GetClansAccountinfoLanguageEnum;
 }
@@ -49,54 +49,174 @@ export interface GetClansGlossaryRequest {
 }
 
 export interface GetClansInfoRequest {
-    clanId: Array<number>;
-    accessToken?: string;
+    clan_id: Array<number>;
+    access_token?: string;
     extra?: Array<GetClansInfoExtraEnum>;
     fields?: Array<string>;
     language?: GetClansInfoLanguageEnum;
-    membersKey?: GetClansInfoMembersKeyEnum;
+    members_key?: GetClansInfoMembersKeyEnum;
 }
 
 export interface GetClansListRequest {
     fields?: Array<string>;
     language?: GetClansListLanguageEnum;
     limit?: number;
-    pageNo?: number;
+    page_no?: number;
     search?: string;
 }
 
 export interface GetClansMemberhistoryRequest {
-    accountId: number;
+    account_id: number;
     fields?: Array<string>;
     language?: GetClansMemberhistoryLanguageEnum;
 }
 
 export interface GetClansMessageboardRequest {
-    accessToken: string;
+    access_token: string;
     fields?: Array<string>;
 }
 
 /**
+ * ClansApi - interface
  * 
+ * @export
+ * @interface ClansApiInterface
  */
-export class ClansApi extends runtime.BaseAPI {
+export interface ClansApiInterface {
+    /**
+     * Method returns detailed clan member information and brief clan details.
+     * @summary Clan member details
+     * @param {Array<number>} account_id Account ID.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClansApiInterface
+     */
+    getClansAccountinfoRaw(requestParameters: GetClansAccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansAccountinfoResponse>>;
 
     /**
      * Method returns detailed clan member information and brief clan details.
      * Clan member details
      */
-    async getClansAccountinfoRaw(requestParameters: GetClansAccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClansAccountinfo200Response>> {
-        if (requestParameters['accountId'] == null) {
+    getClansAccountinfo(requestParameters: GetClansAccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansAccountinfoResponse>;
+
+    /**
+     * Method returns information on clan entities.
+     * @summary Clan glossary
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClansApiInterface
+     */
+    getClansGlossaryRaw(requestParameters: GetClansGlossaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansGlossaryResponse>>;
+
+    /**
+     * Method returns information on clan entities.
+     * Clan glossary
+     */
+    getClansGlossary(requestParameters: GetClansGlossaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansGlossaryResponse>;
+
+    /**
+     * Method returns detailed clan information.
+     * @summary Clan details
+     * @param {Array<number>} clan_id Clan ID.
+     * @param {string} [access_token] [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {Array<'private.online_members'>} [extra] Extra fields that will be added to the response.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {'id'} [members_key] This parameter changes members field type.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClansApiInterface
+     */
+    getClansInfoRaw(requestParameters: GetClansInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansInfoResponse>>;
+
+    /**
+     * Method returns detailed clan information.
+     * Clan details
+     */
+    getClansInfo(requestParameters: GetClansInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansInfoResponse>;
+
+    /**
+     * Method searches through clans and sorts them in a specified order.
+     * @summary Clans
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {number} [limit] Number of returned entries.
+     * @param {number} [page_no] Page number.
+     * @param {string} [search] Part of name or tag for clan search. Minimum 2 characters
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClansApiInterface
+     */
+    getClansListRaw(requestParameters: GetClansListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansListResponse>>;
+
+    /**
+     * Method searches through clans and sorts them in a specified order.
+     * Clans
+     */
+    getClansList(requestParameters: GetClansListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansListResponse>;
+
+    /**
+     * Method returns information about player\'s clan history. Data on 10 last clan memberships are presented in the response.<p/>This method will be removed. Use method <a href=\"/reference/all/wot/clans/memberhistory/\">Player\'s clan history (World of Tanks)</a>
+     * @summary Player\'s clan history
+     * @param {number} account_id Account ID.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClansApiInterface
+     */
+    getClansMemberhistoryRaw(requestParameters: GetClansMemberhistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansMemberhistoryResponse>>;
+
+    /**
+     * Method returns information about player\'s clan history. Data on 10 last clan memberships are presented in the response.<p/>This method will be removed. Use method <a href=\"/reference/all/wot/clans/memberhistory/\">Player\'s clan history (World of Tanks)</a>
+     * Player\'s clan history
+     */
+    getClansMemberhistory(requestParameters: GetClansMemberhistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansMemberhistoryResponse>;
+
+    /**
+     * Method returns messages of clan message board.<p/>This method will be removed. Use method <a href=\"/reference/all/wot/clans/messageboard/\">Message board (World of Tanks)</a>
+     * @summary Message board
+     * @param {string} access_token [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ClansApiInterface
+     */
+    getClansMessageboardRaw(requestParameters: GetClansMessageboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansMessageboardResponse>>;
+
+    /**
+     * Method returns messages of clan message board.<p/>This method will be removed. Use method <a href=\"/reference/all/wot/clans/messageboard/\">Message board (World of Tanks)</a>
+     * Message board
+     */
+    getClansMessageboard(requestParameters: GetClansMessageboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansMessageboardResponse>;
+
+}
+
+/**
+ * 
+ */
+export class ClansApi extends runtime.BaseAPI implements ClansApiInterface {
+
+    /**
+     * Method returns detailed clan member information and brief clan details.
+     * Clan member details
+     */
+    async getClansAccountinfoRaw(requestParameters: GetClansAccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansAccountinfoResponse>> {
+        if (requestParameters['account_id'] == null) {
             throw new runtime.RequiredError(
-                'accountId',
-                'Required parameter "accountId" was null or undefined when calling getClansAccountinfo().'
+                'account_id',
+                'Required parameter "account_id" was null or undefined when calling getClansAccountinfo().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['accountId'] != null) {
-            queryParameters['account_id'] = requestParameters['accountId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['account_id'] != null) {
+            queryParameters['account_id'] = requestParameters['account_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -123,14 +243,14 @@ export class ClansApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClansAccountinfo200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClansAccountinfoResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns detailed clan member information and brief clan details.
      * Clan member details
      */
-    async getClansAccountinfo(requestParameters: GetClansAccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClansAccountinfo200Response> {
+    async getClansAccountinfo(requestParameters: GetClansAccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansAccountinfoResponse> {
         const response = await this.getClansAccountinfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -139,7 +259,7 @@ export class ClansApi extends runtime.BaseAPI {
      * Method returns information on clan entities.
      * Clan glossary
      */
-    async getClansGlossaryRaw(requestParameters: GetClansGlossaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClansGlossary200Response>> {
+    async getClansGlossaryRaw(requestParameters: GetClansGlossaryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansGlossaryResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -166,14 +286,14 @@ export class ClansApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClansGlossary200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClansGlossaryResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information on clan entities.
      * Clan glossary
      */
-    async getClansGlossary(requestParameters: GetClansGlossaryRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClansGlossary200Response> {
+    async getClansGlossary(requestParameters: GetClansGlossaryRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansGlossaryResponse> {
         const response = await this.getClansGlossaryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -182,22 +302,22 @@ export class ClansApi extends runtime.BaseAPI {
      * Method returns detailed clan information.
      * Clan details
      */
-    async getClansInfoRaw(requestParameters: GetClansInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClansInfo200Response>> {
-        if (requestParameters['clanId'] == null) {
+    async getClansInfoRaw(requestParameters: GetClansInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansInfoResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getClansInfo().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getClansInfo().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['accessToken'] != null) {
-            queryParameters['access_token'] = requestParameters['accessToken'];
+        if (requestParameters['access_token'] != null) {
+            queryParameters['access_token'] = requestParameters['access_token'];
         }
 
         if (requestParameters['extra'] != null) {
@@ -212,8 +332,8 @@ export class ClansApi extends runtime.BaseAPI {
             queryParameters['language'] = requestParameters['language'];
         }
 
-        if (requestParameters['membersKey'] != null) {
-            queryParameters['members_key'] = requestParameters['membersKey'];
+        if (requestParameters['members_key'] != null) {
+            queryParameters['members_key'] = requestParameters['members_key'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -232,14 +352,14 @@ export class ClansApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClansInfo200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClansInfoResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns detailed clan information.
      * Clan details
      */
-    async getClansInfo(requestParameters: GetClansInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClansInfo200Response> {
+    async getClansInfo(requestParameters: GetClansInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansInfoResponse> {
         const response = await this.getClansInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -248,7 +368,7 @@ export class ClansApi extends runtime.BaseAPI {
      * Method searches through clans and sorts them in a specified order.
      * Clans
      */
-    async getClansListRaw(requestParameters: GetClansListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClansList200Response>> {
+    async getClansListRaw(requestParameters: GetClansListRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansListResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -263,8 +383,8 @@ export class ClansApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         if (requestParameters['search'] != null) {
@@ -287,14 +407,14 @@ export class ClansApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClansList200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClansListResponseFromJSON(jsonValue));
     }
 
     /**
      * Method searches through clans and sorts them in a specified order.
      * Clans
      */
-    async getClansList(requestParameters: GetClansListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClansList200Response> {
+    async getClansList(requestParameters: GetClansListRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansListResponse> {
         const response = await this.getClansListRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -303,18 +423,18 @@ export class ClansApi extends runtime.BaseAPI {
      * Method returns information about player\'s clan history. Data on 10 last clan memberships are presented in the response.<p/>This method will be removed. Use method <a href=\"/reference/all/wot/clans/memberhistory/\">Player\'s clan history (World of Tanks)</a>
      * Player\'s clan history
      */
-    async getClansMemberhistoryRaw(requestParameters: GetClansMemberhistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClansMemberhistory200Response>> {
-        if (requestParameters['accountId'] == null) {
+    async getClansMemberhistoryRaw(requestParameters: GetClansMemberhistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansMemberhistoryResponse>> {
+        if (requestParameters['account_id'] == null) {
             throw new runtime.RequiredError(
-                'accountId',
-                'Required parameter "accountId" was null or undefined when calling getClansMemberhistory().'
+                'account_id',
+                'Required parameter "account_id" was null or undefined when calling getClansMemberhistory().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['accountId'] != null) {
-            queryParameters['account_id'] = requestParameters['accountId'];
+        if (requestParameters['account_id'] != null) {
+            queryParameters['account_id'] = requestParameters['account_id'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -341,14 +461,14 @@ export class ClansApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClansMemberhistory200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClansMemberhistoryResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information about player\'s clan history. Data on 10 last clan memberships are presented in the response.<p/>This method will be removed. Use method <a href=\"/reference/all/wot/clans/memberhistory/\">Player\'s clan history (World of Tanks)</a>
      * Player\'s clan history
      */
-    async getClansMemberhistory(requestParameters: GetClansMemberhistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClansMemberhistory200Response> {
+    async getClansMemberhistory(requestParameters: GetClansMemberhistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansMemberhistoryResponse> {
         const response = await this.getClansMemberhistoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -357,18 +477,18 @@ export class ClansApi extends runtime.BaseAPI {
      * Method returns messages of clan message board.<p/>This method will be removed. Use method <a href=\"/reference/all/wot/clans/messageboard/\">Message board (World of Tanks)</a>
      * Message board
      */
-    async getClansMessageboardRaw(requestParameters: GetClansMessageboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetClansMessageboard200Response>> {
-        if (requestParameters['accessToken'] == null) {
+    async getClansMessageboardRaw(requestParameters: GetClansMessageboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ClansMessageboardResponse>> {
+        if (requestParameters['access_token'] == null) {
             throw new runtime.RequiredError(
-                'accessToken',
-                'Required parameter "accessToken" was null or undefined when calling getClansMessageboard().'
+                'access_token',
+                'Required parameter "access_token" was null or undefined when calling getClansMessageboard().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['accessToken'] != null) {
-            queryParameters['access_token'] = requestParameters['accessToken'];
+        if (requestParameters['access_token'] != null) {
+            queryParameters['access_token'] = requestParameters['access_token'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -391,14 +511,14 @@ export class ClansApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetClansMessageboard200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ClansMessageboardResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns messages of clan message board.<p/>This method will be removed. Use method <a href=\"/reference/all/wot/clans/messageboard/\">Message board (World of Tanks)</a>
      * Message board
      */
-    async getClansMessageboard(requestParameters: GetClansMessageboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetClansMessageboard200Response> {
+    async getClansMessageboard(requestParameters: GetClansMessageboardRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ClansMessageboardResponse> {
         const response = await this.getClansMessageboardRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -406,111 +526,111 @@ export class ClansApi extends runtime.BaseAPI {
 }
 
 /**
- * @export
- */
-export const GetClansAccountinfoLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetClansAccountinfoLanguageEnum = typeof GetClansAccountinfoLanguageEnum[keyof typeof GetClansAccountinfoLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetClansAccountinfoLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetClansGlossaryLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetClansGlossaryLanguageEnum = typeof GetClansGlossaryLanguageEnum[keyof typeof GetClansGlossaryLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetClansGlossaryLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetClansInfoExtraEnum = {
-    PrivateOnlineMembers: 'private.online_members'
-} as const;
-export type GetClansInfoExtraEnum = typeof GetClansInfoExtraEnum[keyof typeof GetClansInfoExtraEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetClansInfoExtraEnum {
+    PrivateOnlineMembers = 'private.online_members'
+}
 /**
- * @export
- */
-export const GetClansInfoLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetClansInfoLanguageEnum = typeof GetClansInfoLanguageEnum[keyof typeof GetClansInfoLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetClansInfoLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetClansInfoMembersKeyEnum = {
-    Id: 'id'
-} as const;
-export type GetClansInfoMembersKeyEnum = typeof GetClansInfoMembersKeyEnum[keyof typeof GetClansInfoMembersKeyEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetClansInfoMembersKeyEnum {
+    Id = 'id'
+}
 /**
- * @export
- */
-export const GetClansListLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetClansListLanguageEnum = typeof GetClansListLanguageEnum[keyof typeof GetClansListLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetClansListLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetClansMemberhistoryLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetClansMemberhistoryLanguageEnum = typeof GetClansMemberhistoryLanguageEnum[keyof typeof GetClansMemberhistoryLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetClansMemberhistoryLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}

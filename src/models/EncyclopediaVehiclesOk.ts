@@ -20,13 +20,13 @@ import {
     EncyclopediaVehiclesMetaToJSON,
     EncyclopediaVehiclesMetaToJSONTyped,
 } from './EncyclopediaVehiclesMeta.js';
-import type { EncyclopediaVehiclesValue } from './EncyclopediaVehiclesValue.js';
+import type { EncyclopediaVehiclesDataValue } from './EncyclopediaVehiclesDataValue.js';
 import {
-    EncyclopediaVehiclesValueFromJSON,
-    EncyclopediaVehiclesValueFromJSONTyped,
-    EncyclopediaVehiclesValueToJSON,
-    EncyclopediaVehiclesValueToJSONTyped,
-} from './EncyclopediaVehiclesValue.js';
+    EncyclopediaVehiclesDataValueFromJSON,
+    EncyclopediaVehiclesDataValueFromJSONTyped,
+    EncyclopediaVehiclesDataValueToJSON,
+    EncyclopediaVehiclesDataValueToJSONTyped,
+} from './EncyclopediaVehiclesDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface EncyclopediaVehiclesOk {
     meta: EncyclopediaVehiclesMeta;
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaVehiclesValue | null; }}
+     * @type {{ [key: string]: EncyclopediaVehiclesDataValue | undefined; }}
      * @memberof EncyclopediaVehiclesOk
      */
-    data: { [key: string]: EncyclopediaVehiclesValue | null; };
+    data: { [key: string]: EncyclopediaVehiclesDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaVehiclesOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaVehiclesOkStatusEnum = typeof EncyclopediaVehiclesOkStatusEnum[keyof typeof EncyclopediaVehiclesOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaVehiclesOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function EncyclopediaVehiclesOkFromJSONTyped(json: any, ignoreDiscriminat
         
         'status': json['status'],
         'meta': EncyclopediaVehiclesMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], EncyclopediaVehiclesValueFromJSON)),
+        'data': (mapValues(json['data'], EncyclopediaVehiclesDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function EncyclopediaVehiclesOkToJSONTyped(value?: EncyclopediaVehiclesOk
         
         'status': value['status'],
         'meta': EncyclopediaVehiclesMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], EncyclopediaVehiclesValueToJSON)),
+        'data': (mapValues(value['data'], EncyclopediaVehiclesDataValueToJSON)),
     };
+}
+
+export const EncyclopediaVehiclesOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

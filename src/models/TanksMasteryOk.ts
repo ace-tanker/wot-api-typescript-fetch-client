@@ -54,14 +54,13 @@ export interface TanksMasteryOk {
     data: TanksMasteryData;
 }
 
-
 /**
- * @export
- */
-export const TanksMasteryOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type TanksMasteryOkStatusEnum = typeof TanksMasteryOkStatusEnum[keyof typeof TanksMasteryOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum TanksMasteryOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function TanksMasteryOkToJSONTyped(value?: TanksMasteryOk | null, ignoreD
         'meta': TanksMasteryMetaToJSON(value['meta']),
         'data': TanksMasteryDataToJSON(value['data']),
     };
+}
+
+export const TanksMasteryOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

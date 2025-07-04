@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
+import type { GlobalmapEventsDataItem } from './GlobalmapEventsDataItem.js';
+import {
+    GlobalmapEventsDataItemFromJSON,
+    GlobalmapEventsDataItemFromJSONTyped,
+    GlobalmapEventsDataItemToJSON,
+    GlobalmapEventsDataItemToJSONTyped,
+} from './GlobalmapEventsDataItem.js';
 import type { GlobalmapEventsMeta } from './GlobalmapEventsMeta.js';
 import {
     GlobalmapEventsMetaFromJSON,
@@ -20,13 +27,6 @@ import {
     GlobalmapEventsMetaToJSON,
     GlobalmapEventsMetaToJSONTyped,
 } from './GlobalmapEventsMeta.js';
-import type { GlobalmapEventsItem } from './GlobalmapEventsItem.js';
-import {
-    GlobalmapEventsItemFromJSON,
-    GlobalmapEventsItemFromJSONTyped,
-    GlobalmapEventsItemToJSON,
-    GlobalmapEventsItemToJSONTyped,
-} from './GlobalmapEventsItem.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface GlobalmapEventsOk {
     meta: GlobalmapEventsMeta;
     /**
      * 
-     * @type {Array<GlobalmapEventsItem>}
+     * @type {Array<GlobalmapEventsDataItem>}
      * @memberof GlobalmapEventsOk
      */
-    data: Array<GlobalmapEventsItem>;
+    data: Array<GlobalmapEventsDataItem>;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapEventsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapEventsOkStatusEnum = typeof GlobalmapEventsOkStatusEnum[keyof typeof GlobalmapEventsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapEventsOkFromJSONTyped(json: any, ignoreDiscriminator: b
         
         'status': json['status'],
         'meta': GlobalmapEventsMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(GlobalmapEventsItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(GlobalmapEventsDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapEventsOkToJSONTyped(value?: GlobalmapEventsOk | null, i
         
         'status': value['status'],
         'meta': GlobalmapEventsMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(GlobalmapEventsItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(GlobalmapEventsDataItemToJSON)),
     };
+}
+
+export const GlobalmapEventsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

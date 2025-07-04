@@ -54,14 +54,13 @@ export interface AuthProlongateOk {
     data: AuthProlongateData;
 }
 
-
 /**
- * @export
- */
-export const AuthProlongateOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type AuthProlongateOkStatusEnum = typeof AuthProlongateOkStatusEnum[keyof typeof AuthProlongateOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum AuthProlongateOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function AuthProlongateOkToJSONTyped(value?: AuthProlongateOk | null, ign
         'meta': AuthProlongateMetaToJSON(value['meta']),
         'data': AuthProlongateDataToJSON(value['data']),
     };
+}
+
+export const AuthProlongateOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

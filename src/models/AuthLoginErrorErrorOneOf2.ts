@@ -45,22 +45,20 @@ export interface AuthLoginErrorErrorOneOf2 {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const AuthLoginErrorErrorOneOf2CodeEnum = {
-    NUMBER_410: 410
-} as const;
-export type AuthLoginErrorErrorOneOf2CodeEnum = typeof AuthLoginErrorErrorOneOf2CodeEnum[keyof typeof AuthLoginErrorErrorOneOf2CodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum AuthLoginErrorErrorOneOf2CodeEnum {
+    NUMBER_410 = 410
+}
 /**
- * @export
- */
-export const AuthLoginErrorErrorOneOf2MessageEnum = {
-    AuthError: 'AUTH_ERROR'
-} as const;
-export type AuthLoginErrorErrorOneOf2MessageEnum = typeof AuthLoginErrorErrorOneOf2MessageEnum[keyof typeof AuthLoginErrorErrorOneOf2MessageEnum];
+* @export
+* @enum {string}
+*/
+export enum AuthLoginErrorErrorOneOf2MessageEnum {
+    AuthError = 'AUTH_ERROR'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function AuthLoginErrorErrorOneOf2ToJSONTyped(value?: AuthLoginErrorError
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const AuthLoginErrorErrorOneOf2PropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -24,28 +24,28 @@ export interface AuthProlongateData {
      * @type {string}
      * @memberof AuthProlongateData
      */
-    accessToken: string;
+    access_token: string;
     /**
      * **Access_token** expiration time
      * @type {number}
      * @memberof AuthProlongateData
      */
-    expiresAt: number;
+    expires_at: number;
     /**
      * Player account ID
      * @type {number}
      * @memberof AuthProlongateData
      */
-    accountId: number;
+    account_id: number;
 }
 
 /**
  * Check if a given object implements the AuthProlongateData interface.
  */
 export function instanceOfAuthProlongateData(value: object): value is AuthProlongateData {
-    if (!('accessToken' in value) || value['accessToken'] === undefined) return false;
-    if (!('expiresAt' in value) || value['expiresAt'] === undefined) return false;
-    if (!('accountId' in value) || value['accountId'] === undefined) return false;
+    if (!('access_token' in value) || value['access_token'] === undefined) return false;
+    if (!('expires_at' in value) || value['expires_at'] === undefined) return false;
+    if (!('account_id' in value) || value['account_id'] === undefined) return false;
     return true;
 }
 
@@ -59,9 +59,9 @@ export function AuthProlongateDataFromJSONTyped(json: any, ignoreDiscriminator: 
     }
     return {
         
-        'accessToken': json['access_token'],
-        'expiresAt': json['expires_at'],
-        'accountId': json['account_id'],
+        'access_token': json['access_token'],
+        'expires_at': json['expires_at'],
+        'account_id': json['account_id'],
     };
 }
 
@@ -76,9 +76,26 @@ export function AuthProlongateDataToJSONTyped(value?: AuthProlongateData | null,
 
     return {
         
-        'access_token': value['accessToken'],
-        'expires_at': value['expiresAt'],
-        'account_id': value['accountId'],
+        'access_token': value['access_token'],
+        'expires_at': value['expires_at'],
+        'account_id': value['account_id'],
     };
+}
+
+export const AuthProlongateDataPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

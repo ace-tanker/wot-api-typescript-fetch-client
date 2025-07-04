@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { StrongholdClanreservesItem } from './StrongholdClanreservesItem.js';
+import type { StrongholdClanreservesDataItem } from './StrongholdClanreservesDataItem.js';
 import {
-    StrongholdClanreservesItemFromJSON,
-    StrongholdClanreservesItemFromJSONTyped,
-    StrongholdClanreservesItemToJSON,
-    StrongholdClanreservesItemToJSONTyped,
-} from './StrongholdClanreservesItem.js';
+    StrongholdClanreservesDataItemFromJSON,
+    StrongholdClanreservesDataItemFromJSONTyped,
+    StrongholdClanreservesDataItemToJSON,
+    StrongholdClanreservesDataItemToJSONTyped,
+} from './StrongholdClanreservesDataItem.js';
 import type { StrongholdClanreservesMeta } from './StrongholdClanreservesMeta.js';
 import {
     StrongholdClanreservesMetaFromJSON,
@@ -48,20 +48,19 @@ export interface StrongholdClanreservesOk {
     meta: StrongholdClanreservesMeta;
     /**
      * 
-     * @type {Array<StrongholdClanreservesItem>}
+     * @type {Array<StrongholdClanreservesDataItem>}
      * @memberof StrongholdClanreservesOk
      */
-    data: Array<StrongholdClanreservesItem>;
+    data: Array<StrongholdClanreservesDataItem>;
 }
 
-
 /**
- * @export
- */
-export const StrongholdClanreservesOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type StrongholdClanreservesOkStatusEnum = typeof StrongholdClanreservesOkStatusEnum[keyof typeof StrongholdClanreservesOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum StrongholdClanreservesOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function StrongholdClanreservesOkFromJSONTyped(json: any, ignoreDiscrimin
         
         'status': json['status'],
         'meta': StrongholdClanreservesMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(StrongholdClanreservesItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(StrongholdClanreservesDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function StrongholdClanreservesOkToJSONTyped(value?: StrongholdClanreserv
         
         'status': value['status'],
         'meta': StrongholdClanreservesMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(StrongholdClanreservesItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(StrongholdClanreservesDataItemToJSON)),
     };
+}
+
+export const StrongholdClanreservesOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

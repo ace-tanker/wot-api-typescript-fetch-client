@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { AccountTanksValueItem } from './AccountTanksValueItem.js';
+import type { AccountTanksDataValueItem } from './AccountTanksDataValueItem.js';
 import {
-    AccountTanksValueItemFromJSON,
-    AccountTanksValueItemFromJSONTyped,
-    AccountTanksValueItemToJSON,
-    AccountTanksValueItemToJSONTyped,
-} from './AccountTanksValueItem.js';
+    AccountTanksDataValueItemFromJSON,
+    AccountTanksDataValueItemFromJSONTyped,
+    AccountTanksDataValueItemToJSON,
+    AccountTanksDataValueItemToJSONTyped,
+} from './AccountTanksDataValueItem.js';
 import type { AccountTanksMeta } from './AccountTanksMeta.js';
 import {
     AccountTanksMetaFromJSON,
@@ -48,20 +48,19 @@ export interface AccountTanksOk {
     meta: AccountTanksMeta;
     /**
      * 
-     * @type {{ [key: string]: Array<AccountTanksValueItem> | null; }}
+     * @type {{ [key: string]: Array<AccountTanksDataValueItem> | undefined | null; }}
      * @memberof AccountTanksOk
      */
-    data: { [key: string]: Array<AccountTanksValueItem> | null; };
+    data: { [key: string]: Array<AccountTanksDataValueItem> | undefined | null; };
 }
 
-
 /**
- * @export
- */
-export const AccountTanksOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type AccountTanksOkStatusEnum = typeof AccountTanksOkStatusEnum[keyof typeof AccountTanksOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum AccountTanksOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function AccountTanksOkToJSONTyped(value?: AccountTanksOk | null, ignoreD
         'meta': AccountTanksMetaToJSON(value['meta']),
         'data': value['data'],
     };
+}
+
+export const AccountTanksOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

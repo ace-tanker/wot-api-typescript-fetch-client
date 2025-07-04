@@ -30,7 +30,7 @@ export interface GlobalmapSeasonratingMeta {
      * @type {number}
      * @memberof GlobalmapSeasonratingMeta
      */
-    pageTotal: number;
+    page_total: number;
     /**
      * 
      * @type {number}
@@ -44,7 +44,7 @@ export interface GlobalmapSeasonratingMeta {
  */
 export function instanceOfGlobalmapSeasonratingMeta(value: object): value is GlobalmapSeasonratingMeta {
     if (!('count' in value) || value['count'] === undefined) return false;
-    if (!('pageTotal' in value) || value['pageTotal'] === undefined) return false;
+    if (!('page_total' in value) || value['page_total'] === undefined) return false;
     if (!('page' in value) || value['page'] === undefined) return false;
     return true;
 }
@@ -60,7 +60,7 @@ export function GlobalmapSeasonratingMetaFromJSONTyped(json: any, ignoreDiscrimi
     return {
         
         'count': json['count'],
-        'pageTotal': json['page_total'],
+        'page_total': json['page_total'],
         'page': json['page'],
     };
 }
@@ -77,8 +77,25 @@ export function GlobalmapSeasonratingMetaToJSONTyped(value?: GlobalmapSeasonrati
     return {
         
         'count': value['count'],
-        'page_total': value['pageTotal'],
+        'page_total': value['page_total'],
         'page': value['page'],
     };
+}
+
+export const GlobalmapSeasonratingMetaPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

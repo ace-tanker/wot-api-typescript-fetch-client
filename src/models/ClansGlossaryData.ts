@@ -21,17 +21,17 @@ import { mapValues } from '../runtime.js';
 export interface ClansGlossaryData {
     /**
      * Available clan positions
-     * @type {{ [key: string]: string; }}
+     * @type {{ [key: string]: string | undefined; }}
      * @memberof ClansGlossaryData
      */
-    clansRoles: { [key: string]: string; };
+    clans_roles: { [key: string]: string | undefined; };
 }
 
 /**
  * Check if a given object implements the ClansGlossaryData interface.
  */
 export function instanceOfClansGlossaryData(value: object): value is ClansGlossaryData {
-    if (!('clansRoles' in value) || value['clansRoles'] === undefined) return false;
+    if (!('clans_roles' in value) || value['clans_roles'] === undefined) return false;
     return true;
 }
 
@@ -45,7 +45,7 @@ export function ClansGlossaryDataFromJSONTyped(json: any, ignoreDiscriminator: b
     }
     return {
         
-        'clansRoles': json['clans_roles'],
+        'clans_roles': json['clans_roles'],
     };
 }
 
@@ -60,7 +60,24 @@ export function ClansGlossaryDataToJSONTyped(value?: ClansGlossaryData | null, i
 
     return {
         
-        'clans_roles': value['clansRoles'],
+        'clans_roles': value['clans_roles'],
     };
+}
+
+export const ClansGlossaryDataPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

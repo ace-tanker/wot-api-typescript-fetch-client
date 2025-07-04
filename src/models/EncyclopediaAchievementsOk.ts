@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
+import type { EncyclopediaAchievementsDataValue } from './EncyclopediaAchievementsDataValue.js';
+import {
+    EncyclopediaAchievementsDataValueFromJSON,
+    EncyclopediaAchievementsDataValueFromJSONTyped,
+    EncyclopediaAchievementsDataValueToJSON,
+    EncyclopediaAchievementsDataValueToJSONTyped,
+} from './EncyclopediaAchievementsDataValue.js';
 import type { EncyclopediaAchievementsMeta } from './EncyclopediaAchievementsMeta.js';
 import {
     EncyclopediaAchievementsMetaFromJSON,
@@ -20,13 +27,6 @@ import {
     EncyclopediaAchievementsMetaToJSON,
     EncyclopediaAchievementsMetaToJSONTyped,
 } from './EncyclopediaAchievementsMeta.js';
-import type { EncyclopediaAchievementsValue } from './EncyclopediaAchievementsValue.js';
-import {
-    EncyclopediaAchievementsValueFromJSON,
-    EncyclopediaAchievementsValueFromJSONTyped,
-    EncyclopediaAchievementsValueToJSON,
-    EncyclopediaAchievementsValueToJSONTyped,
-} from './EncyclopediaAchievementsValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface EncyclopediaAchievementsOk {
     meta: EncyclopediaAchievementsMeta;
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaAchievementsValue; }}
+     * @type {{ [key: string]: EncyclopediaAchievementsDataValue | undefined; }}
      * @memberof EncyclopediaAchievementsOk
      */
-    data: { [key: string]: EncyclopediaAchievementsValue; };
+    data: { [key: string]: EncyclopediaAchievementsDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaAchievementsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaAchievementsOkStatusEnum = typeof EncyclopediaAchievementsOkStatusEnum[keyof typeof EncyclopediaAchievementsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaAchievementsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function EncyclopediaAchievementsOkFromJSONTyped(json: any, ignoreDiscrim
         
         'status': json['status'],
         'meta': EncyclopediaAchievementsMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], EncyclopediaAchievementsValueFromJSON)),
+        'data': (mapValues(json['data'], EncyclopediaAchievementsDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function EncyclopediaAchievementsOkToJSONTyped(value?: EncyclopediaAchiev
         
         'status': value['status'],
         'meta': EncyclopediaAchievementsMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], EncyclopediaAchievementsValueToJSON)),
+        'data': (mapValues(value['data'], EncyclopediaAchievementsDataValueToJSON)),
     };
+}
+
+export const EncyclopediaAchievementsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

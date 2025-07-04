@@ -30,7 +30,7 @@ export interface EncyclopediaVehiclesMeta {
      * @type {number}
      * @memberof EncyclopediaVehiclesMeta
      */
-    pageTotal: number | null;
+    page_total: number | null;
     /**
      * 
      * @type {number}
@@ -56,7 +56,7 @@ export interface EncyclopediaVehiclesMeta {
  */
 export function instanceOfEncyclopediaVehiclesMeta(value: object): value is EncyclopediaVehiclesMeta {
     if (!('count' in value) || value['count'] === undefined) return false;
-    if (!('pageTotal' in value) || value['pageTotal'] === undefined) return false;
+    if (!('page_total' in value) || value['page_total'] === undefined) return false;
     if (!('total' in value) || value['total'] === undefined) return false;
     if (!('limit' in value) || value['limit'] === undefined) return false;
     if (!('page' in value) || value['page'] === undefined) return false;
@@ -74,7 +74,7 @@ export function EncyclopediaVehiclesMetaFromJSONTyped(json: any, ignoreDiscrimin
     return {
         
         'count': json['count'],
-        'pageTotal': json['page_total'],
+        'page_total': json['page_total'],
         'total': json['total'],
         'limit': json['limit'],
         'page': json['page'],
@@ -93,10 +93,27 @@ export function EncyclopediaVehiclesMetaToJSONTyped(value?: EncyclopediaVehicles
     return {
         
         'count': value['count'],
-        'page_total': value['pageTotal'],
+        'page_total': value['page_total'],
         'total': value['total'],
         'limit': value['limit'],
         'page': value['page'],
     };
+}
+
+export const EncyclopediaVehiclesMetaPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

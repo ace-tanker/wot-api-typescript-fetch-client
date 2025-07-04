@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
+import type { GlobalmapClaninfoDataValue } from './GlobalmapClaninfoDataValue.js';
+import {
+    GlobalmapClaninfoDataValueFromJSON,
+    GlobalmapClaninfoDataValueFromJSONTyped,
+    GlobalmapClaninfoDataValueToJSON,
+    GlobalmapClaninfoDataValueToJSONTyped,
+} from './GlobalmapClaninfoDataValue.js';
 import type { GlobalmapClaninfoMeta } from './GlobalmapClaninfoMeta.js';
 import {
     GlobalmapClaninfoMetaFromJSON,
@@ -20,13 +27,6 @@ import {
     GlobalmapClaninfoMetaToJSON,
     GlobalmapClaninfoMetaToJSONTyped,
 } from './GlobalmapClaninfoMeta.js';
-import type { GlobalmapClaninfoValue } from './GlobalmapClaninfoValue.js';
-import {
-    GlobalmapClaninfoValueFromJSON,
-    GlobalmapClaninfoValueFromJSONTyped,
-    GlobalmapClaninfoValueToJSON,
-    GlobalmapClaninfoValueToJSONTyped,
-} from './GlobalmapClaninfoValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface GlobalmapClaninfoOk {
     meta: GlobalmapClaninfoMeta;
     /**
      * 
-     * @type {{ [key: string]: GlobalmapClaninfoValue; }}
+     * @type {{ [key: string]: GlobalmapClaninfoDataValue | undefined; }}
      * @memberof GlobalmapClaninfoOk
      */
-    data: { [key: string]: GlobalmapClaninfoValue; };
+    data: { [key: string]: GlobalmapClaninfoDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const GlobalmapClaninfoOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapClaninfoOkStatusEnum = typeof GlobalmapClaninfoOkStatusEnum[keyof typeof GlobalmapClaninfoOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapClaninfoOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapClaninfoOkFromJSONTyped(json: any, ignoreDiscriminator:
         
         'status': json['status'],
         'meta': GlobalmapClaninfoMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], GlobalmapClaninfoValueFromJSON)),
+        'data': (mapValues(json['data'], GlobalmapClaninfoDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapClaninfoOkToJSONTyped(value?: GlobalmapClaninfoOk | nul
         
         'status': value['status'],
         'meta': GlobalmapClaninfoMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], GlobalmapClaninfoValueToJSON)),
+        'data': (mapValues(value['data'], GlobalmapClaninfoDataValueToJSON)),
     };
+}
+
+export const GlobalmapClaninfoOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

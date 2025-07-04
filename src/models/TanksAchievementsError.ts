@@ -41,14 +41,13 @@ export interface TanksAchievementsError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const TanksAchievementsErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type TanksAchievementsErrorStatusEnum = typeof TanksAchievementsErrorStatusEnum[keyof typeof TanksAchievementsErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum TanksAchievementsErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function TanksAchievementsErrorToJSONTyped(value?: TanksAchievementsError
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const TanksAchievementsErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

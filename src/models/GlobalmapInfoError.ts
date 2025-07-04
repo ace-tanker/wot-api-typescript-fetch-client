@@ -41,14 +41,13 @@ export interface GlobalmapInfoError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapInfoErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type GlobalmapInfoErrorStatusEnum = typeof GlobalmapInfoErrorStatusEnum[keyof typeof GlobalmapInfoErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapInfoErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function GlobalmapInfoErrorToJSONTyped(value?: GlobalmapInfoError | null,
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const GlobalmapInfoErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

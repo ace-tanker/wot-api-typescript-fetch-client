@@ -20,13 +20,13 @@ import {
     EncyclopediaVehicleprofileMetaToJSON,
     EncyclopediaVehicleprofileMetaToJSONTyped,
 } from './EncyclopediaVehicleprofileMeta.js';
-import type { EncyclopediaVehicleprofileValue } from './EncyclopediaVehicleprofileValue.js';
+import type { EncyclopediaVehicleprofileDataValue } from './EncyclopediaVehicleprofileDataValue.js';
 import {
-    EncyclopediaVehicleprofileValueFromJSON,
-    EncyclopediaVehicleprofileValueFromJSONTyped,
-    EncyclopediaVehicleprofileValueToJSON,
-    EncyclopediaVehicleprofileValueToJSONTyped,
-} from './EncyclopediaVehicleprofileValue.js';
+    EncyclopediaVehicleprofileDataValueFromJSON,
+    EncyclopediaVehicleprofileDataValueFromJSONTyped,
+    EncyclopediaVehicleprofileDataValueToJSON,
+    EncyclopediaVehicleprofileDataValueToJSONTyped,
+} from './EncyclopediaVehicleprofileDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface EncyclopediaVehicleprofileOk {
     meta: EncyclopediaVehicleprofileMeta;
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaVehicleprofileValue; }}
+     * @type {{ [key: string]: EncyclopediaVehicleprofileDataValue | undefined; }}
      * @memberof EncyclopediaVehicleprofileOk
      */
-    data: { [key: string]: EncyclopediaVehicleprofileValue; };
+    data: { [key: string]: EncyclopediaVehicleprofileDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaVehicleprofileOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaVehicleprofileOkStatusEnum = typeof EncyclopediaVehicleprofileOkStatusEnum[keyof typeof EncyclopediaVehicleprofileOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaVehicleprofileOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function EncyclopediaVehicleprofileOkFromJSONTyped(json: any, ignoreDiscr
         
         'status': json['status'],
         'meta': EncyclopediaVehicleprofileMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], EncyclopediaVehicleprofileValueFromJSON)),
+        'data': (mapValues(json['data'], EncyclopediaVehicleprofileDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function EncyclopediaVehicleprofileOkToJSONTyped(value?: EncyclopediaVehi
         
         'status': value['status'],
         'meta': EncyclopediaVehicleprofileMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], EncyclopediaVehicleprofileValueToJSON)),
+        'data': (mapValues(value['data'], EncyclopediaVehicleprofileDataValueToJSON)),
     };
+}
+
+export const EncyclopediaVehicleprofileOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

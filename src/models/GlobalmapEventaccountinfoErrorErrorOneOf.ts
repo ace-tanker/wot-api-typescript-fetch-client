@@ -45,22 +45,20 @@ export interface GlobalmapEventaccountinfoErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapEventaccountinfoErrorErrorOneOfCodeEnum = {
-    NUMBER_402: 402
-} as const;
-export type GlobalmapEventaccountinfoErrorErrorOneOfCodeEnum = typeof GlobalmapEventaccountinfoErrorErrorOneOfCodeEnum[keyof typeof GlobalmapEventaccountinfoErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventaccountinfoErrorErrorOneOfCodeEnum {
+    NUMBER_402 = 402
+}
 /**
- * @export
- */
-export const GlobalmapEventaccountinfoErrorErrorOneOfMessageEnum = {
-    AccountIdOrClanIdNotSpecified: 'ACCOUNT_ID_OR_CLAN_ID_NOT_SPECIFIED'
-} as const;
-export type GlobalmapEventaccountinfoErrorErrorOneOfMessageEnum = typeof GlobalmapEventaccountinfoErrorErrorOneOfMessageEnum[keyof typeof GlobalmapEventaccountinfoErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventaccountinfoErrorErrorOneOfMessageEnum {
+    AccountIdOrClanIdNotSpecified = 'ACCOUNT_ID_OR_CLAN_ID_NOT_SPECIFIED'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function GlobalmapEventaccountinfoErrorErrorOneOfToJSONTyped(value?: Glob
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const GlobalmapEventaccountinfoErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

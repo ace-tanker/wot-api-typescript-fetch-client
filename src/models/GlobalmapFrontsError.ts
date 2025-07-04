@@ -41,14 +41,13 @@ export interface GlobalmapFrontsError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapFrontsErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type GlobalmapFrontsErrorStatusEnum = typeof GlobalmapFrontsErrorStatusEnum[keyof typeof GlobalmapFrontsErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapFrontsErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function GlobalmapFrontsErrorToJSONTyped(value?: GlobalmapFrontsError | n
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const GlobalmapFrontsErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

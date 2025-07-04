@@ -41,14 +41,13 @@ export interface EncyclopediaInfoError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaInfoErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type EncyclopediaInfoErrorStatusEnum = typeof EncyclopediaInfoErrorStatusEnum[keyof typeof EncyclopediaInfoErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaInfoErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function EncyclopediaInfoErrorToJSONTyped(value?: EncyclopediaInfoError |
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const EncyclopediaInfoErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

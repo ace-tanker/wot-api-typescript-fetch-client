@@ -15,159 +15,159 @@
 
 import * as runtime from '../runtime.js';
 import type {
-  GetGlobalmapClanbattles200Response,
-  GetGlobalmapClaninfo200Response,
-  GetGlobalmapClanprovinces200Response,
-  GetGlobalmapEventaccountinfo200Response,
-  GetGlobalmapEventaccountratingneighbors200Response,
-  GetGlobalmapEventaccountratings200Response,
-  GetGlobalmapEventclaninfo200Response,
-  GetGlobalmapEventclantasks200Response,
-  GetGlobalmapEventrating200Response,
-  GetGlobalmapEventratingneighbors200Response,
-  GetGlobalmapEvents200Response,
-  GetGlobalmapFronts200Response,
-  GetGlobalmapInfo200Response,
-  GetGlobalmapProvinces200Response,
-  GetGlobalmapSeasonaccountinfo200Response,
-  GetGlobalmapSeasonrating200Response,
-  GetGlobalmapSeasonratingneighbors200Response,
-  GetGlobalmapSeasons200Response,
+  GlobalmapClanbattlesResponse,
+  GlobalmapClaninfoResponse,
+  GlobalmapClanprovincesResponse,
+  GlobalmapEventaccountinfoResponse,
+  GlobalmapEventaccountratingneighborsResponse,
+  GlobalmapEventaccountratingsResponse,
+  GlobalmapEventclaninfoResponse,
+  GlobalmapEventclantasksResponse,
+  GlobalmapEventratingResponse,
+  GlobalmapEventratingneighborsResponse,
+  GlobalmapEventsResponse,
+  GlobalmapFrontsResponse,
+  GlobalmapInfoResponse,
+  GlobalmapProvincesResponse,
+  GlobalmapSeasonaccountinfoResponse,
+  GlobalmapSeasonratingResponse,
+  GlobalmapSeasonratingneighborsResponse,
+  GlobalmapSeasonsResponse,
 } from '../models/index.js';
 import {
-    GetGlobalmapClanbattles200ResponseFromJSON,
-    GetGlobalmapClanbattles200ResponseToJSON,
-    GetGlobalmapClaninfo200ResponseFromJSON,
-    GetGlobalmapClaninfo200ResponseToJSON,
-    GetGlobalmapClanprovinces200ResponseFromJSON,
-    GetGlobalmapClanprovinces200ResponseToJSON,
-    GetGlobalmapEventaccountinfo200ResponseFromJSON,
-    GetGlobalmapEventaccountinfo200ResponseToJSON,
-    GetGlobalmapEventaccountratingneighbors200ResponseFromJSON,
-    GetGlobalmapEventaccountratingneighbors200ResponseToJSON,
-    GetGlobalmapEventaccountratings200ResponseFromJSON,
-    GetGlobalmapEventaccountratings200ResponseToJSON,
-    GetGlobalmapEventclaninfo200ResponseFromJSON,
-    GetGlobalmapEventclaninfo200ResponseToJSON,
-    GetGlobalmapEventclantasks200ResponseFromJSON,
-    GetGlobalmapEventclantasks200ResponseToJSON,
-    GetGlobalmapEventrating200ResponseFromJSON,
-    GetGlobalmapEventrating200ResponseToJSON,
-    GetGlobalmapEventratingneighbors200ResponseFromJSON,
-    GetGlobalmapEventratingneighbors200ResponseToJSON,
-    GetGlobalmapEvents200ResponseFromJSON,
-    GetGlobalmapEvents200ResponseToJSON,
-    GetGlobalmapFronts200ResponseFromJSON,
-    GetGlobalmapFronts200ResponseToJSON,
-    GetGlobalmapInfo200ResponseFromJSON,
-    GetGlobalmapInfo200ResponseToJSON,
-    GetGlobalmapProvinces200ResponseFromJSON,
-    GetGlobalmapProvinces200ResponseToJSON,
-    GetGlobalmapSeasonaccountinfo200ResponseFromJSON,
-    GetGlobalmapSeasonaccountinfo200ResponseToJSON,
-    GetGlobalmapSeasonrating200ResponseFromJSON,
-    GetGlobalmapSeasonrating200ResponseToJSON,
-    GetGlobalmapSeasonratingneighbors200ResponseFromJSON,
-    GetGlobalmapSeasonratingneighbors200ResponseToJSON,
-    GetGlobalmapSeasons200ResponseFromJSON,
-    GetGlobalmapSeasons200ResponseToJSON,
+    GlobalmapClanbattlesResponseFromJSON,
+    GlobalmapClanbattlesResponseToJSON,
+    GlobalmapClaninfoResponseFromJSON,
+    GlobalmapClaninfoResponseToJSON,
+    GlobalmapClanprovincesResponseFromJSON,
+    GlobalmapClanprovincesResponseToJSON,
+    GlobalmapEventaccountinfoResponseFromJSON,
+    GlobalmapEventaccountinfoResponseToJSON,
+    GlobalmapEventaccountratingneighborsResponseFromJSON,
+    GlobalmapEventaccountratingneighborsResponseToJSON,
+    GlobalmapEventaccountratingsResponseFromJSON,
+    GlobalmapEventaccountratingsResponseToJSON,
+    GlobalmapEventclaninfoResponseFromJSON,
+    GlobalmapEventclaninfoResponseToJSON,
+    GlobalmapEventclantasksResponseFromJSON,
+    GlobalmapEventclantasksResponseToJSON,
+    GlobalmapEventratingResponseFromJSON,
+    GlobalmapEventratingResponseToJSON,
+    GlobalmapEventratingneighborsResponseFromJSON,
+    GlobalmapEventratingneighborsResponseToJSON,
+    GlobalmapEventsResponseFromJSON,
+    GlobalmapEventsResponseToJSON,
+    GlobalmapFrontsResponseFromJSON,
+    GlobalmapFrontsResponseToJSON,
+    GlobalmapInfoResponseFromJSON,
+    GlobalmapInfoResponseToJSON,
+    GlobalmapProvincesResponseFromJSON,
+    GlobalmapProvincesResponseToJSON,
+    GlobalmapSeasonaccountinfoResponseFromJSON,
+    GlobalmapSeasonaccountinfoResponseToJSON,
+    GlobalmapSeasonratingResponseFromJSON,
+    GlobalmapSeasonratingResponseToJSON,
+    GlobalmapSeasonratingneighborsResponseFromJSON,
+    GlobalmapSeasonratingneighborsResponseToJSON,
+    GlobalmapSeasonsResponseFromJSON,
+    GlobalmapSeasonsResponseToJSON,
 } from '../models/index.js';
 
 export interface GetGlobalmapClanbattlesRequest {
-    clanId: number;
+    clan_id: number;
     fields?: Array<string>;
     language?: GetGlobalmapClanbattlesLanguageEnum;
     limit?: number;
-    pageNo?: number;
+    page_no?: number;
 }
 
 export interface GetGlobalmapClaninfoRequest {
-    clanId: Array<number>;
-    accessToken?: string;
+    clan_id: Array<number>;
+    access_token?: string;
     fields?: Array<string>;
 }
 
 export interface GetGlobalmapClanprovincesRequest {
-    clanId: Array<number>;
-    accessToken?: string;
+    clan_id: Array<number>;
+    access_token?: string;
     fields?: Array<string>;
     language?: GetGlobalmapClanprovincesLanguageEnum;
 }
 
 export interface GetGlobalmapEventaccountinfoRequest {
-    accountId: number;
-    eventId: string;
-    frontId: Array<string>;
-    clanId?: number;
+    account_id: number;
+    event_id: string;
+    front_id: Array<string>;
+    clan_id?: number;
     fields?: Array<string>;
 }
 
 export interface GetGlobalmapEventaccountratingneighborsRequest {
-    accountId: number;
-    eventId: string;
-    frontId: string;
+    account_id: number;
+    event_id: string;
+    front_id: string;
     fields?: Array<string>;
     limit?: number;
-    neighboursCount?: number;
-    pageNo?: number;
+    neighbours_count?: number;
+    page_no?: number;
 }
 
 export interface GetGlobalmapEventaccountratingsRequest {
-    eventId: string;
-    frontId: string;
+    event_id: string;
+    front_id: string;
     fields?: Array<string>;
-    inRating?: GetGlobalmapEventaccountratingsInRatingEnum;
+    in_rating?: GetGlobalmapEventaccountratingsInRatingEnum;
     limit?: number;
-    pageNo?: number;
+    page_no?: number;
 }
 
 export interface GetGlobalmapEventclaninfoRequest {
-    clanId: number;
-    eventId: string;
-    frontId: Array<string>;
+    clan_id: number;
+    event_id: string;
+    front_id: Array<string>;
     fields?: Array<string>;
 }
 
 export interface GetGlobalmapEventclantasksRequest {
-    clanId: number;
-    eventId: string;
+    clan_id: number;
+    event_id: string;
     fields?: Array<string>;
     language?: GetGlobalmapEventclantasksLanguageEnum;
     limit?: number;
-    pageNo?: number;
+    page_no?: number;
 }
 
 export interface GetGlobalmapEventratingRequest {
-    eventId: string;
-    frontId: string;
+    event_id: string;
+    front_id: string;
     fields?: Array<string>;
     limit?: number;
-    pageNo?: number;
+    page_no?: number;
 }
 
 export interface GetGlobalmapEventratingneighborsRequest {
-    clanId: number;
-    eventId: string;
-    frontId: string;
+    clan_id: number;
+    event_id: string;
+    front_id: string;
     fields?: Array<string>;
     limit?: number;
 }
 
 export interface GetGlobalmapEventsRequest {
-    eventId?: string;
+    event_id?: string;
     fields?: Array<string>;
     language?: GetGlobalmapEventsLanguageEnum;
     limit?: number;
-    pageNo?: number;
+    page_no?: number;
     status?: GetGlobalmapEventsStatusEnum;
 }
 
 export interface GetGlobalmapFrontsRequest {
     fields?: Array<string>;
-    frontId?: Array<string>;
+    front_id?: Array<string>;
     language?: GetGlobalmapFrontsLanguageEnum;
     limit?: number;
-    pageNo?: number;
+    page_no?: number;
 }
 
 export interface GetGlobalmapInfoRequest {
@@ -175,39 +175,39 @@ export interface GetGlobalmapInfoRequest {
 }
 
 export interface GetGlobalmapProvincesRequest {
-    frontId: string;
-    arenaId?: string;
-    dailyRevenueGte?: number;
-    dailyRevenueLte?: number;
+    front_id: string;
+    arena_id?: string;
+    daily_revenue_gte?: number;
+    daily_revenue_lte?: number;
     fields?: Array<string>;
-    landingType?: GetGlobalmapProvincesLandingTypeEnum;
+    landing_type?: GetGlobalmapProvincesLandingTypeEnum;
     language?: GetGlobalmapProvincesLanguageEnum;
     limit?: number;
-    orderBy?: GetGlobalmapProvincesOrderByEnum;
-    pageNo?: number;
-    primeHour?: number;
-    provinceId?: Array<string>;
+    order_by?: GetGlobalmapProvincesOrderByEnum;
+    page_no?: number;
+    prime_hour?: number;
+    province_id?: Array<string>;
 }
 
 export interface GetGlobalmapSeasonaccountinfoRequest {
-    accountId: number;
-    seasonId: string;
-    vehicleLevel: Array<GetGlobalmapSeasonaccountinfoVehicleLevelEnum>;
+    account_id: number;
+    season_id: string;
+    vehicle_level: Array<GetGlobalmapSeasonaccountinfoVehicleLevelEnum>;
     fields?: Array<string>;
 }
 
 export interface GetGlobalmapSeasonratingRequest {
-    seasonId: string;
-    vehicleLevel: GetGlobalmapSeasonratingVehicleLevelEnum;
+    season_id: string;
+    vehicle_level: GetGlobalmapSeasonratingVehicleLevelEnum;
     fields?: Array<string>;
     limit?: number;
-    pageNo?: number;
+    page_no?: number;
 }
 
 export interface GetGlobalmapSeasonratingneighborsRequest {
-    clanId: number;
-    seasonId: string;
-    vehicleLevel: GetGlobalmapSeasonratingneighborsVehicleLevelEnum;
+    clan_id: number;
+    season_id: string;
+    vehicle_level: GetGlobalmapSeasonratingneighborsVehicleLevelEnum;
     fields?: Array<string>;
     limit?: number;
 }
@@ -216,32 +216,405 @@ export interface GetGlobalmapSeasonsRequest {
     fields?: Array<string>;
     language?: GetGlobalmapSeasonsLanguageEnum;
     limit?: number;
-    pageNo?: number;
-    seasonId?: string;
+    page_no?: number;
+    season_id?: string;
     status?: GetGlobalmapSeasonsStatusEnum;
 }
 
 /**
+ * GlobalMapApi - interface
  * 
+ * @export
+ * @interface GlobalMapApiInterface
  */
-export class GlobalMapApi extends runtime.BaseAPI {
+export interface GlobalMapApiInterface {
+    /**
+     * Method returns list of clan\'s battles on the Global Map.
+     * @summary Clan\'s battles
+     * @param {number} clan_id Clan ID. To get a clan ID, use the [Clans](https://developers.wargaming.net/reference/all/wgn/clans/list) method.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'de' | 'fr' | 'es' | 'pl' | 'tr' | 'th'} [language] Language.
+     * @param {number} [limit] Number of returned entries.
+     * @param {number} [page_no] Page number.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapClanbattlesRaw(requestParameters: GetGlobalmapClanbattlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapClanbattlesResponse>>;
 
     /**
      * Method returns list of clan\'s battles on the Global Map.
      * Clan\'s battles
      */
-    async getGlobalmapClanbattlesRaw(requestParameters: GetGlobalmapClanbattlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapClanbattles200Response>> {
-        if (requestParameters['clanId'] == null) {
+    getGlobalmapClanbattles(requestParameters: GetGlobalmapClanbattlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapClanbattlesResponse>;
+
+    /**
+     * Method returns clan data on the Global Map.
+     * @summary Clan details
+     * @param {Array<number>} clan_id Clan ID. To get a clan ID, use the [Clans](https://developers.wargaming.net/reference/all/wgn/clans/list) method.
+     * @param {string} [access_token] [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapClaninfoRaw(requestParameters: GetGlobalmapClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapClaninfoResponse>>;
+
+    /**
+     * Method returns clan data on the Global Map.
+     * Clan details
+     */
+    getGlobalmapClaninfo(requestParameters: GetGlobalmapClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapClaninfoResponse>;
+
+    /**
+     * Method returns lists of clans provinces.
+     * @summary Clan\'s provinces
+     * @param {Array<number>} clan_id List of clan IDs. To get a clan ID, use the [Clans](https://developers.wargaming.net/reference/all/wgn/clans/list) method.
+     * @param {string} [access_token] [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'de' | 'fr' | 'es' | 'pl' | 'tr' | 'th'} [language] Language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapClanprovincesRaw(requestParameters: GetGlobalmapClanprovincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapClanprovincesResponse>>;
+
+    /**
+     * Method returns lists of clans provinces.
+     * Clan\'s provinces
+     */
+    getGlobalmapClanprovinces(requestParameters: GetGlobalmapClanprovincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapClanprovincesResponse>;
+
+    /**
+     * Method returns player\'s statistics for a specific event
+     * @summary Account event information
+     * @param {number} account_id Account ID.
+     * @param {string} event_id Event ID. To get an event ID, use the [Events](https://developers.wargaming.net/reference/all/wot/globalmap/events) method.
+     * @param {Array<string>} front_id Front ID. To get a front ID, use the [Fronts](https://developers.wargaming.net/reference/all/wot/globalmap/fronts) method.
+     * @param {number} [clan_id] Clan ID. To get a clan ID, use the [Clans](https://developers.wargaming.net/reference/all/wgn/clans/list) method.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapEventaccountinfoRaw(requestParameters: GetGlobalmapEventaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventaccountinfoResponse>>;
+
+    /**
+     * Method returns player\'s statistics for a specific event
+     * Account event information
+     */
+    getGlobalmapEventaccountinfo(requestParameters: GetGlobalmapEventaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventaccountinfoResponse>;
+
+    /**
+     * Method returns adjacent position in account event rating.
+     * @summary Adjacent positions in event account rating
+     * @param {number} account_id Account ID.
+     * @param {string} event_id Event ID. To get an event ID, use the [Events](https://developers.wargaming.net/reference/all/wot/globalmap/events) method.
+     * @param {string} front_id Front ID. To get a front ID, use the [Fronts](https://developers.wargaming.net/reference/all/wot/globalmap/fronts) method.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {number} [limit] Clans limit.
+     * @param {number} [neighbours_count] How many neighbors to show next to the account.
+     * @param {number} [page_no] Page number.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapEventaccountratingneighborsRaw(requestParameters: GetGlobalmapEventaccountratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventaccountratingneighborsResponse>>;
+
+    /**
+     * Method returns adjacent position in account event rating.
+     * Adjacent positions in event account rating
+     */
+    getGlobalmapEventaccountratingneighbors(requestParameters: GetGlobalmapEventaccountratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventaccountratingneighborsResponse>;
+
+    /**
+     * Method returns account event rating.
+     * @summary Event account rating
+     * @param {string} event_id Event ID. To get an event ID, use the [Events](https://developers.wargaming.net/reference/all/wot/globalmap/events) method.
+     * @param {string} front_id Front ID. To get a front ID, use the [Fronts](https://developers.wargaming.net/reference/all/wot/globalmap/fronts) method.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {1 | 0} [in_rating] Get data only for accounts with rating.
+     * @param {number} [limit] Accounts limit.
+     * @param {number} [page_no] Page number.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapEventaccountratingsRaw(requestParameters: GetGlobalmapEventaccountratingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventaccountratingsResponse>>;
+
+    /**
+     * Method returns account event rating.
+     * Event account rating
+     */
+    getGlobalmapEventaccountratings(requestParameters: GetGlobalmapEventaccountratingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventaccountratingsResponse>;
+
+    /**
+     * Method returns clan\'s statistics for a specific event.
+     * @summary Clan event information
+     * @param {number} clan_id Clan ID. To get a clan ID, use the [Clans](https://developers.wargaming.net/reference/all/wgn/clans/list) method.
+     * @param {string} event_id Event ID. To get an event ID, use the [Events](https://developers.wargaming.net/reference/all/wot/globalmap/events) method.
+     * @param {Array<string>} front_id Front ID. To get a front ID, use the [Fronts](https://developers.wargaming.net/reference/all/wot/globalmap/fronts) method.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapEventclaninfoRaw(requestParameters: GetGlobalmapEventclaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventclaninfoResponse>>;
+
+    /**
+     * Method returns clan\'s statistics for a specific event.
+     * Clan event information
+     */
+    getGlobalmapEventclaninfo(requestParameters: GetGlobalmapEventclaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventclaninfoResponse>;
+
+    /**
+     * Method returns clan\'s missions for a specific event.
+     * @summary Clan event missions
+     * @param {number} clan_id Clan ID. To get a clan ID, use the [Clans](https://developers.wargaming.net/reference/all/wgn/clans/list) method.
+     * @param {string} event_id Event ID. To get an event ID, use the [Events](https://developers.wargaming.net/reference/all/wot/globalmap/events) method.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'de' | 'fr' | 'es' | 'pl' | 'tr' | 'th'} [language] Language.
+     * @param {number} [limit] Page size.
+     * @param {number} [page_no] Page number.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapEventclantasksRaw(requestParameters: GetGlobalmapEventclantasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventclantasksResponse>>;
+
+    /**
+     * Method returns clan\'s missions for a specific event.
+     * Clan event missions
+     */
+    getGlobalmapEventclantasks(requestParameters: GetGlobalmapEventclantasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventclantasksResponse>;
+
+    /**
+     * Method returns event clan rating
+     * @summary Event clan ratings
+     * @param {string} event_id Event ID. To get an event ID, use the [Events](https://developers.wargaming.net/reference/all/wot/globalmap/events) method.
+     * @param {string} front_id Front ID. To get a front ID, use the [Fronts](https://developers.wargaming.net/reference/all/wot/globalmap/fronts) method.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {number} [limit] Clans limit.
+     * @param {number} [page_no] Page number.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapEventratingRaw(requestParameters: GetGlobalmapEventratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventratingResponse>>;
+
+    /**
+     * Method returns event clan rating
+     * Event clan ratings
+     */
+    getGlobalmapEventrating(requestParameters: GetGlobalmapEventratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventratingResponse>;
+
+    /**
+     * Method returns list of adjacent positions in event clan rating
+     * @summary Adjacent position in event clan rating
+     * @param {number} clan_id Clan ID. To get a clan ID, use the [Clans](https://developers.wargaming.net/reference/all/wgn/clans/list) method.
+     * @param {string} event_id Event ID. To get an event ID, use the [Events](https://developers.wargaming.net/reference/all/wot/globalmap/events) method.
+     * @param {string} front_id Front ID. To get a front ID, use the [Fronts](https://developers.wargaming.net/reference/all/wot/globalmap/fronts) method.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {number} [limit] Neighbors limit.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapEventratingneighborsRaw(requestParameters: GetGlobalmapEventratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventratingneighborsResponse>>;
+
+    /**
+     * Method returns list of adjacent positions in event clan rating
+     * Adjacent position in event clan rating
+     */
+    getGlobalmapEventratingneighbors(requestParameters: GetGlobalmapEventratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventratingneighborsResponse>;
+
+    /**
+     * Method returns events information.
+     * @summary Events
+     * @param {string} [event_id] Event ID
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'de' | 'fr' | 'es' | 'pl' | 'tr' | 'th'} [language] Language.
+     * @param {number} [limit] Page limit.
+     * @param {number} [page_no] Page number.
+     * @param {'PLANNED' | 'ACTIVE' | 'FINISHED'} [status] Response with events filtered by status.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapEventsRaw(requestParameters: GetGlobalmapEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventsResponse>>;
+
+    /**
+     * Method returns events information.
+     * Events
+     */
+    getGlobalmapEvents(requestParameters: GetGlobalmapEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventsResponse>;
+
+    /**
+     * Method returns information about the Global Map Fronts.
+     * @summary Fronts
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {Array<string>} [front_id] List of Front IDs, to specify what fronts need to be returned.
+     * @param {'en' | 'de' | 'fr' | 'es' | 'pl' | 'tr' | 'th'} [language] Language.
+     * @param {number} [limit] Number of returned entries.
+     * @param {number} [page_no] Page number.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapFrontsRaw(requestParameters: GetGlobalmapFrontsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapFrontsResponse>>;
+
+    /**
+     * Method returns information about the Global Map Fronts.
+     * Fronts
+     */
+    getGlobalmapFronts(requestParameters: GetGlobalmapFrontsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapFrontsResponse>;
+
+    /**
+     * Method returns general information about the Global Map.
+     * @summary Map status
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapInfoRaw(requestParameters: GetGlobalmapInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapInfoResponse>>;
+
+    /**
+     * Method returns general information about the Global Map.
+     * Map status
+     */
+    getGlobalmapInfo(requestParameters: GetGlobalmapInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapInfoResponse>;
+
+    /**
+     * Method returns information about the Global Map provinces.
+     * @summary Provinces
+     * @param {string} front_id Front ID. To get a front ID, use the [Fronts](https://developers.wargaming.net/reference/all/wot/globalmap/fronts) method.
+     * @param {string} [arena_id] Map ID
+     * @param {number} [daily_revenue_gte] Search for provinces with daily income equal to or more than the value
+     * @param {number} [daily_revenue_lte] Search for provinces with daily income equal to or less than the value
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'null' | 'auction' | 'tournament'} [landing_type] Search for provinces by landing type.
+     * @param {'en' | 'de' | 'fr' | 'es' | 'pl' | 'tr' | 'th'} [language] Language.
+     * @param {number} [limit] Number of returned entries.
+     * @param {'province_id' | '-province_id' | 'daily_revenue' | '-daily_revenue' | 'prime_hour' | '-prime_hour'} [order_by] Sorting.
+     * @param {number} [page_no] Page number.
+     * @param {number} [prime_hour] Search for provinces with the value of Prime Time start hour. Values available: from 0 to 23.
+     * @param {Array<string>} [province_id] Filter by the list of province IDs.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapProvincesRaw(requestParameters: GetGlobalmapProvincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapProvincesResponse>>;
+
+    /**
+     * Method returns information about the Global Map provinces.
+     * Provinces
+     */
+    getGlobalmapProvinces(requestParameters: GetGlobalmapProvincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapProvincesResponse>;
+
+    /**
+     * Method returns player\'s statistics for a specific season.
+     * @summary Account\'s season data
+     * @param {number} account_id Account ID.
+     * @param {string} season_id Season ID. To get a season ID, use the [Seasons](https://developers.wargaming.net/reference/all/wot/globalmap/seasons) method.
+     * @param {Array<'6' | '8' | '10'>} vehicle_level List of vehicle Tiers.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapSeasonaccountinfoRaw(requestParameters: GetGlobalmapSeasonaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapSeasonaccountinfoResponse>>;
+
+    /**
+     * Method returns player\'s statistics for a specific season.
+     * Account\'s season data
+     */
+    getGlobalmapSeasonaccountinfo(requestParameters: GetGlobalmapSeasonaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapSeasonaccountinfoResponse>;
+
+    /**
+     * Method returns season clan rating.
+     * @summary Season rating
+     * @param {string} season_id Season ID. To get a season ID, use the [Seasons](https://developers.wargaming.net/reference/all/wot/globalmap/seasons) method.
+     * @param {'6' | '8' | '10'} vehicle_level Vehicle Tier.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {number} [limit] Clans limit.
+     * @param {number} [page_no] Page number.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapSeasonratingRaw(requestParameters: GetGlobalmapSeasonratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapSeasonratingResponse>>;
+
+    /**
+     * Method returns season clan rating.
+     * Season rating
+     */
+    getGlobalmapSeasonrating(requestParameters: GetGlobalmapSeasonratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapSeasonratingResponse>;
+
+    /**
+     * Method returns list of adjacent positions in season clan rating.
+     * @summary Adjacent positions in season clan rating
+     * @param {number} clan_id Clan ID. To get a clan ID, use the [Clans](https://developers.wargaming.net/reference/all/wgn/clans/list) method.
+     * @param {string} season_id Season ID. To get a season ID, use the [Seasons](https://developers.wargaming.net/reference/all/wot/globalmap/seasons) method.
+     * @param {'6' | '8' | '10'} vehicle_level Vehicle Tier.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {number} [limit] Neighbors limit.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapSeasonratingneighborsRaw(requestParameters: GetGlobalmapSeasonratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapSeasonratingneighborsResponse>>;
+
+    /**
+     * Method returns list of adjacent positions in season clan rating.
+     * Adjacent positions in season clan rating
+     */
+    getGlobalmapSeasonratingneighbors(requestParameters: GetGlobalmapSeasonratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapSeasonratingneighborsResponse>;
+
+    /**
+     * Method returns information about seasons.
+     * @summary Seasons
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'de' | 'fr' | 'es' | 'pl' | 'tr' | 'th'} [language] Language.
+     * @param {number} [limit] Page limit.
+     * @param {number} [page_no] Page number.
+     * @param {string} [season_id] Season ID
+     * @param {'PLANNED' | 'ACTIVE' | 'FINISHED'} [status] Response with seasons filtered by status.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalMapApiInterface
+     */
+    getGlobalmapSeasonsRaw(requestParameters: GetGlobalmapSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapSeasonsResponse>>;
+
+    /**
+     * Method returns information about seasons.
+     * Seasons
+     */
+    getGlobalmapSeasons(requestParameters: GetGlobalmapSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapSeasonsResponse>;
+
+}
+
+/**
+ * 
+ */
+export class GlobalMapApi extends runtime.BaseAPI implements GlobalMapApiInterface {
+
+    /**
+     * Method returns list of clan\'s battles on the Global Map.
+     * Clan\'s battles
+     */
+    async getGlobalmapClanbattlesRaw(requestParameters: GetGlobalmapClanbattlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapClanbattlesResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getGlobalmapClanbattles().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getGlobalmapClanbattles().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId'];
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -256,8 +629,8 @@ export class GlobalMapApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -276,14 +649,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapClanbattles200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapClanbattlesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns list of clan\'s battles on the Global Map.
      * Clan\'s battles
      */
-    async getGlobalmapClanbattles(requestParameters: GetGlobalmapClanbattlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapClanbattles200Response> {
+    async getGlobalmapClanbattles(requestParameters: GetGlobalmapClanbattlesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapClanbattlesResponse> {
         const response = await this.getGlobalmapClanbattlesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -292,22 +665,22 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns clan data on the Global Map.
      * Clan details
      */
-    async getGlobalmapClaninfoRaw(requestParameters: GetGlobalmapClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapClaninfo200Response>> {
-        if (requestParameters['clanId'] == null) {
+    async getGlobalmapClaninfoRaw(requestParameters: GetGlobalmapClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapClaninfoResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getGlobalmapClaninfo().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getGlobalmapClaninfo().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['accessToken'] != null) {
-            queryParameters['access_token'] = requestParameters['accessToken'];
+        if (requestParameters['access_token'] != null) {
+            queryParameters['access_token'] = requestParameters['access_token'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -330,14 +703,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapClaninfo200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapClaninfoResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns clan data on the Global Map.
      * Clan details
      */
-    async getGlobalmapClaninfo(requestParameters: GetGlobalmapClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapClaninfo200Response> {
+    async getGlobalmapClaninfo(requestParameters: GetGlobalmapClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapClaninfoResponse> {
         const response = await this.getGlobalmapClaninfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -346,22 +719,22 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns lists of clans provinces.
      * Clan\'s provinces
      */
-    async getGlobalmapClanprovincesRaw(requestParameters: GetGlobalmapClanprovincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapClanprovinces200Response>> {
-        if (requestParameters['clanId'] == null) {
+    async getGlobalmapClanprovincesRaw(requestParameters: GetGlobalmapClanprovincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapClanprovincesResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getGlobalmapClanprovinces().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getGlobalmapClanprovinces().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['accessToken'] != null) {
-            queryParameters['access_token'] = requestParameters['accessToken'];
+        if (requestParameters['access_token'] != null) {
+            queryParameters['access_token'] = requestParameters['access_token'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -388,14 +761,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapClanprovinces200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapClanprovincesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns lists of clans provinces.
      * Clan\'s provinces
      */
-    async getGlobalmapClanprovinces(requestParameters: GetGlobalmapClanprovincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapClanprovinces200Response> {
+    async getGlobalmapClanprovinces(requestParameters: GetGlobalmapClanprovincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapClanprovincesResponse> {
         const response = await this.getGlobalmapClanprovincesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -404,44 +777,44 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns player\'s statistics for a specific event
      * Account event information
      */
-    async getGlobalmapEventaccountinfoRaw(requestParameters: GetGlobalmapEventaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapEventaccountinfo200Response>> {
-        if (requestParameters['accountId'] == null) {
+    async getGlobalmapEventaccountinfoRaw(requestParameters: GetGlobalmapEventaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventaccountinfoResponse>> {
+        if (requestParameters['account_id'] == null) {
             throw new runtime.RequiredError(
-                'accountId',
-                'Required parameter "accountId" was null or undefined when calling getGlobalmapEventaccountinfo().'
+                'account_id',
+                'Required parameter "account_id" was null or undefined when calling getGlobalmapEventaccountinfo().'
             );
         }
 
-        if (requestParameters['eventId'] == null) {
+        if (requestParameters['event_id'] == null) {
             throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getGlobalmapEventaccountinfo().'
+                'event_id',
+                'Required parameter "event_id" was null or undefined when calling getGlobalmapEventaccountinfo().'
             );
         }
 
-        if (requestParameters['frontId'] == null) {
+        if (requestParameters['front_id'] == null) {
             throw new runtime.RequiredError(
-                'frontId',
-                'Required parameter "frontId" was null or undefined when calling getGlobalmapEventaccountinfo().'
+                'front_id',
+                'Required parameter "front_id" was null or undefined when calling getGlobalmapEventaccountinfo().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['accountId'] != null) {
-            queryParameters['account_id'] = requestParameters['accountId'];
+        if (requestParameters['account_id'] != null) {
+            queryParameters['account_id'] = requestParameters['account_id'];
         }
 
-        if (requestParameters['eventId'] != null) {
-            queryParameters['event_id'] = requestParameters['eventId'];
+        if (requestParameters['event_id'] != null) {
+            queryParameters['event_id'] = requestParameters['event_id'];
         }
 
-        if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['front_id'] != null) {
+            queryParameters['front_id'] = requestParameters['front_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId'];
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -464,14 +837,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapEventaccountinfo200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapEventaccountinfoResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns player\'s statistics for a specific event
      * Account event information
      */
-    async getGlobalmapEventaccountinfo(requestParameters: GetGlobalmapEventaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapEventaccountinfo200Response> {
+    async getGlobalmapEventaccountinfo(requestParameters: GetGlobalmapEventaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventaccountinfoResponse> {
         const response = await this.getGlobalmapEventaccountinfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -480,40 +853,40 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns adjacent position in account event rating.
      * Adjacent positions in event account rating
      */
-    async getGlobalmapEventaccountratingneighborsRaw(requestParameters: GetGlobalmapEventaccountratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapEventaccountratingneighbors200Response>> {
-        if (requestParameters['accountId'] == null) {
+    async getGlobalmapEventaccountratingneighborsRaw(requestParameters: GetGlobalmapEventaccountratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventaccountratingneighborsResponse>> {
+        if (requestParameters['account_id'] == null) {
             throw new runtime.RequiredError(
-                'accountId',
-                'Required parameter "accountId" was null or undefined when calling getGlobalmapEventaccountratingneighbors().'
+                'account_id',
+                'Required parameter "account_id" was null or undefined when calling getGlobalmapEventaccountratingneighbors().'
             );
         }
 
-        if (requestParameters['eventId'] == null) {
+        if (requestParameters['event_id'] == null) {
             throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getGlobalmapEventaccountratingneighbors().'
+                'event_id',
+                'Required parameter "event_id" was null or undefined when calling getGlobalmapEventaccountratingneighbors().'
             );
         }
 
-        if (requestParameters['frontId'] == null) {
+        if (requestParameters['front_id'] == null) {
             throw new runtime.RequiredError(
-                'frontId',
-                'Required parameter "frontId" was null or undefined when calling getGlobalmapEventaccountratingneighbors().'
+                'front_id',
+                'Required parameter "front_id" was null or undefined when calling getGlobalmapEventaccountratingneighbors().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['accountId'] != null) {
-            queryParameters['account_id'] = requestParameters['accountId'];
+        if (requestParameters['account_id'] != null) {
+            queryParameters['account_id'] = requestParameters['account_id'];
         }
 
-        if (requestParameters['eventId'] != null) {
-            queryParameters['event_id'] = requestParameters['eventId'];
+        if (requestParameters['event_id'] != null) {
+            queryParameters['event_id'] = requestParameters['event_id'];
         }
 
-        if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId'];
+        if (requestParameters['front_id'] != null) {
+            queryParameters['front_id'] = requestParameters['front_id'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -524,12 +897,12 @@ export class GlobalMapApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['neighboursCount'] != null) {
-            queryParameters['neighbours_count'] = requestParameters['neighboursCount'];
+        if (requestParameters['neighbours_count'] != null) {
+            queryParameters['neighbours_count'] = requestParameters['neighbours_count'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -548,14 +921,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapEventaccountratingneighbors200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapEventaccountratingneighborsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns adjacent position in account event rating.
      * Adjacent positions in event account rating
      */
-    async getGlobalmapEventaccountratingneighbors(requestParameters: GetGlobalmapEventaccountratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapEventaccountratingneighbors200Response> {
+    async getGlobalmapEventaccountratingneighbors(requestParameters: GetGlobalmapEventaccountratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventaccountratingneighborsResponse> {
         const response = await this.getGlobalmapEventaccountratingneighborsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -564,45 +937,45 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns account event rating.
      * Event account rating
      */
-    async getGlobalmapEventaccountratingsRaw(requestParameters: GetGlobalmapEventaccountratingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapEventaccountratings200Response>> {
-        if (requestParameters['eventId'] == null) {
+    async getGlobalmapEventaccountratingsRaw(requestParameters: GetGlobalmapEventaccountratingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventaccountratingsResponse>> {
+        if (requestParameters['event_id'] == null) {
             throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getGlobalmapEventaccountratings().'
+                'event_id',
+                'Required parameter "event_id" was null or undefined when calling getGlobalmapEventaccountratings().'
             );
         }
 
-        if (requestParameters['frontId'] == null) {
+        if (requestParameters['front_id'] == null) {
             throw new runtime.RequiredError(
-                'frontId',
-                'Required parameter "frontId" was null or undefined when calling getGlobalmapEventaccountratings().'
+                'front_id',
+                'Required parameter "front_id" was null or undefined when calling getGlobalmapEventaccountratings().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['eventId'] != null) {
-            queryParameters['event_id'] = requestParameters['eventId'];
+        if (requestParameters['event_id'] != null) {
+            queryParameters['event_id'] = requestParameters['event_id'];
         }
 
-        if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId'];
+        if (requestParameters['front_id'] != null) {
+            queryParameters['front_id'] = requestParameters['front_id'];
         }
 
         if (requestParameters['fields'] != null) {
             queryParameters['fields'] = requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['inRating'] != null) {
-            queryParameters['in_rating'] = requestParameters['inRating'];
+        if (requestParameters['in_rating'] != null) {
+            queryParameters['in_rating'] = requestParameters['in_rating'];
         }
 
         if (requestParameters['limit'] != null) {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -621,14 +994,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapEventaccountratings200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapEventaccountratingsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns account event rating.
      * Event account rating
      */
-    async getGlobalmapEventaccountratings(requestParameters: GetGlobalmapEventaccountratingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapEventaccountratings200Response> {
+    async getGlobalmapEventaccountratings(requestParameters: GetGlobalmapEventaccountratingsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventaccountratingsResponse> {
         const response = await this.getGlobalmapEventaccountratingsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -637,40 +1010,40 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns clan\'s statistics for a specific event.
      * Clan event information
      */
-    async getGlobalmapEventclaninfoRaw(requestParameters: GetGlobalmapEventclaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapEventclaninfo200Response>> {
-        if (requestParameters['clanId'] == null) {
+    async getGlobalmapEventclaninfoRaw(requestParameters: GetGlobalmapEventclaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventclaninfoResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getGlobalmapEventclaninfo().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getGlobalmapEventclaninfo().'
             );
         }
 
-        if (requestParameters['eventId'] == null) {
+        if (requestParameters['event_id'] == null) {
             throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getGlobalmapEventclaninfo().'
+                'event_id',
+                'Required parameter "event_id" was null or undefined when calling getGlobalmapEventclaninfo().'
             );
         }
 
-        if (requestParameters['frontId'] == null) {
+        if (requestParameters['front_id'] == null) {
             throw new runtime.RequiredError(
-                'frontId',
-                'Required parameter "frontId" was null or undefined when calling getGlobalmapEventclaninfo().'
+                'front_id',
+                'Required parameter "front_id" was null or undefined when calling getGlobalmapEventclaninfo().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId'];
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id'];
         }
 
-        if (requestParameters['eventId'] != null) {
-            queryParameters['event_id'] = requestParameters['eventId'];
+        if (requestParameters['event_id'] != null) {
+            queryParameters['event_id'] = requestParameters['event_id'];
         }
 
-        if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['front_id'] != null) {
+            queryParameters['front_id'] = requestParameters['front_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -693,14 +1066,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapEventclaninfo200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapEventclaninfoResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns clan\'s statistics for a specific event.
      * Clan event information
      */
-    async getGlobalmapEventclaninfo(requestParameters: GetGlobalmapEventclaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapEventclaninfo200Response> {
+    async getGlobalmapEventclaninfo(requestParameters: GetGlobalmapEventclaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventclaninfoResponse> {
         const response = await this.getGlobalmapEventclaninfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -709,29 +1082,29 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns clan\'s missions for a specific event.
      * Clan event missions
      */
-    async getGlobalmapEventclantasksRaw(requestParameters: GetGlobalmapEventclantasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapEventclantasks200Response>> {
-        if (requestParameters['clanId'] == null) {
+    async getGlobalmapEventclantasksRaw(requestParameters: GetGlobalmapEventclantasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventclantasksResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getGlobalmapEventclantasks().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getGlobalmapEventclantasks().'
             );
         }
 
-        if (requestParameters['eventId'] == null) {
+        if (requestParameters['event_id'] == null) {
             throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getGlobalmapEventclantasks().'
+                'event_id',
+                'Required parameter "event_id" was null or undefined when calling getGlobalmapEventclantasks().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId'];
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id'];
         }
 
-        if (requestParameters['eventId'] != null) {
-            queryParameters['event_id'] = requestParameters['eventId'];
+        if (requestParameters['event_id'] != null) {
+            queryParameters['event_id'] = requestParameters['event_id'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -746,8 +1119,8 @@ export class GlobalMapApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -766,14 +1139,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapEventclantasks200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapEventclantasksResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns clan\'s missions for a specific event.
      * Clan event missions
      */
-    async getGlobalmapEventclantasks(requestParameters: GetGlobalmapEventclantasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapEventclantasks200Response> {
+    async getGlobalmapEventclantasks(requestParameters: GetGlobalmapEventclantasksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventclantasksResponse> {
         const response = await this.getGlobalmapEventclantasksRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -782,29 +1155,29 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns event clan rating
      * Event clan ratings
      */
-    async getGlobalmapEventratingRaw(requestParameters: GetGlobalmapEventratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapEventrating200Response>> {
-        if (requestParameters['eventId'] == null) {
+    async getGlobalmapEventratingRaw(requestParameters: GetGlobalmapEventratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventratingResponse>> {
+        if (requestParameters['event_id'] == null) {
             throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getGlobalmapEventrating().'
+                'event_id',
+                'Required parameter "event_id" was null or undefined when calling getGlobalmapEventrating().'
             );
         }
 
-        if (requestParameters['frontId'] == null) {
+        if (requestParameters['front_id'] == null) {
             throw new runtime.RequiredError(
-                'frontId',
-                'Required parameter "frontId" was null or undefined when calling getGlobalmapEventrating().'
+                'front_id',
+                'Required parameter "front_id" was null or undefined when calling getGlobalmapEventrating().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['eventId'] != null) {
-            queryParameters['event_id'] = requestParameters['eventId'];
+        if (requestParameters['event_id'] != null) {
+            queryParameters['event_id'] = requestParameters['event_id'];
         }
 
-        if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId'];
+        if (requestParameters['front_id'] != null) {
+            queryParameters['front_id'] = requestParameters['front_id'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -815,8 +1188,8 @@ export class GlobalMapApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -835,14 +1208,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapEventrating200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapEventratingResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns event clan rating
      * Event clan ratings
      */
-    async getGlobalmapEventrating(requestParameters: GetGlobalmapEventratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapEventrating200Response> {
+    async getGlobalmapEventrating(requestParameters: GetGlobalmapEventratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventratingResponse> {
         const response = await this.getGlobalmapEventratingRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -851,40 +1224,40 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns list of adjacent positions in event clan rating
      * Adjacent position in event clan rating
      */
-    async getGlobalmapEventratingneighborsRaw(requestParameters: GetGlobalmapEventratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapEventratingneighbors200Response>> {
-        if (requestParameters['clanId'] == null) {
+    async getGlobalmapEventratingneighborsRaw(requestParameters: GetGlobalmapEventratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventratingneighborsResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getGlobalmapEventratingneighbors().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getGlobalmapEventratingneighbors().'
             );
         }
 
-        if (requestParameters['eventId'] == null) {
+        if (requestParameters['event_id'] == null) {
             throw new runtime.RequiredError(
-                'eventId',
-                'Required parameter "eventId" was null or undefined when calling getGlobalmapEventratingneighbors().'
+                'event_id',
+                'Required parameter "event_id" was null or undefined when calling getGlobalmapEventratingneighbors().'
             );
         }
 
-        if (requestParameters['frontId'] == null) {
+        if (requestParameters['front_id'] == null) {
             throw new runtime.RequiredError(
-                'frontId',
-                'Required parameter "frontId" was null or undefined when calling getGlobalmapEventratingneighbors().'
+                'front_id',
+                'Required parameter "front_id" was null or undefined when calling getGlobalmapEventratingneighbors().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId'];
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id'];
         }
 
-        if (requestParameters['eventId'] != null) {
-            queryParameters['event_id'] = requestParameters['eventId'];
+        if (requestParameters['event_id'] != null) {
+            queryParameters['event_id'] = requestParameters['event_id'];
         }
 
-        if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId'];
+        if (requestParameters['front_id'] != null) {
+            queryParameters['front_id'] = requestParameters['front_id'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -911,14 +1284,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapEventratingneighbors200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapEventratingneighborsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns list of adjacent positions in event clan rating
      * Adjacent position in event clan rating
      */
-    async getGlobalmapEventratingneighbors(requestParameters: GetGlobalmapEventratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapEventratingneighbors200Response> {
+    async getGlobalmapEventratingneighbors(requestParameters: GetGlobalmapEventratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventratingneighborsResponse> {
         const response = await this.getGlobalmapEventratingneighborsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -927,11 +1300,11 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns events information.
      * Events
      */
-    async getGlobalmapEventsRaw(requestParameters: GetGlobalmapEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapEvents200Response>> {
+    async getGlobalmapEventsRaw(requestParameters: GetGlobalmapEventsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapEventsResponse>> {
         const queryParameters: any = {};
 
-        if (requestParameters['eventId'] != null) {
-            queryParameters['event_id'] = requestParameters['eventId'];
+        if (requestParameters['event_id'] != null) {
+            queryParameters['event_id'] = requestParameters['event_id'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -946,8 +1319,8 @@ export class GlobalMapApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         if (requestParameters['status'] != null) {
@@ -970,14 +1343,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapEvents200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapEventsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns events information.
      * Events
      */
-    async getGlobalmapEvents(requestParameters: GetGlobalmapEventsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapEvents200Response> {
+    async getGlobalmapEvents(requestParameters: GetGlobalmapEventsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapEventsResponse> {
         const response = await this.getGlobalmapEventsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -986,15 +1359,15 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns information about the Global Map Fronts.
      * Fronts
      */
-    async getGlobalmapFrontsRaw(requestParameters: GetGlobalmapFrontsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapFronts200Response>> {
+    async getGlobalmapFrontsRaw(requestParameters: GetGlobalmapFrontsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapFrontsResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
             queryParameters['fields'] = requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['front_id'] != null) {
+            queryParameters['front_id'] = requestParameters['front_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['language'] != null) {
@@ -1005,8 +1378,8 @@ export class GlobalMapApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1025,14 +1398,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapFronts200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapFrontsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information about the Global Map Fronts.
      * Fronts
      */
-    async getGlobalmapFronts(requestParameters: GetGlobalmapFrontsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapFronts200Response> {
+    async getGlobalmapFronts(requestParameters: GetGlobalmapFrontsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapFrontsResponse> {
         const response = await this.getGlobalmapFrontsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1041,7 +1414,7 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns general information about the Global Map.
      * Map status
      */
-    async getGlobalmapInfoRaw(requestParameters: GetGlobalmapInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapInfo200Response>> {
+    async getGlobalmapInfoRaw(requestParameters: GetGlobalmapInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapInfoResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -1064,14 +1437,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapInfo200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapInfoResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns general information about the Global Map.
      * Map status
      */
-    async getGlobalmapInfo(requestParameters: GetGlobalmapInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapInfo200Response> {
+    async getGlobalmapInfo(requestParameters: GetGlobalmapInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapInfoResponse> {
         const response = await this.getGlobalmapInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1080,38 +1453,38 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns information about the Global Map provinces.
      * Provinces
      */
-    async getGlobalmapProvincesRaw(requestParameters: GetGlobalmapProvincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapProvinces200Response>> {
-        if (requestParameters['frontId'] == null) {
+    async getGlobalmapProvincesRaw(requestParameters: GetGlobalmapProvincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapProvincesResponse>> {
+        if (requestParameters['front_id'] == null) {
             throw new runtime.RequiredError(
-                'frontId',
-                'Required parameter "frontId" was null or undefined when calling getGlobalmapProvinces().'
+                'front_id',
+                'Required parameter "front_id" was null or undefined when calling getGlobalmapProvinces().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['frontId'] != null) {
-            queryParameters['front_id'] = requestParameters['frontId'];
+        if (requestParameters['front_id'] != null) {
+            queryParameters['front_id'] = requestParameters['front_id'];
         }
 
-        if (requestParameters['arenaId'] != null) {
-            queryParameters['arena_id'] = requestParameters['arenaId'];
+        if (requestParameters['arena_id'] != null) {
+            queryParameters['arena_id'] = requestParameters['arena_id'];
         }
 
-        if (requestParameters['dailyRevenueGte'] != null) {
-            queryParameters['daily_revenue_gte'] = requestParameters['dailyRevenueGte'];
+        if (requestParameters['daily_revenue_gte'] != null) {
+            queryParameters['daily_revenue_gte'] = requestParameters['daily_revenue_gte'];
         }
 
-        if (requestParameters['dailyRevenueLte'] != null) {
-            queryParameters['daily_revenue_lte'] = requestParameters['dailyRevenueLte'];
+        if (requestParameters['daily_revenue_lte'] != null) {
+            queryParameters['daily_revenue_lte'] = requestParameters['daily_revenue_lte'];
         }
 
         if (requestParameters['fields'] != null) {
             queryParameters['fields'] = requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['landingType'] != null) {
-            queryParameters['landing_type'] = requestParameters['landingType'];
+        if (requestParameters['landing_type'] != null) {
+            queryParameters['landing_type'] = requestParameters['landing_type'];
         }
 
         if (requestParameters['language'] != null) {
@@ -1122,20 +1495,20 @@ export class GlobalMapApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['orderBy'] != null) {
-            queryParameters['order_by'] = requestParameters['orderBy'];
+        if (requestParameters['order_by'] != null) {
+            queryParameters['order_by'] = requestParameters['order_by'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
-        if (requestParameters['primeHour'] != null) {
-            queryParameters['prime_hour'] = requestParameters['primeHour'];
+        if (requestParameters['prime_hour'] != null) {
+            queryParameters['prime_hour'] = requestParameters['prime_hour'];
         }
 
-        if (requestParameters['provinceId'] != null) {
-            queryParameters['province_id'] = requestParameters['provinceId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['province_id'] != null) {
+            queryParameters['province_id'] = requestParameters['province_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1154,14 +1527,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapProvinces200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapProvincesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information about the Global Map provinces.
      * Provinces
      */
-    async getGlobalmapProvinces(requestParameters: GetGlobalmapProvincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapProvinces200Response> {
+    async getGlobalmapProvinces(requestParameters: GetGlobalmapProvincesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapProvincesResponse> {
         const response = await this.getGlobalmapProvincesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1170,40 +1543,40 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns player\'s statistics for a specific season.
      * Account\'s season data
      */
-    async getGlobalmapSeasonaccountinfoRaw(requestParameters: GetGlobalmapSeasonaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapSeasonaccountinfo200Response>> {
-        if (requestParameters['accountId'] == null) {
+    async getGlobalmapSeasonaccountinfoRaw(requestParameters: GetGlobalmapSeasonaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapSeasonaccountinfoResponse>> {
+        if (requestParameters['account_id'] == null) {
             throw new runtime.RequiredError(
-                'accountId',
-                'Required parameter "accountId" was null or undefined when calling getGlobalmapSeasonaccountinfo().'
+                'account_id',
+                'Required parameter "account_id" was null or undefined when calling getGlobalmapSeasonaccountinfo().'
             );
         }
 
-        if (requestParameters['seasonId'] == null) {
+        if (requestParameters['season_id'] == null) {
             throw new runtime.RequiredError(
-                'seasonId',
-                'Required parameter "seasonId" was null or undefined when calling getGlobalmapSeasonaccountinfo().'
+                'season_id',
+                'Required parameter "season_id" was null or undefined when calling getGlobalmapSeasonaccountinfo().'
             );
         }
 
-        if (requestParameters['vehicleLevel'] == null) {
+        if (requestParameters['vehicle_level'] == null) {
             throw new runtime.RequiredError(
-                'vehicleLevel',
-                'Required parameter "vehicleLevel" was null or undefined when calling getGlobalmapSeasonaccountinfo().'
+                'vehicle_level',
+                'Required parameter "vehicle_level" was null or undefined when calling getGlobalmapSeasonaccountinfo().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['accountId'] != null) {
-            queryParameters['account_id'] = requestParameters['accountId'];
+        if (requestParameters['account_id'] != null) {
+            queryParameters['account_id'] = requestParameters['account_id'];
         }
 
-        if (requestParameters['seasonId'] != null) {
-            queryParameters['season_id'] = requestParameters['seasonId'];
+        if (requestParameters['season_id'] != null) {
+            queryParameters['season_id'] = requestParameters['season_id'];
         }
 
-        if (requestParameters['vehicleLevel'] != null) {
-            queryParameters['vehicle_level'] = requestParameters['vehicleLevel']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['vehicle_level'] != null) {
+            queryParameters['vehicle_level'] = requestParameters['vehicle_level']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -1226,14 +1599,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapSeasonaccountinfo200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapSeasonaccountinfoResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns player\'s statistics for a specific season.
      * Account\'s season data
      */
-    async getGlobalmapSeasonaccountinfo(requestParameters: GetGlobalmapSeasonaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapSeasonaccountinfo200Response> {
+    async getGlobalmapSeasonaccountinfo(requestParameters: GetGlobalmapSeasonaccountinfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapSeasonaccountinfoResponse> {
         const response = await this.getGlobalmapSeasonaccountinfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1242,29 +1615,29 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns season clan rating.
      * Season rating
      */
-    async getGlobalmapSeasonratingRaw(requestParameters: GetGlobalmapSeasonratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapSeasonrating200Response>> {
-        if (requestParameters['seasonId'] == null) {
+    async getGlobalmapSeasonratingRaw(requestParameters: GetGlobalmapSeasonratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapSeasonratingResponse>> {
+        if (requestParameters['season_id'] == null) {
             throw new runtime.RequiredError(
-                'seasonId',
-                'Required parameter "seasonId" was null or undefined when calling getGlobalmapSeasonrating().'
+                'season_id',
+                'Required parameter "season_id" was null or undefined when calling getGlobalmapSeasonrating().'
             );
         }
 
-        if (requestParameters['vehicleLevel'] == null) {
+        if (requestParameters['vehicle_level'] == null) {
             throw new runtime.RequiredError(
-                'vehicleLevel',
-                'Required parameter "vehicleLevel" was null or undefined when calling getGlobalmapSeasonrating().'
+                'vehicle_level',
+                'Required parameter "vehicle_level" was null or undefined when calling getGlobalmapSeasonrating().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['seasonId'] != null) {
-            queryParameters['season_id'] = requestParameters['seasonId'];
+        if (requestParameters['season_id'] != null) {
+            queryParameters['season_id'] = requestParameters['season_id'];
         }
 
-        if (requestParameters['vehicleLevel'] != null) {
-            queryParameters['vehicle_level'] = requestParameters['vehicleLevel'];
+        if (requestParameters['vehicle_level'] != null) {
+            queryParameters['vehicle_level'] = requestParameters['vehicle_level'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -1275,8 +1648,8 @@ export class GlobalMapApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1295,14 +1668,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapSeasonrating200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapSeasonratingResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns season clan rating.
      * Season rating
      */
-    async getGlobalmapSeasonrating(requestParameters: GetGlobalmapSeasonratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapSeasonrating200Response> {
+    async getGlobalmapSeasonrating(requestParameters: GetGlobalmapSeasonratingRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapSeasonratingResponse> {
         const response = await this.getGlobalmapSeasonratingRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1311,40 +1684,40 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns list of adjacent positions in season clan rating.
      * Adjacent positions in season clan rating
      */
-    async getGlobalmapSeasonratingneighborsRaw(requestParameters: GetGlobalmapSeasonratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapSeasonratingneighbors200Response>> {
-        if (requestParameters['clanId'] == null) {
+    async getGlobalmapSeasonratingneighborsRaw(requestParameters: GetGlobalmapSeasonratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapSeasonratingneighborsResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getGlobalmapSeasonratingneighbors().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getGlobalmapSeasonratingneighbors().'
             );
         }
 
-        if (requestParameters['seasonId'] == null) {
+        if (requestParameters['season_id'] == null) {
             throw new runtime.RequiredError(
-                'seasonId',
-                'Required parameter "seasonId" was null or undefined when calling getGlobalmapSeasonratingneighbors().'
+                'season_id',
+                'Required parameter "season_id" was null or undefined when calling getGlobalmapSeasonratingneighbors().'
             );
         }
 
-        if (requestParameters['vehicleLevel'] == null) {
+        if (requestParameters['vehicle_level'] == null) {
             throw new runtime.RequiredError(
-                'vehicleLevel',
-                'Required parameter "vehicleLevel" was null or undefined when calling getGlobalmapSeasonratingneighbors().'
+                'vehicle_level',
+                'Required parameter "vehicle_level" was null or undefined when calling getGlobalmapSeasonratingneighbors().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId'];
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id'];
         }
 
-        if (requestParameters['seasonId'] != null) {
-            queryParameters['season_id'] = requestParameters['seasonId'];
+        if (requestParameters['season_id'] != null) {
+            queryParameters['season_id'] = requestParameters['season_id'];
         }
 
-        if (requestParameters['vehicleLevel'] != null) {
-            queryParameters['vehicle_level'] = requestParameters['vehicleLevel'];
+        if (requestParameters['vehicle_level'] != null) {
+            queryParameters['vehicle_level'] = requestParameters['vehicle_level'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -1371,14 +1744,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapSeasonratingneighbors200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapSeasonratingneighborsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns list of adjacent positions in season clan rating.
      * Adjacent positions in season clan rating
      */
-    async getGlobalmapSeasonratingneighbors(requestParameters: GetGlobalmapSeasonratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapSeasonratingneighbors200Response> {
+    async getGlobalmapSeasonratingneighbors(requestParameters: GetGlobalmapSeasonratingneighborsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapSeasonratingneighborsResponse> {
         const response = await this.getGlobalmapSeasonratingneighborsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1387,7 +1760,7 @@ export class GlobalMapApi extends runtime.BaseAPI {
      * Method returns information about seasons.
      * Seasons
      */
-    async getGlobalmapSeasonsRaw(requestParameters: GetGlobalmapSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetGlobalmapSeasons200Response>> {
+    async getGlobalmapSeasonsRaw(requestParameters: GetGlobalmapSeasonsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GlobalmapSeasonsResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -1402,12 +1775,12 @@ export class GlobalMapApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
-        if (requestParameters['seasonId'] != null) {
-            queryParameters['season_id'] = requestParameters['seasonId'];
+        if (requestParameters['season_id'] != null) {
+            queryParameters['season_id'] = requestParameters['season_id'];
         }
 
         if (requestParameters['status'] != null) {
@@ -1430,14 +1803,14 @@ export class GlobalMapApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetGlobalmapSeasons200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => GlobalmapSeasonsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information about seasons.
      * Seasons
      */
-    async getGlobalmapSeasons(requestParameters: GetGlobalmapSeasonsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetGlobalmapSeasons200Response> {
+    async getGlobalmapSeasons(requestParameters: GetGlobalmapSeasonsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GlobalmapSeasonsResponse> {
         const response = await this.getGlobalmapSeasonsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1445,167 +1818,167 @@ export class GlobalMapApi extends runtime.BaseAPI {
 }
 
 /**
- * @export
- */
-export const GetGlobalmapClanbattlesLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    Pl: 'pl',
-    Tr: 'tr',
-    Th: 'th'
-} as const;
-export type GetGlobalmapClanbattlesLanguageEnum = typeof GetGlobalmapClanbattlesLanguageEnum[keyof typeof GetGlobalmapClanbattlesLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapClanbattlesLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    Pl = 'pl',
+    Tr = 'tr',
+    Th = 'th'
+}
 /**
- * @export
- */
-export const GetGlobalmapClanprovincesLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    Pl: 'pl',
-    Tr: 'tr',
-    Th: 'th'
-} as const;
-export type GetGlobalmapClanprovincesLanguageEnum = typeof GetGlobalmapClanprovincesLanguageEnum[keyof typeof GetGlobalmapClanprovincesLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapClanprovincesLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    Pl = 'pl',
+    Tr = 'tr',
+    Th = 'th'
+}
 /**
- * @export
- */
-export const GetGlobalmapEventaccountratingsInRatingEnum = {
-    NUMBER_1: 1,
-    NUMBER_0: 0
-} as const;
-export type GetGlobalmapEventaccountratingsInRatingEnum = typeof GetGlobalmapEventaccountratingsInRatingEnum[keyof typeof GetGlobalmapEventaccountratingsInRatingEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapEventaccountratingsInRatingEnum {
+    NUMBER_1 = 1,
+    NUMBER_0 = 0
+}
 /**
- * @export
- */
-export const GetGlobalmapEventclantasksLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    Pl: 'pl',
-    Tr: 'tr',
-    Th: 'th'
-} as const;
-export type GetGlobalmapEventclantasksLanguageEnum = typeof GetGlobalmapEventclantasksLanguageEnum[keyof typeof GetGlobalmapEventclantasksLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapEventclantasksLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    Pl = 'pl',
+    Tr = 'tr',
+    Th = 'th'
+}
 /**
- * @export
- */
-export const GetGlobalmapEventsLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    Pl: 'pl',
-    Tr: 'tr',
-    Th: 'th'
-} as const;
-export type GetGlobalmapEventsLanguageEnum = typeof GetGlobalmapEventsLanguageEnum[keyof typeof GetGlobalmapEventsLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapEventsLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    Pl = 'pl',
+    Tr = 'tr',
+    Th = 'th'
+}
 /**
- * @export
- */
-export const GetGlobalmapEventsStatusEnum = {
-    Planned: 'PLANNED',
-    Active: 'ACTIVE',
-    Finished: 'FINISHED'
-} as const;
-export type GetGlobalmapEventsStatusEnum = typeof GetGlobalmapEventsStatusEnum[keyof typeof GetGlobalmapEventsStatusEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapEventsStatusEnum {
+    Planned = 'PLANNED',
+    Active = 'ACTIVE',
+    Finished = 'FINISHED'
+}
 /**
- * @export
- */
-export const GetGlobalmapFrontsLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    Pl: 'pl',
-    Tr: 'tr',
-    Th: 'th'
-} as const;
-export type GetGlobalmapFrontsLanguageEnum = typeof GetGlobalmapFrontsLanguageEnum[keyof typeof GetGlobalmapFrontsLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapFrontsLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    Pl = 'pl',
+    Tr = 'tr',
+    Th = 'th'
+}
 /**
- * @export
- */
-export const GetGlobalmapProvincesLandingTypeEnum = {
-    Null: 'null',
-    Auction: 'auction',
-    Tournament: 'tournament'
-} as const;
-export type GetGlobalmapProvincesLandingTypeEnum = typeof GetGlobalmapProvincesLandingTypeEnum[keyof typeof GetGlobalmapProvincesLandingTypeEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapProvincesLandingTypeEnum {
+    Null = 'null',
+    Auction = 'auction',
+    Tournament = 'tournament'
+}
 /**
- * @export
- */
-export const GetGlobalmapProvincesLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    Pl: 'pl',
-    Tr: 'tr',
-    Th: 'th'
-} as const;
-export type GetGlobalmapProvincesLanguageEnum = typeof GetGlobalmapProvincesLanguageEnum[keyof typeof GetGlobalmapProvincesLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapProvincesLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    Pl = 'pl',
+    Tr = 'tr',
+    Th = 'th'
+}
 /**
- * @export
- */
-export const GetGlobalmapProvincesOrderByEnum = {
-    ProvinceId: 'province_id',
-    ProvinceId2: '-province_id',
-    DailyRevenue: 'daily_revenue',
-    DailyRevenue2: '-daily_revenue',
-    PrimeHour: 'prime_hour',
-    PrimeHour2: '-prime_hour'
-} as const;
-export type GetGlobalmapProvincesOrderByEnum = typeof GetGlobalmapProvincesOrderByEnum[keyof typeof GetGlobalmapProvincesOrderByEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapProvincesOrderByEnum {
+    ProvinceId = 'province_id',
+    MinusProvinceId = '-province_id',
+    DailyRevenue = 'daily_revenue',
+    MinusDailyRevenue = '-daily_revenue',
+    PrimeHour = 'prime_hour',
+    MinusPrimeHour = '-prime_hour'
+}
 /**
- * @export
- */
-export const GetGlobalmapSeasonaccountinfoVehicleLevelEnum = {
-    _6: '6',
-    _8: '8',
-    _10: '10'
-} as const;
-export type GetGlobalmapSeasonaccountinfoVehicleLevelEnum = typeof GetGlobalmapSeasonaccountinfoVehicleLevelEnum[keyof typeof GetGlobalmapSeasonaccountinfoVehicleLevelEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapSeasonaccountinfoVehicleLevelEnum {
+    _6 = '6',
+    _8 = '8',
+    _10 = '10'
+}
 /**
- * @export
- */
-export const GetGlobalmapSeasonratingVehicleLevelEnum = {
-    _6: '6',
-    _8: '8',
-    _10: '10'
-} as const;
-export type GetGlobalmapSeasonratingVehicleLevelEnum = typeof GetGlobalmapSeasonratingVehicleLevelEnum[keyof typeof GetGlobalmapSeasonratingVehicleLevelEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapSeasonratingVehicleLevelEnum {
+    _6 = '6',
+    _8 = '8',
+    _10 = '10'
+}
 /**
- * @export
- */
-export const GetGlobalmapSeasonratingneighborsVehicleLevelEnum = {
-    _6: '6',
-    _8: '8',
-    _10: '10'
-} as const;
-export type GetGlobalmapSeasonratingneighborsVehicleLevelEnum = typeof GetGlobalmapSeasonratingneighborsVehicleLevelEnum[keyof typeof GetGlobalmapSeasonratingneighborsVehicleLevelEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapSeasonratingneighborsVehicleLevelEnum {
+    _6 = '6',
+    _8 = '8',
+    _10 = '10'
+}
 /**
- * @export
- */
-export const GetGlobalmapSeasonsLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    Pl: 'pl',
-    Tr: 'tr',
-    Th: 'th'
-} as const;
-export type GetGlobalmapSeasonsLanguageEnum = typeof GetGlobalmapSeasonsLanguageEnum[keyof typeof GetGlobalmapSeasonsLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapSeasonsLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    Pl = 'pl',
+    Tr = 'tr',
+    Th = 'th'
+}
 /**
- * @export
- */
-export const GetGlobalmapSeasonsStatusEnum = {
-    Planned: 'PLANNED',
-    Active: 'ACTIVE',
-    Finished: 'FINISHED'
-} as const;
-export type GetGlobalmapSeasonsStatusEnum = typeof GetGlobalmapSeasonsStatusEnum[keyof typeof GetGlobalmapSeasonsStatusEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetGlobalmapSeasonsStatusEnum {
+    Planned = 'PLANNED',
+    Active = 'ACTIVE',
+    Finished = 'FINISHED'
+}

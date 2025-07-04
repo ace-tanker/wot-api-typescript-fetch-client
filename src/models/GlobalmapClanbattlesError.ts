@@ -41,14 +41,13 @@ export interface GlobalmapClanbattlesError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapClanbattlesErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type GlobalmapClanbattlesErrorStatusEnum = typeof GlobalmapClanbattlesErrorStatusEnum[keyof typeof GlobalmapClanbattlesErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapClanbattlesErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function GlobalmapClanbattlesErrorToJSONTyped(value?: GlobalmapClanbattle
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const GlobalmapClanbattlesErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

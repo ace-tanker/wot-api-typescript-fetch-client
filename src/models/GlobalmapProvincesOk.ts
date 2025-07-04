@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { GlobalmapProvincesItem } from './GlobalmapProvincesItem.js';
-import {
-    GlobalmapProvincesItemFromJSON,
-    GlobalmapProvincesItemFromJSONTyped,
-    GlobalmapProvincesItemToJSON,
-    GlobalmapProvincesItemToJSONTyped,
-} from './GlobalmapProvincesItem.js';
 import type { GlobalmapProvincesMeta } from './GlobalmapProvincesMeta.js';
 import {
     GlobalmapProvincesMetaFromJSON,
@@ -27,6 +20,13 @@ import {
     GlobalmapProvincesMetaToJSON,
     GlobalmapProvincesMetaToJSONTyped,
 } from './GlobalmapProvincesMeta.js';
+import type { GlobalmapProvincesDataItem } from './GlobalmapProvincesDataItem.js';
+import {
+    GlobalmapProvincesDataItemFromJSON,
+    GlobalmapProvincesDataItemFromJSONTyped,
+    GlobalmapProvincesDataItemToJSON,
+    GlobalmapProvincesDataItemToJSONTyped,
+} from './GlobalmapProvincesDataItem.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface GlobalmapProvincesOk {
     meta: GlobalmapProvincesMeta;
     /**
      * 
-     * @type {Array<GlobalmapProvincesItem>}
+     * @type {Array<GlobalmapProvincesDataItem>}
      * @memberof GlobalmapProvincesOk
      */
-    data: Array<GlobalmapProvincesItem>;
+    data: Array<GlobalmapProvincesDataItem>;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapProvincesOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapProvincesOkStatusEnum = typeof GlobalmapProvincesOkStatusEnum[keyof typeof GlobalmapProvincesOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapProvincesOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapProvincesOkFromJSONTyped(json: any, ignoreDiscriminator
         
         'status': json['status'],
         'meta': GlobalmapProvincesMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(GlobalmapProvincesItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(GlobalmapProvincesDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapProvincesOkToJSONTyped(value?: GlobalmapProvincesOk | n
         
         'status': value['status'],
         'meta': GlobalmapProvincesMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(GlobalmapProvincesItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(GlobalmapProvincesDataItemToJSON)),
     };
+}
+
+export const GlobalmapProvincesOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

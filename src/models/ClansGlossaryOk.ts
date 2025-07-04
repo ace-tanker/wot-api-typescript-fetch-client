@@ -47,14 +47,13 @@ export interface ClansGlossaryOk {
     data: ClansGlossaryData;
 }
 
-
 /**
- * @export
- */
-export const ClansGlossaryOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type ClansGlossaryOkStatusEnum = typeof ClansGlossaryOkStatusEnum[keyof typeof ClansGlossaryOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum ClansGlossaryOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -98,5 +97,22 @@ export function ClansGlossaryOkToJSONTyped(value?: ClansGlossaryOk | null, ignor
         'meta': value['meta'],
         'data': ClansGlossaryDataToJSON(value['data']),
     };
+}
+
+export const ClansGlossaryOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

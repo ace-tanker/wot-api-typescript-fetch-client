@@ -21,16 +21,16 @@ import { mapValues } from '../runtime.js';
 export interface TanksMasteryData {
     /**
      * Values of these percentiles for each piece of equipment
-     * @type {{ [key: string]: { [key: string]: number; }; }}
+     * @type {{ [key: string]: { [key: string]: number | undefined; } | undefined; }}
      * @memberof TanksMasteryData
      */
-    distribution: { [key: string]: { [key: string]: number; }; };
+    distribution: { [key: string]: { [key: string]: number | undefined; } | undefined; };
     /**
      * Date of data update
      * @type {number}
      * @memberof TanksMasteryData
      */
-    updatedAt: number;
+    updated_at: number;
 }
 
 /**
@@ -38,7 +38,7 @@ export interface TanksMasteryData {
  */
 export function instanceOfTanksMasteryData(value: object): value is TanksMasteryData {
     if (!('distribution' in value) || value['distribution'] === undefined) return false;
-    if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('updated_at' in value) || value['updated_at'] === undefined) return false;
     return true;
 }
 
@@ -53,7 +53,7 @@ export function TanksMasteryDataFromJSONTyped(json: any, ignoreDiscriminator: bo
     return {
         
         'distribution': json['distribution'],
-        'updatedAt': json['updated_at'],
+        'updated_at': json['updated_at'],
     };
 }
 
@@ -69,7 +69,24 @@ export function TanksMasteryDataToJSONTyped(value?: TanksMasteryData | null, ign
     return {
         
         'distribution': value['distribution'],
-        'updated_at': value['updatedAt'],
+        'updated_at': value['updated_at'],
     };
+}
+
+export const TanksMasteryDataPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

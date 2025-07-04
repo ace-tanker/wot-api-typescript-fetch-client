@@ -20,13 +20,13 @@ import {
     GlobalmapSeasonsMetaToJSON,
     GlobalmapSeasonsMetaToJSONTyped,
 } from './GlobalmapSeasonsMeta.js';
-import type { GlobalmapSeasonsItem } from './GlobalmapSeasonsItem.js';
+import type { GlobalmapSeasonsDataItem } from './GlobalmapSeasonsDataItem.js';
 import {
-    GlobalmapSeasonsItemFromJSON,
-    GlobalmapSeasonsItemFromJSONTyped,
-    GlobalmapSeasonsItemToJSON,
-    GlobalmapSeasonsItemToJSONTyped,
-} from './GlobalmapSeasonsItem.js';
+    GlobalmapSeasonsDataItemFromJSON,
+    GlobalmapSeasonsDataItemFromJSONTyped,
+    GlobalmapSeasonsDataItemToJSON,
+    GlobalmapSeasonsDataItemToJSONTyped,
+} from './GlobalmapSeasonsDataItem.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface GlobalmapSeasonsOk {
     meta: GlobalmapSeasonsMeta;
     /**
      * 
-     * @type {Array<GlobalmapSeasonsItem>}
+     * @type {Array<GlobalmapSeasonsDataItem>}
      * @memberof GlobalmapSeasonsOk
      */
-    data: Array<GlobalmapSeasonsItem>;
+    data: Array<GlobalmapSeasonsDataItem>;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapSeasonsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapSeasonsOkStatusEnum = typeof GlobalmapSeasonsOkStatusEnum[keyof typeof GlobalmapSeasonsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapSeasonsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapSeasonsOkFromJSONTyped(json: any, ignoreDiscriminator: 
         
         'status': json['status'],
         'meta': GlobalmapSeasonsMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(GlobalmapSeasonsItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(GlobalmapSeasonsDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapSeasonsOkToJSONTyped(value?: GlobalmapSeasonsOk | null,
         
         'status': value['status'],
         'meta': GlobalmapSeasonsMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(GlobalmapSeasonsItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(GlobalmapSeasonsDataItemToJSON)),
     };
+}
+
+export const GlobalmapSeasonsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

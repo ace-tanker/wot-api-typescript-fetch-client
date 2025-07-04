@@ -41,14 +41,13 @@ export interface AccountTanksError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const AccountTanksErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type AccountTanksErrorStatusEnum = typeof AccountTanksErrorStatusEnum[keyof typeof AccountTanksErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum AccountTanksErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function AccountTanksErrorToJSONTyped(value?: AccountTanksError | null, i
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const AccountTanksErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

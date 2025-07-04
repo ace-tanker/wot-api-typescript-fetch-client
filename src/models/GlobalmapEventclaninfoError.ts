@@ -41,14 +41,13 @@ export interface GlobalmapEventclaninfoError {
     error: GlobalmapEventsErrorError;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapEventclaninfoErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type GlobalmapEventclaninfoErrorStatusEnum = typeof GlobalmapEventclaninfoErrorStatusEnum[keyof typeof GlobalmapEventclaninfoErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventclaninfoErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function GlobalmapEventclaninfoErrorToJSONTyped(value?: GlobalmapEventcla
         'status': value['status'],
         'error': GlobalmapEventsErrorErrorToJSON(value['error']),
     };
+}
+
+export const GlobalmapEventclaninfoErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

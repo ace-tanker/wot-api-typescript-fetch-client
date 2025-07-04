@@ -20,13 +20,13 @@ import {
     ClansMessageboardMetaToJSON,
     ClansMessageboardMetaToJSONTyped,
 } from './ClansMessageboardMeta.js';
-import type { ClansMessageboardValueItem } from './ClansMessageboardValueItem.js';
+import type { ClansMessageboardDataValueItem } from './ClansMessageboardDataValueItem.js';
 import {
-    ClansMessageboardValueItemFromJSON,
-    ClansMessageboardValueItemFromJSONTyped,
-    ClansMessageboardValueItemToJSON,
-    ClansMessageboardValueItemToJSONTyped,
-} from './ClansMessageboardValueItem.js';
+    ClansMessageboardDataValueItemFromJSON,
+    ClansMessageboardDataValueItemFromJSONTyped,
+    ClansMessageboardDataValueItemToJSON,
+    ClansMessageboardDataValueItemToJSONTyped,
+} from './ClansMessageboardDataValueItem.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface ClansMessageboardOk {
     meta: ClansMessageboardMeta;
     /**
      * 
-     * @type {{ [key: string]: Array<ClansMessageboardValueItem>; }}
+     * @type {{ [key: string]: Array<ClansMessageboardDataValueItem> | undefined; }}
      * @memberof ClansMessageboardOk
      */
-    data: { [key: string]: Array<ClansMessageboardValueItem>; };
+    data: { [key: string]: Array<ClansMessageboardDataValueItem> | undefined; };
 }
 
-
 /**
- * @export
- */
-export const ClansMessageboardOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type ClansMessageboardOkStatusEnum = typeof ClansMessageboardOkStatusEnum[keyof typeof ClansMessageboardOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum ClansMessageboardOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function ClansMessageboardOkToJSONTyped(value?: ClansMessageboardOk | nul
         'meta': ClansMessageboardMetaToJSON(value['meta']),
         'data': value['data'],
     };
+}
+
+export const ClansMessageboardOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

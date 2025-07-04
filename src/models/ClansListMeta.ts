@@ -73,3 +73,20 @@ export function ClansListMetaToJSONTyped(value?: ClansListMeta | null, ignoreDis
     };
 }
 
+export const ClansListMetaPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
+}
+

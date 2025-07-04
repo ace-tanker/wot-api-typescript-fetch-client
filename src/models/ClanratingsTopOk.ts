@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { ClanratingsTopItem } from './ClanratingsTopItem.js';
+import type { ClanratingsTopDataItem } from './ClanratingsTopDataItem.js';
 import {
-    ClanratingsTopItemFromJSON,
-    ClanratingsTopItemFromJSONTyped,
-    ClanratingsTopItemToJSON,
-    ClanratingsTopItemToJSONTyped,
-} from './ClanratingsTopItem.js';
+    ClanratingsTopDataItemFromJSON,
+    ClanratingsTopDataItemFromJSONTyped,
+    ClanratingsTopDataItemToJSON,
+    ClanratingsTopDataItemToJSONTyped,
+} from './ClanratingsTopDataItem.js';
 import type { ClanratingsTopMeta } from './ClanratingsTopMeta.js';
 import {
     ClanratingsTopMetaFromJSON,
@@ -48,20 +48,19 @@ export interface ClanratingsTopOk {
     meta: ClanratingsTopMeta;
     /**
      * 
-     * @type {Array<ClanratingsTopItem>}
+     * @type {Array<ClanratingsTopDataItem>}
      * @memberof ClanratingsTopOk
      */
-    data: Array<ClanratingsTopItem>;
+    data: Array<ClanratingsTopDataItem>;
 }
 
-
 /**
- * @export
- */
-export const ClanratingsTopOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type ClanratingsTopOkStatusEnum = typeof ClanratingsTopOkStatusEnum[keyof typeof ClanratingsTopOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum ClanratingsTopOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function ClanratingsTopOkFromJSONTyped(json: any, ignoreDiscriminator: bo
         
         'status': json['status'],
         'meta': ClanratingsTopMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(ClanratingsTopItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(ClanratingsTopDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function ClanratingsTopOkToJSONTyped(value?: ClanratingsTopOk | null, ign
         
         'status': value['status'],
         'meta': ClanratingsTopMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(ClanratingsTopItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(ClanratingsTopDataItemToJSON)),
     };
+}
+
+export const ClanratingsTopOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -41,14 +41,13 @@ export interface EncyclopediaArenasError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaArenasErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type EncyclopediaArenasErrorStatusEnum = typeof EncyclopediaArenasErrorStatusEnum[keyof typeof EncyclopediaArenasErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaArenasErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function EncyclopediaArenasErrorToJSONTyped(value?: EncyclopediaArenasErr
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const EncyclopediaArenasErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

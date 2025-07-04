@@ -15,67 +15,132 @@
 
 import * as runtime from '../runtime.js';
 import type {
-  Activateclanreserve200Response,
-  GetStrongholdClaninfo200Response,
-  GetStrongholdClanreserves200Response,
+  StrongholdActivateclanreserveResponse,
+  StrongholdClaninfoResponse,
+  StrongholdClanreservesResponse,
 } from '../models/index.js';
 import {
-    Activateclanreserve200ResponseFromJSON,
-    Activateclanreserve200ResponseToJSON,
-    GetStrongholdClaninfo200ResponseFromJSON,
-    GetStrongholdClaninfo200ResponseToJSON,
-    GetStrongholdClanreserves200ResponseFromJSON,
-    GetStrongholdClanreserves200ResponseToJSON,
+    StrongholdActivateclanreserveResponseFromJSON,
+    StrongholdActivateclanreserveResponseToJSON,
+    StrongholdClaninfoResponseFromJSON,
+    StrongholdClaninfoResponseToJSON,
+    StrongholdClanreservesResponseFromJSON,
+    StrongholdClanreservesResponseToJSON,
 } from '../models/index.js';
 
 export interface ActivateclanreserveRequest {
-    accessToken: string;
-    reserveLevel: number;
-    reserveType: string;
+    access_token: string;
+    reserve_level: number;
+    reserve_type: string;
     fields?: Array<string>;
     language?: ActivateclanreserveLanguageEnum;
 }
 
 export interface GetStrongholdClaninfoRequest {
-    clanId: Array<number>;
+    clan_id: Array<number>;
     fields?: Array<string>;
     language?: GetStrongholdClaninfoLanguageEnum;
 }
 
 export interface GetStrongholdClanreservesRequest {
-    accessToken: string;
+    access_token: string;
     fields?: Array<string>;
     language?: GetStrongholdClanreservesLanguageEnum;
 }
 
 /**
+ * StrongholdsApi - interface
  * 
+ * @export
+ * @interface StrongholdsApiInterface
  */
-export class StrongholdsApi extends runtime.BaseAPI {
+export interface StrongholdsApiInterface {
+    /**
+     * This method activates an available clan Reserve. A clan Reserve can be activated only by a clan member with the required permission.
+     * @summary Activate available clan Reserve
+     * @param {string} access_token [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\\\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {number} reserve_level Level of clan Reserve to be activated
+     * @param {string} reserve_type Type of clan Reserve to be activated
+     * @param {Array<string>} [fields] Response field. The fields are separated with commas. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {string} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StrongholdsApiInterface
+     */
+    activateclanreserveRaw(requestParameters: ActivateclanreserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StrongholdActivateclanreserveResponse>>;
 
     /**
      * This method activates an available clan Reserve. A clan Reserve can be activated only by a clan member with the required permission.
      * Activate available clan Reserve
      */
-    async activateclanreserveRaw(requestParameters: ActivateclanreserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Activateclanreserve200Response>> {
-        if (requestParameters['accessToken'] == null) {
+    activateclanreserve(requestParameters: ActivateclanreserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StrongholdActivateclanreserveResponse>;
+
+    /**
+     * Method returns general information and the battle statistics of clans in the Stronghold mode. Please note that information about the number of battles fought as well as the number of defeats and victories is updated once every 24 hours.
+     * @summary Information about the clan\'s Stronghold
+     * @param {Array<number>} clan_id Clan ID. To get a clan ID, use the [Clans](https://developers.wargaming.net/reference/all/wgn/clans/list) method.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'de' | 'pl' | 'fr' | 'es' | 'cs' | 'tr' | 'es-ar' | 'pt-br' | 'ja' | 'vi' | 'th' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StrongholdsApiInterface
+     */
+    getStrongholdClaninfoRaw(requestParameters: GetStrongholdClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StrongholdClaninfoResponse>>;
+
+    /**
+     * Method returns general information and the battle statistics of clans in the Stronghold mode. Please note that information about the number of battles fought as well as the number of defeats and victories is updated once every 24 hours.
+     * Information about the clan\'s Stronghold
+     */
+    getStrongholdClaninfo(requestParameters: GetStrongholdClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StrongholdClaninfoResponse>;
+
+    /**
+     * Method returns information about available Reserves and their current status.
+     * @summary Clan Reserves
+     * @param {string} access_token [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'de' | 'pl' | 'fr' | 'es' | 'cs' | 'tr' | 'es-ar' | 'pt-br' | 'ja' | 'vi' | 'th' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StrongholdsApiInterface
+     */
+    getStrongholdClanreservesRaw(requestParameters: GetStrongholdClanreservesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StrongholdClanreservesResponse>>;
+
+    /**
+     * Method returns information about available Reserves and their current status.
+     * Clan Reserves
+     */
+    getStrongholdClanreserves(requestParameters: GetStrongholdClanreservesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StrongholdClanreservesResponse>;
+
+}
+
+/**
+ * 
+ */
+export class StrongholdsApi extends runtime.BaseAPI implements StrongholdsApiInterface {
+
+    /**
+     * This method activates an available clan Reserve. A clan Reserve can be activated only by a clan member with the required permission.
+     * Activate available clan Reserve
+     */
+    async activateclanreserveRaw(requestParameters: ActivateclanreserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StrongholdActivateclanreserveResponse>> {
+        if (requestParameters['access_token'] == null) {
             throw new runtime.RequiredError(
-                'accessToken',
-                'Required parameter "accessToken" was null or undefined when calling activateclanreserve().'
+                'access_token',
+                'Required parameter "access_token" was null or undefined when calling activateclanreserve().'
             );
         }
 
-        if (requestParameters['reserveLevel'] == null) {
+        if (requestParameters['reserve_level'] == null) {
             throw new runtime.RequiredError(
-                'reserveLevel',
-                'Required parameter "reserveLevel" was null or undefined when calling activateclanreserve().'
+                'reserve_level',
+                'Required parameter "reserve_level" was null or undefined when calling activateclanreserve().'
             );
         }
 
-        if (requestParameters['reserveType'] == null) {
+        if (requestParameters['reserve_type'] == null) {
             throw new runtime.RequiredError(
-                'reserveType',
-                'Required parameter "reserveType" was null or undefined when calling activateclanreserve().'
+                'reserve_type',
+                'Required parameter "reserve_type" was null or undefined when calling activateclanreserve().'
             );
         }
 
@@ -101,20 +166,20 @@ export class StrongholdsApi extends runtime.BaseAPI {
             formParams = new URLSearchParams();
         }
 
-        if (requestParameters['accessToken'] != null) {
-            formParams.append('access_token', requestParameters['accessToken'] as any);
+        if (requestParameters['access_token'] != null) {
+            formParams.append('access_token', requestParameters['access_token'] as any);
         }
 
-        if (requestParameters['reserveLevel'] != null) {
-            formParams.append('reserve_level', requestParameters['reserveLevel'] as any);
+        if (requestParameters['reserve_level'] != null) {
+            formParams.append('reserve_level', requestParameters['reserve_level'] as any);
         }
 
-        if (requestParameters['reserveType'] != null) {
-            formParams.append('reserve_type', requestParameters['reserveType'] as any);
+        if (requestParameters['reserve_type'] != null) {
+            formParams.append('reserve_type', requestParameters['reserve_type'] as any);
         }
 
         if (requestParameters['fields'] != null) {
-            formParams.append('fields', requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]));
+            formParams.append('fields[]', requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]));
         }
 
         if (requestParameters['language'] != null) {
@@ -132,14 +197,14 @@ export class StrongholdsApi extends runtime.BaseAPI {
             body: formParams,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => Activateclanreserve200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StrongholdActivateclanreserveResponseFromJSON(jsonValue));
     }
 
     /**
      * This method activates an available clan Reserve. A clan Reserve can be activated only by a clan member with the required permission.
      * Activate available clan Reserve
      */
-    async activateclanreserve(requestParameters: ActivateclanreserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Activateclanreserve200Response> {
+    async activateclanreserve(requestParameters: ActivateclanreserveRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StrongholdActivateclanreserveResponse> {
         const response = await this.activateclanreserveRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -148,18 +213,18 @@ export class StrongholdsApi extends runtime.BaseAPI {
      * Method returns general information and the battle statistics of clans in the Stronghold mode. Please note that information about the number of battles fought as well as the number of defeats and victories is updated once every 24 hours.
      * Information about the clan\'s Stronghold
      */
-    async getStrongholdClaninfoRaw(requestParameters: GetStrongholdClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetStrongholdClaninfo200Response>> {
-        if (requestParameters['clanId'] == null) {
+    async getStrongholdClaninfoRaw(requestParameters: GetStrongholdClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StrongholdClaninfoResponse>> {
+        if (requestParameters['clan_id'] == null) {
             throw new runtime.RequiredError(
-                'clanId',
-                'Required parameter "clanId" was null or undefined when calling getStrongholdClaninfo().'
+                'clan_id',
+                'Required parameter "clan_id" was null or undefined when calling getStrongholdClaninfo().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['clanId'] != null) {
-            queryParameters['clan_id'] = requestParameters['clanId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['clan_id'] != null) {
+            queryParameters['clan_id'] = requestParameters['clan_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -186,14 +251,14 @@ export class StrongholdsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetStrongholdClaninfo200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StrongholdClaninfoResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns general information and the battle statistics of clans in the Stronghold mode. Please note that information about the number of battles fought as well as the number of defeats and victories is updated once every 24 hours.
      * Information about the clan\'s Stronghold
      */
-    async getStrongholdClaninfo(requestParameters: GetStrongholdClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetStrongholdClaninfo200Response> {
+    async getStrongholdClaninfo(requestParameters: GetStrongholdClaninfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StrongholdClaninfoResponse> {
         const response = await this.getStrongholdClaninfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -202,18 +267,18 @@ export class StrongholdsApi extends runtime.BaseAPI {
      * Method returns information about available Reserves and their current status.
      * Clan Reserves
      */
-    async getStrongholdClanreservesRaw(requestParameters: GetStrongholdClanreservesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetStrongholdClanreserves200Response>> {
-        if (requestParameters['accessToken'] == null) {
+    async getStrongholdClanreservesRaw(requestParameters: GetStrongholdClanreservesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<StrongholdClanreservesResponse>> {
+        if (requestParameters['access_token'] == null) {
             throw new runtime.RequiredError(
-                'accessToken',
-                'Required parameter "accessToken" was null or undefined when calling getStrongholdClanreserves().'
+                'access_token',
+                'Required parameter "access_token" was null or undefined when calling getStrongholdClanreserves().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['accessToken'] != null) {
-            queryParameters['access_token'] = requestParameters['accessToken'];
+        if (requestParameters['access_token'] != null) {
+            queryParameters['access_token'] = requestParameters['access_token'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -240,14 +305,14 @@ export class StrongholdsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetStrongholdClanreserves200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => StrongholdClanreservesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information about available Reserves and their current status.
      * Clan Reserves
      */
-    async getStrongholdClanreserves(requestParameters: GetStrongholdClanreservesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetStrongholdClanreserves200Response> {
+    async getStrongholdClanreserves(requestParameters: GetStrongholdClanreservesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<StrongholdClanreservesResponse> {
         const response = await this.getStrongholdClanreservesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -255,53 +320,53 @@ export class StrongholdsApi extends runtime.BaseAPI {
 }
 
 /**
- * @export
- */
-export const ActivateclanreserveLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Pl: 'pl',
-    Fr: 'fr',
-    Es: 'es',
-    Cs: 'cs',
-    Tr: 'tr'
-} as const;
-export type ActivateclanreserveLanguageEnum = typeof ActivateclanreserveLanguageEnum[keyof typeof ActivateclanreserveLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum ActivateclanreserveLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Pl = 'pl',
+    Fr = 'fr',
+    Es = 'es',
+    Cs = 'cs',
+    Tr = 'tr'
+}
 /**
- * @export
- */
-export const GetStrongholdClaninfoLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Pl: 'pl',
-    Fr: 'fr',
-    Es: 'es',
-    Cs: 'cs',
-    Tr: 'tr',
-    EsAr: 'es-ar',
-    PtBr: 'pt-br',
-    Ja: 'ja',
-    Vi: 'vi',
-    Th: 'th',
-    Ko: 'ko'
-} as const;
-export type GetStrongholdClaninfoLanguageEnum = typeof GetStrongholdClaninfoLanguageEnum[keyof typeof GetStrongholdClaninfoLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetStrongholdClaninfoLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Pl = 'pl',
+    Fr = 'fr',
+    Es = 'es',
+    Cs = 'cs',
+    Tr = 'tr',
+    EsMinusAr = 'es-ar',
+    PtMinusBr = 'pt-br',
+    Ja = 'ja',
+    Vi = 'vi',
+    Th = 'th',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetStrongholdClanreservesLanguageEnum = {
-    En: 'en',
-    De: 'de',
-    Pl: 'pl',
-    Fr: 'fr',
-    Es: 'es',
-    Cs: 'cs',
-    Tr: 'tr',
-    EsAr: 'es-ar',
-    PtBr: 'pt-br',
-    Ja: 'ja',
-    Vi: 'vi',
-    Th: 'th',
-    Ko: 'ko'
-} as const;
-export type GetStrongholdClanreservesLanguageEnum = typeof GetStrongholdClanreservesLanguageEnum[keyof typeof GetStrongholdClanreservesLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetStrongholdClanreservesLanguageEnum {
+    En = 'en',
+    De = 'de',
+    Pl = 'pl',
+    Fr = 'fr',
+    Es = 'es',
+    Cs = 'cs',
+    Tr = 'tr',
+    EsMinusAr = 'es-ar',
+    PtMinusBr = 'pt-br',
+    Ja = 'ja',
+    Vi = 'vi',
+    Th = 'th',
+    Ko = 'ko'
+}

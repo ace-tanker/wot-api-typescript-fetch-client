@@ -41,14 +41,13 @@ export interface GlobalmapSeasonratingneighborsError {
     error: GlobalmapSeasonratingneighborsErrorError;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapSeasonratingneighborsErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type GlobalmapSeasonratingneighborsErrorStatusEnum = typeof GlobalmapSeasonratingneighborsErrorStatusEnum[keyof typeof GlobalmapSeasonratingneighborsErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapSeasonratingneighborsErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function GlobalmapSeasonratingneighborsErrorToJSONTyped(value?: Globalmap
         'status': value['status'],
         'error': GlobalmapSeasonratingneighborsErrorErrorToJSON(value['error']),
     };
+}
+
+export const GlobalmapSeasonratingneighborsErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

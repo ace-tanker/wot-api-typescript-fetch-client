@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
+import type { AccountInfoDataValue } from './AccountInfoDataValue.js';
+import {
+    AccountInfoDataValueFromJSON,
+    AccountInfoDataValueFromJSONTyped,
+    AccountInfoDataValueToJSON,
+    AccountInfoDataValueToJSONTyped,
+} from './AccountInfoDataValue.js';
 import type { AccountInfoMeta } from './AccountInfoMeta.js';
 import {
     AccountInfoMetaFromJSON,
@@ -20,13 +27,6 @@ import {
     AccountInfoMetaToJSON,
     AccountInfoMetaToJSONTyped,
 } from './AccountInfoMeta.js';
-import type { AccountInfoValue } from './AccountInfoValue.js';
-import {
-    AccountInfoValueFromJSON,
-    AccountInfoValueFromJSONTyped,
-    AccountInfoValueToJSON,
-    AccountInfoValueToJSONTyped,
-} from './AccountInfoValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface AccountInfoOk {
     meta: AccountInfoMeta;
     /**
      * 
-     * @type {{ [key: string]: AccountInfoValue | null; }}
+     * @type {{ [key: string]: AccountInfoDataValue | undefined; }}
      * @memberof AccountInfoOk
      */
-    data: { [key: string]: AccountInfoValue | null; };
+    data: { [key: string]: AccountInfoDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const AccountInfoOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type AccountInfoOkStatusEnum = typeof AccountInfoOkStatusEnum[keyof typeof AccountInfoOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum AccountInfoOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function AccountInfoOkFromJSONTyped(json: any, ignoreDiscriminator: boole
         
         'status': json['status'],
         'meta': AccountInfoMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], AccountInfoValueFromJSON)),
+        'data': (mapValues(json['data'], AccountInfoDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function AccountInfoOkToJSONTyped(value?: AccountInfoOk | null, ignoreDis
         
         'status': value['status'],
         'meta': AccountInfoMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], AccountInfoValueToJSON)),
+        'data': (mapValues(value['data'], AccountInfoDataValueToJSON)),
     };
+}
+
+export const AccountInfoOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

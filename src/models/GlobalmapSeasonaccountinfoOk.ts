@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { GlobalmapSeasonaccountinfoValue } from './GlobalmapSeasonaccountinfoValue.js';
+import type { GlobalmapSeasonaccountinfoDataValue } from './GlobalmapSeasonaccountinfoDataValue.js';
 import {
-    GlobalmapSeasonaccountinfoValueFromJSON,
-    GlobalmapSeasonaccountinfoValueFromJSONTyped,
-    GlobalmapSeasonaccountinfoValueToJSON,
-    GlobalmapSeasonaccountinfoValueToJSONTyped,
-} from './GlobalmapSeasonaccountinfoValue.js';
+    GlobalmapSeasonaccountinfoDataValueFromJSON,
+    GlobalmapSeasonaccountinfoDataValueFromJSONTyped,
+    GlobalmapSeasonaccountinfoDataValueToJSON,
+    GlobalmapSeasonaccountinfoDataValueToJSONTyped,
+} from './GlobalmapSeasonaccountinfoDataValue.js';
 import type { GlobalmapSeasonaccountinfoMeta } from './GlobalmapSeasonaccountinfoMeta.js';
 import {
     GlobalmapSeasonaccountinfoMetaFromJSON,
@@ -48,20 +48,19 @@ export interface GlobalmapSeasonaccountinfoOk {
     meta: GlobalmapSeasonaccountinfoMeta;
     /**
      * 
-     * @type {{ [key: string]: GlobalmapSeasonaccountinfoValue; }}
+     * @type {{ [key: string]: GlobalmapSeasonaccountinfoDataValue | undefined; }}
      * @memberof GlobalmapSeasonaccountinfoOk
      */
-    data: { [key: string]: GlobalmapSeasonaccountinfoValue; };
+    data: { [key: string]: GlobalmapSeasonaccountinfoDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const GlobalmapSeasonaccountinfoOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapSeasonaccountinfoOkStatusEnum = typeof GlobalmapSeasonaccountinfoOkStatusEnum[keyof typeof GlobalmapSeasonaccountinfoOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapSeasonaccountinfoOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapSeasonaccountinfoOkFromJSONTyped(json: any, ignoreDiscr
         
         'status': json['status'],
         'meta': GlobalmapSeasonaccountinfoMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], GlobalmapSeasonaccountinfoValueFromJSON)),
+        'data': (mapValues(json['data'], GlobalmapSeasonaccountinfoDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapSeasonaccountinfoOkToJSONTyped(value?: GlobalmapSeasona
         
         'status': value['status'],
         'meta': GlobalmapSeasonaccountinfoMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], GlobalmapSeasonaccountinfoValueToJSON)),
+        'data': (mapValues(value['data'], GlobalmapSeasonaccountinfoDataValueToJSON)),
     };
+}
+
+export const GlobalmapSeasonaccountinfoOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

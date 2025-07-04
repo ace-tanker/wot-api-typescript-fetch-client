@@ -15,61 +15,122 @@
 
 import * as runtime from '../runtime.js';
 import type {
-  GetAuthLogin200Response,
-  Logout200Response,
-  Prolongate200Response,
+  AuthLoginResponse,
+  AuthLogoutResponse,
+  AuthProlongateResponse,
 } from '../models/index.js';
 import {
-    GetAuthLogin200ResponseFromJSON,
-    GetAuthLogin200ResponseToJSON,
-    Logout200ResponseFromJSON,
-    Logout200ResponseToJSON,
-    Prolongate200ResponseFromJSON,
-    Prolongate200ResponseToJSON,
+    AuthLoginResponseFromJSON,
+    AuthLoginResponseToJSON,
+    AuthLogoutResponseFromJSON,
+    AuthLogoutResponseToJSON,
+    AuthProlongateResponseFromJSON,
+    AuthProlongateResponseToJSON,
 } from '../models/index.js';
 
 export interface GetAuthLoginRequest {
     display?: GetAuthLoginDisplayEnum;
-    expiresAt?: number;
+    expires_at?: number;
     nofollow?: number;
-    redirectUri?: string;
+    redirect_uri?: string;
 }
 
 export interface LogoutRequest {
-    accessToken: string;
+    access_token: string;
 }
 
 export interface ProlongateRequest {
-    accessToken: string;
-    expiresAt?: number;
+    access_token: string;
+    expires_at?: number;
 }
 
 /**
+ * AuthenticationApi - interface
  * 
+ * @export
+ * @interface AuthenticationApiInterface
  */
-export class AuthenticationApi extends runtime.BaseAPI {
+export interface AuthenticationApiInterface {
+    /**
+     * Method authenticates user based on Wargaming.net ID (OpenID) which is used in World of Tanks, World of Tanks Blitz, World of Warships, World of Warplanes, and WarGag.ru. To log in, player must enter email and password used for creating account, or use a social network profile. Authentication is not available for iOS Game Center users in the following cases: *  the account is not linked to a social network account, or *  email and password are not specified in the profile.  Information on authorization status is sent to URL specified in **redirect_uri** parameter.  If authentication is successful, the following parameters are sent to **redirect_uri**:  *  **status: ok** — successful authentication *  **access_token** — access token is passed in to all methods that require authentication *  **expires_at** — expiration date of **access_token** *  **account_id** — user ID *  **nickname** — user name.  If authentication fails, the following parameters are sent to **redirect_uri**:  *  **status: error** — authentication error *  **code** — error code *  **message** — error message.
+     * @summary OpenID login
+     * @param {'page' | 'popup'} [display] Layout for mobile applications.
+     * @param {number} [expires_at] **Access_token** expiration time in UNIX. Delta can also be specified in seconds.  Expiration time and delta must not exceed two weeks from the current time.
+     * @param {number} [nofollow] If parameter **nofollow&#x3D;1** is passed in, the user is not redirected. URL is returned in response.
+     * @param {string} [redirect_uri] URL where user is redirected after authentication.  By default: [{API_HOST}/blank/](https://{API_HOST}/blank/)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthenticationApiInterface
+     */
+    getAuthLoginRaw(requestParameters: GetAuthLoginRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthLoginResponse>>;
 
     /**
      * Method authenticates user based on Wargaming.net ID (OpenID) which is used in World of Tanks, World of Tanks Blitz, World of Warships, World of Warplanes, and WarGag.ru. To log in, player must enter email and password used for creating account, or use a social network profile. Authentication is not available for iOS Game Center users in the following cases: *  the account is not linked to a social network account, or *  email and password are not specified in the profile.  Information on authorization status is sent to URL specified in **redirect_uri** parameter.  If authentication is successful, the following parameters are sent to **redirect_uri**:  *  **status: ok** — successful authentication *  **access_token** — access token is passed in to all methods that require authentication *  **expires_at** — expiration date of **access_token** *  **account_id** — user ID *  **nickname** — user name.  If authentication fails, the following parameters are sent to **redirect_uri**:  *  **status: error** — authentication error *  **code** — error code *  **message** — error message.
      * OpenID login
      */
-    async getAuthLoginRaw(requestParameters: GetAuthLoginRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetAuthLogin200Response>> {
+    getAuthLogin(requestParameters: GetAuthLoginRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthLoginResponse>;
+
+    /**
+     * Method deletes user\'s **access_token**.  After this method is called, **access_token** becomes invalid.
+     * @summary Log out
+     * @param {string} access_token [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\\\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthenticationApiInterface
+     */
+    logoutRaw(requestParameters: LogoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthLogoutResponse>>;
+
+    /**
+     * Method deletes user\'s **access_token**.  After this method is called, **access_token** becomes invalid.
+     * Log out
+     */
+    logout(requestParameters: LogoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthLogoutResponse>;
+
+    /**
+     * Method generates new **access_token** based on the current token.  This method is used when the player is still using the application but the current **access_token** is about to expire.
+     * @summary Access Token extension
+     * @param {string} access_token [Access token](https://developers.wargaming.net/documentation/guide/principles/#access_token) for the private data of a user\\\&#39;s account; can be received via the authorization method; valid within a stated time period
+     * @param {number} [expires_at] **Access_token** expiration time in UNIX. Delta can also be specified in seconds.  Expiration time and delta must not exceed two weeks from the current time.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthenticationApiInterface
+     */
+    prolongateRaw(requestParameters: ProlongateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthProlongateResponse>>;
+
+    /**
+     * Method generates new **access_token** based on the current token.  This method is used when the player is still using the application but the current **access_token** is about to expire.
+     * Access Token extension
+     */
+    prolongate(requestParameters: ProlongateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthProlongateResponse>;
+
+}
+
+/**
+ * 
+ */
+export class AuthenticationApi extends runtime.BaseAPI implements AuthenticationApiInterface {
+
+    /**
+     * Method authenticates user based on Wargaming.net ID (OpenID) which is used in World of Tanks, World of Tanks Blitz, World of Warships, World of Warplanes, and WarGag.ru. To log in, player must enter email and password used for creating account, or use a social network profile. Authentication is not available for iOS Game Center users in the following cases: *  the account is not linked to a social network account, or *  email and password are not specified in the profile.  Information on authorization status is sent to URL specified in **redirect_uri** parameter.  If authentication is successful, the following parameters are sent to **redirect_uri**:  *  **status: ok** — successful authentication *  **access_token** — access token is passed in to all methods that require authentication *  **expires_at** — expiration date of **access_token** *  **account_id** — user ID *  **nickname** — user name.  If authentication fails, the following parameters are sent to **redirect_uri**:  *  **status: error** — authentication error *  **code** — error code *  **message** — error message.
+     * OpenID login
+     */
+    async getAuthLoginRaw(requestParameters: GetAuthLoginRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthLoginResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['display'] != null) {
             queryParameters['display'] = requestParameters['display'];
         }
 
-        if (requestParameters['expiresAt'] != null) {
-            queryParameters['expires_at'] = requestParameters['expiresAt'];
+        if (requestParameters['expires_at'] != null) {
+            queryParameters['expires_at'] = requestParameters['expires_at'];
         }
 
         if (requestParameters['nofollow'] != null) {
             queryParameters['nofollow'] = requestParameters['nofollow'];
         }
 
-        if (requestParameters['redirectUri'] != null) {
-            queryParameters['redirect_uri'] = requestParameters['redirectUri'];
+        if (requestParameters['redirect_uri'] != null) {
+            queryParameters['redirect_uri'] = requestParameters['redirect_uri'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -88,14 +149,14 @@ export class AuthenticationApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetAuthLogin200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuthLoginResponseFromJSON(jsonValue));
     }
 
     /**
      * Method authenticates user based on Wargaming.net ID (OpenID) which is used in World of Tanks, World of Tanks Blitz, World of Warships, World of Warplanes, and WarGag.ru. To log in, player must enter email and password used for creating account, or use a social network profile. Authentication is not available for iOS Game Center users in the following cases: *  the account is not linked to a social network account, or *  email and password are not specified in the profile.  Information on authorization status is sent to URL specified in **redirect_uri** parameter.  If authentication is successful, the following parameters are sent to **redirect_uri**:  *  **status: ok** — successful authentication *  **access_token** — access token is passed in to all methods that require authentication *  **expires_at** — expiration date of **access_token** *  **account_id** — user ID *  **nickname** — user name.  If authentication fails, the following parameters are sent to **redirect_uri**:  *  **status: error** — authentication error *  **code** — error code *  **message** — error message.
      * OpenID login
      */
-    async getAuthLogin(requestParameters: GetAuthLoginRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetAuthLogin200Response> {
+    async getAuthLogin(requestParameters: GetAuthLoginRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthLoginResponse> {
         const response = await this.getAuthLoginRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -104,11 +165,11 @@ export class AuthenticationApi extends runtime.BaseAPI {
      * Method deletes user\'s **access_token**.  After this method is called, **access_token** becomes invalid.
      * Log out
      */
-    async logoutRaw(requestParameters: LogoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Logout200Response>> {
-        if (requestParameters['accessToken'] == null) {
+    async logoutRaw(requestParameters: LogoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthLogoutResponse>> {
+        if (requestParameters['access_token'] == null) {
             throw new runtime.RequiredError(
-                'accessToken',
-                'Required parameter "accessToken" was null or undefined when calling logout().'
+                'access_token',
+                'Required parameter "access_token" was null or undefined when calling logout().'
             );
         }
 
@@ -134,8 +195,8 @@ export class AuthenticationApi extends runtime.BaseAPI {
             formParams = new URLSearchParams();
         }
 
-        if (requestParameters['accessToken'] != null) {
-            formParams.append('access_token', requestParameters['accessToken'] as any);
+        if (requestParameters['access_token'] != null) {
+            formParams.append('access_token', requestParameters['access_token'] as any);
         }
 
 
@@ -149,14 +210,14 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: formParams,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => Logout200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuthLogoutResponseFromJSON(jsonValue));
     }
 
     /**
      * Method deletes user\'s **access_token**.  After this method is called, **access_token** becomes invalid.
      * Log out
      */
-    async logout(requestParameters: LogoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Logout200Response> {
+    async logout(requestParameters: LogoutRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthLogoutResponse> {
         const response = await this.logoutRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -165,11 +226,11 @@ export class AuthenticationApi extends runtime.BaseAPI {
      * Method generates new **access_token** based on the current token.  This method is used when the player is still using the application but the current **access_token** is about to expire.
      * Access Token extension
      */
-    async prolongateRaw(requestParameters: ProlongateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Prolongate200Response>> {
-        if (requestParameters['accessToken'] == null) {
+    async prolongateRaw(requestParameters: ProlongateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AuthProlongateResponse>> {
+        if (requestParameters['access_token'] == null) {
             throw new runtime.RequiredError(
-                'accessToken',
-                'Required parameter "accessToken" was null or undefined when calling prolongate().'
+                'access_token',
+                'Required parameter "access_token" was null or undefined when calling prolongate().'
             );
         }
 
@@ -195,12 +256,12 @@ export class AuthenticationApi extends runtime.BaseAPI {
             formParams = new URLSearchParams();
         }
 
-        if (requestParameters['accessToken'] != null) {
-            formParams.append('access_token', requestParameters['accessToken'] as any);
+        if (requestParameters['access_token'] != null) {
+            formParams.append('access_token', requestParameters['access_token'] as any);
         }
 
-        if (requestParameters['expiresAt'] != null) {
-            formParams.append('expires_at', requestParameters['expiresAt'] as any);
+        if (requestParameters['expires_at'] != null) {
+            formParams.append('expires_at', requestParameters['expires_at'] as any);
         }
 
 
@@ -214,14 +275,14 @@ export class AuthenticationApi extends runtime.BaseAPI {
             body: formParams,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => Prolongate200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AuthProlongateResponseFromJSON(jsonValue));
     }
 
     /**
      * Method generates new **access_token** based on the current token.  This method is used when the player is still using the application but the current **access_token** is about to expire.
      * Access Token extension
      */
-    async prolongate(requestParameters: ProlongateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Prolongate200Response> {
+    async prolongate(requestParameters: ProlongateRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AuthProlongateResponse> {
         const response = await this.prolongateRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -229,10 +290,10 @@ export class AuthenticationApi extends runtime.BaseAPI {
 }
 
 /**
- * @export
- */
-export const GetAuthLoginDisplayEnum = {
-    Page: 'page',
-    Popup: 'popup'
-} as const;
-export type GetAuthLoginDisplayEnum = typeof GetAuthLoginDisplayEnum[keyof typeof GetAuthLoginDisplayEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetAuthLoginDisplayEnum {
+    Page = 'page',
+    Popup = 'popup'
+}

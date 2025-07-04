@@ -13,6 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
+import type { ClansMemberhistoryDataValueItem } from './ClansMemberhistoryDataValueItem.js';
+import {
+    ClansMemberhistoryDataValueItemFromJSON,
+    ClansMemberhistoryDataValueItemFromJSONTyped,
+    ClansMemberhistoryDataValueItemToJSON,
+    ClansMemberhistoryDataValueItemToJSONTyped,
+} from './ClansMemberhistoryDataValueItem.js';
 import type { ClansMemberhistoryMeta } from './ClansMemberhistoryMeta.js';
 import {
     ClansMemberhistoryMetaFromJSON,
@@ -20,13 +27,6 @@ import {
     ClansMemberhistoryMetaToJSON,
     ClansMemberhistoryMetaToJSONTyped,
 } from './ClansMemberhistoryMeta.js';
-import type { ClansMemberhistoryValueItem } from './ClansMemberhistoryValueItem.js';
-import {
-    ClansMemberhistoryValueItemFromJSON,
-    ClansMemberhistoryValueItemFromJSONTyped,
-    ClansMemberhistoryValueItemToJSON,
-    ClansMemberhistoryValueItemToJSONTyped,
-} from './ClansMemberhistoryValueItem.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface ClansMemberhistoryOk {
     meta: ClansMemberhistoryMeta;
     /**
      * 
-     * @type {{ [key: string]: Array<ClansMemberhistoryValueItem>; }}
+     * @type {{ [key: string]: Array<ClansMemberhistoryDataValueItem> | undefined; }}
      * @memberof ClansMemberhistoryOk
      */
-    data: { [key: string]: Array<ClansMemberhistoryValueItem>; };
+    data: { [key: string]: Array<ClansMemberhistoryDataValueItem> | undefined; };
 }
 
-
 /**
- * @export
- */
-export const ClansMemberhistoryOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type ClansMemberhistoryOkStatusEnum = typeof ClansMemberhistoryOkStatusEnum[keyof typeof ClansMemberhistoryOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum ClansMemberhistoryOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function ClansMemberhistoryOkToJSONTyped(value?: ClansMemberhistoryOk | n
         'meta': ClansMemberhistoryMetaToJSON(value['meta']),
         'data': value['data'],
     };
+}
+
+export const ClansMemberhistoryOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { GlobalmapSeasonratingneighborsItem } from './GlobalmapSeasonratingneighborsItem.js';
+import type { GlobalmapSeasonratingneighborsDataItem } from './GlobalmapSeasonratingneighborsDataItem.js';
 import {
-    GlobalmapSeasonratingneighborsItemFromJSON,
-    GlobalmapSeasonratingneighborsItemFromJSONTyped,
-    GlobalmapSeasonratingneighborsItemToJSON,
-    GlobalmapSeasonratingneighborsItemToJSONTyped,
-} from './GlobalmapSeasonratingneighborsItem.js';
+    GlobalmapSeasonratingneighborsDataItemFromJSON,
+    GlobalmapSeasonratingneighborsDataItemFromJSONTyped,
+    GlobalmapSeasonratingneighborsDataItemToJSON,
+    GlobalmapSeasonratingneighborsDataItemToJSONTyped,
+} from './GlobalmapSeasonratingneighborsDataItem.js';
 import type { GlobalmapSeasonratingneighborsMeta } from './GlobalmapSeasonratingneighborsMeta.js';
 import {
     GlobalmapSeasonratingneighborsMetaFromJSON,
@@ -48,20 +48,19 @@ export interface GlobalmapSeasonratingneighborsOk {
     meta: GlobalmapSeasonratingneighborsMeta;
     /**
      * 
-     * @type {Array<GlobalmapSeasonratingneighborsItem>}
+     * @type {Array<GlobalmapSeasonratingneighborsDataItem>}
      * @memberof GlobalmapSeasonratingneighborsOk
      */
-    data: Array<GlobalmapSeasonratingneighborsItem>;
+    data: Array<GlobalmapSeasonratingneighborsDataItem>;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapSeasonratingneighborsOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapSeasonratingneighborsOkStatusEnum = typeof GlobalmapSeasonratingneighborsOkStatusEnum[keyof typeof GlobalmapSeasonratingneighborsOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapSeasonratingneighborsOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapSeasonratingneighborsOkFromJSONTyped(json: any, ignoreD
         
         'status': json['status'],
         'meta': GlobalmapSeasonratingneighborsMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(GlobalmapSeasonratingneighborsItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(GlobalmapSeasonratingneighborsDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapSeasonratingneighborsOkToJSONTyped(value?: GlobalmapSea
         
         'status': value['status'],
         'meta': GlobalmapSeasonratingneighborsMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(GlobalmapSeasonratingneighborsItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(GlobalmapSeasonratingneighborsDataItemToJSON)),
     };
+}
+
+export const GlobalmapSeasonratingneighborsOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { ClansListItem } from './ClansListItem.js';
+import type { ClansListDataItem } from './ClansListDataItem.js';
 import {
-    ClansListItemFromJSON,
-    ClansListItemFromJSONTyped,
-    ClansListItemToJSON,
-    ClansListItemToJSONTyped,
-} from './ClansListItem.js';
+    ClansListDataItemFromJSON,
+    ClansListDataItemFromJSONTyped,
+    ClansListDataItemToJSON,
+    ClansListDataItemToJSONTyped,
+} from './ClansListDataItem.js';
 import type { ClansListMeta } from './ClansListMeta.js';
 import {
     ClansListMetaFromJSON,
@@ -48,20 +48,19 @@ export interface ClansListOk {
     meta: ClansListMeta;
     /**
      * 
-     * @type {Array<ClansListItem>}
+     * @type {Array<ClansListDataItem>}
      * @memberof ClansListOk
      */
-    data: Array<ClansListItem>;
+    data: Array<ClansListDataItem>;
 }
 
-
 /**
- * @export
- */
-export const ClansListOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type ClansListOkStatusEnum = typeof ClansListOkStatusEnum[keyof typeof ClansListOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum ClansListOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function ClansListOkFromJSONTyped(json: any, ignoreDiscriminator: boolean
         
         'status': json['status'],
         'meta': ClansListMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(ClansListItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(ClansListDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function ClansListOkToJSONTyped(value?: ClansListOk | null, ignoreDiscrim
         
         'status': value['status'],
         'meta': ClansListMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(ClansListItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(ClansListDataItemToJSON)),
     };
+}
+
+export const ClansListOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

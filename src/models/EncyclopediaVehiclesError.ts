@@ -41,14 +41,13 @@ export interface EncyclopediaVehiclesError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaVehiclesErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type EncyclopediaVehiclesErrorStatusEnum = typeof EncyclopediaVehiclesErrorStatusEnum[keyof typeof EncyclopediaVehiclesErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaVehiclesErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function EncyclopediaVehiclesErrorToJSONTyped(value?: EncyclopediaVehicle
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const EncyclopediaVehiclesErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

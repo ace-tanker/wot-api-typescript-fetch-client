@@ -45,22 +45,20 @@ export interface AccountListErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const AccountListErrorErrorOneOfCodeEnum = {
-    NUMBER_402: 402
-} as const;
-export type AccountListErrorErrorOneOfCodeEnum = typeof AccountListErrorErrorOneOfCodeEnum[keyof typeof AccountListErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum AccountListErrorErrorOneOfCodeEnum {
+    NUMBER_402 = 402
+}
 /**
- * @export
- */
-export const AccountListErrorErrorOneOfMessageEnum = {
-    SearchNotSpecified: 'SEARCH_NOT_SPECIFIED'
-} as const;
-export type AccountListErrorErrorOneOfMessageEnum = typeof AccountListErrorErrorOneOfMessageEnum[keyof typeof AccountListErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum AccountListErrorErrorOneOfMessageEnum {
+    SearchNotSpecified = 'SEARCH_NOT_SPECIFIED'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function AccountListErrorErrorOneOfToJSONTyped(value?: AccountListErrorEr
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const AccountListErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -15,47 +15,47 @@
 
 import * as runtime from '../runtime.js';
 import type {
-  GetEncyclopediaAchievements200Response,
-  GetEncyclopediaArenas200Response,
-  GetEncyclopediaBadges200Response,
-  GetEncyclopediaBoosters200Response,
-  GetEncyclopediaCrewroles200Response,
-  GetEncyclopediaCrewskills200Response,
-  GetEncyclopediaInfo200Response,
-  GetEncyclopediaModules200Response,
-  GetEncyclopediaPersonalmissions200Response,
-  GetEncyclopediaProvisions200Response,
-  GetEncyclopediaVehicleprofile200Response,
-  GetEncyclopediaVehicleprofiles200Response,
-  GetEncyclopediaVehicles200Response,
+  EncyclopediaAchievementsResponse,
+  EncyclopediaArenasResponse,
+  EncyclopediaBadgesResponse,
+  EncyclopediaBoostersResponse,
+  EncyclopediaCrewrolesResponse,
+  EncyclopediaCrewskillsResponse,
+  EncyclopediaInfoResponse,
+  EncyclopediaModulesResponse,
+  EncyclopediaPersonalmissionsResponse,
+  EncyclopediaProvisionsResponse,
+  EncyclopediaVehicleprofileResponse,
+  EncyclopediaVehicleprofilesResponse,
+  EncyclopediaVehiclesResponse,
 } from '../models/index.js';
 import {
-    GetEncyclopediaAchievements200ResponseFromJSON,
-    GetEncyclopediaAchievements200ResponseToJSON,
-    GetEncyclopediaArenas200ResponseFromJSON,
-    GetEncyclopediaArenas200ResponseToJSON,
-    GetEncyclopediaBadges200ResponseFromJSON,
-    GetEncyclopediaBadges200ResponseToJSON,
-    GetEncyclopediaBoosters200ResponseFromJSON,
-    GetEncyclopediaBoosters200ResponseToJSON,
-    GetEncyclopediaCrewroles200ResponseFromJSON,
-    GetEncyclopediaCrewroles200ResponseToJSON,
-    GetEncyclopediaCrewskills200ResponseFromJSON,
-    GetEncyclopediaCrewskills200ResponseToJSON,
-    GetEncyclopediaInfo200ResponseFromJSON,
-    GetEncyclopediaInfo200ResponseToJSON,
-    GetEncyclopediaModules200ResponseFromJSON,
-    GetEncyclopediaModules200ResponseToJSON,
-    GetEncyclopediaPersonalmissions200ResponseFromJSON,
-    GetEncyclopediaPersonalmissions200ResponseToJSON,
-    GetEncyclopediaProvisions200ResponseFromJSON,
-    GetEncyclopediaProvisions200ResponseToJSON,
-    GetEncyclopediaVehicleprofile200ResponseFromJSON,
-    GetEncyclopediaVehicleprofile200ResponseToJSON,
-    GetEncyclopediaVehicleprofiles200ResponseFromJSON,
-    GetEncyclopediaVehicleprofiles200ResponseToJSON,
-    GetEncyclopediaVehicles200ResponseFromJSON,
-    GetEncyclopediaVehicles200ResponseToJSON,
+    EncyclopediaAchievementsResponseFromJSON,
+    EncyclopediaAchievementsResponseToJSON,
+    EncyclopediaArenasResponseFromJSON,
+    EncyclopediaArenasResponseToJSON,
+    EncyclopediaBadgesResponseFromJSON,
+    EncyclopediaBadgesResponseToJSON,
+    EncyclopediaBoostersResponseFromJSON,
+    EncyclopediaBoostersResponseToJSON,
+    EncyclopediaCrewrolesResponseFromJSON,
+    EncyclopediaCrewrolesResponseToJSON,
+    EncyclopediaCrewskillsResponseFromJSON,
+    EncyclopediaCrewskillsResponseToJSON,
+    EncyclopediaInfoResponseFromJSON,
+    EncyclopediaInfoResponseToJSON,
+    EncyclopediaModulesResponseFromJSON,
+    EncyclopediaModulesResponseToJSON,
+    EncyclopediaPersonalmissionsResponseFromJSON,
+    EncyclopediaPersonalmissionsResponseToJSON,
+    EncyclopediaProvisionsResponseFromJSON,
+    EncyclopediaProvisionsResponseToJSON,
+    EncyclopediaVehicleprofileResponseFromJSON,
+    EncyclopediaVehicleprofileResponseToJSON,
+    EncyclopediaVehicleprofilesResponseFromJSON,
+    EncyclopediaVehicleprofilesResponseToJSON,
+    EncyclopediaVehiclesResponseFromJSON,
+    EncyclopediaVehiclesResponseToJSON,
 } from '../models/index.js';
 
 export interface GetEncyclopediaAchievementsRequest {
@@ -101,18 +101,18 @@ export interface GetEncyclopediaModulesRequest {
     fields?: Array<string>;
     language?: GetEncyclopediaModulesLanguageEnum;
     limit?: number;
-    moduleId?: Array<number>;
+    module_id?: Array<number>;
     nation?: Array<string>;
-    pageNo?: number;
+    page_no?: number;
     type?: Array<GetEncyclopediaModulesTypeEnum>;
 }
 
 export interface GetEncyclopediaPersonalmissionsRequest {
-    campaignId?: Array<number>;
+    campaign_id?: Array<number>;
     fields?: Array<string>;
     language?: GetEncyclopediaPersonalmissionsLanguageEnum;
-    operationId?: Array<number>;
-    setId?: Array<number>;
+    operation_id?: Array<number>;
+    set_id?: Array<number>;
     tag?: Array<string>;
 }
 
@@ -120,28 +120,28 @@ export interface GetEncyclopediaProvisionsRequest {
     fields?: Array<string>;
     language?: GetEncyclopediaProvisionsLanguageEnum;
     limit?: number;
-    pageNo?: number;
-    provisionId?: Array<number>;
+    page_no?: number;
+    provision_id?: Array<number>;
     type?: Array<GetEncyclopediaProvisionsTypeEnum>;
 }
 
 export interface GetEncyclopediaVehicleprofileRequest {
-    tankId: number;
-    engineId?: number;
+    tank_id: number;
+    engine_id?: number;
     fields?: Array<string>;
-    gunId?: number;
+    gun_id?: number;
     language?: GetEncyclopediaVehicleprofileLanguageEnum;
-    profileId?: string;
-    radioId?: number;
-    suspensionId?: number;
-    turretId?: number;
+    profile_id?: string;
+    radio_id?: number;
+    suspension_id?: number;
+    turret_id?: number;
 }
 
 export interface GetEncyclopediaVehicleprofilesRequest {
-    tankId: number;
+    tank_id: number;
     fields?: Array<string>;
     language?: GetEncyclopediaVehicleprofilesLanguageEnum;
-    orderBy?: GetEncyclopediaVehicleprofilesOrderByEnum;
+    order_by?: GetEncyclopediaVehicleprofilesOrderByEnum;
 }
 
 export interface GetEncyclopediaVehiclesRequest {
@@ -149,22 +149,284 @@ export interface GetEncyclopediaVehiclesRequest {
     language?: GetEncyclopediaVehiclesLanguageEnum;
     limit?: number;
     nation?: Array<string>;
-    pageNo?: number;
-    tankId?: Array<number>;
+    page_no?: number;
+    tank_id?: Array<number>;
     tier?: Array<number>;
     type?: Array<GetEncyclopediaVehiclesTypeEnum>;
 }
 
 /**
+ * TankopediaApi - interface
  * 
+ * @export
+ * @interface TankopediaApiInterface
  */
-export class TankopediaApi extends runtime.BaseAPI {
+export interface TankopediaApiInterface {
+    /**
+     * Method returns information about achievements.
+     * @summary Achievements
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaAchievementsRaw(requestParameters: GetEncyclopediaAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaAchievementsResponse>>;
 
     /**
      * Method returns information about achievements.
      * Achievements
      */
-    async getEncyclopediaAchievementsRaw(requestParameters: GetEncyclopediaAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaAchievements200Response>> {
+    getEncyclopediaAchievements(requestParameters: GetEncyclopediaAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaAchievementsResponse>;
+
+    /**
+     * Method returns information about maps.
+     * @summary Maps
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaArenasRaw(requestParameters: GetEncyclopediaArenasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaArenasResponse>>;
+
+    /**
+     * Method returns information about maps.
+     * Maps
+     */
+    getEncyclopediaArenas(requestParameters: GetEncyclopediaArenasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaArenasResponse>;
+
+    /**
+     * Method returns list of available badges a player can gain in Ranked Battles.
+     * @summary Badges
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaBadgesRaw(requestParameters: GetEncyclopediaBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaBadgesResponse>>;
+
+    /**
+     * Method returns list of available badges a player can gain in Ranked Battles.
+     * Badges
+     */
+    getEncyclopediaBadges(requestParameters: GetEncyclopediaBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaBadgesResponse>;
+
+    /**
+     * Method returns information about Personal Reserves.
+     * @summary Personal Reserves
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaBoostersRaw(requestParameters: GetEncyclopediaBoostersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaBoostersResponse>>;
+
+    /**
+     * Method returns information about Personal Reserves.
+     * Personal Reserves
+     */
+    getEncyclopediaBoosters(requestParameters: GetEncyclopediaBoostersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaBoostersResponse>;
+
+    /**
+     * Method returns full description of all crew qualifications.
+     * @summary Crew qualifications
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {Array<string>} [role] Сrew qualification ID.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaCrewrolesRaw(requestParameters: GetEncyclopediaCrewrolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaCrewrolesResponse>>;
+
+    /**
+     * Method returns full description of all crew qualifications.
+     * Crew qualifications
+     */
+    getEncyclopediaCrewroles(requestParameters: GetEncyclopediaCrewrolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaCrewrolesResponse>;
+
+    /**
+     * Method returns full description of all crew skills.
+     * @summary Crew skills
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {string} [role] Сrew qualification ID
+     * @param {Array<string>} [skill] Skill ID.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaCrewskillsRaw(requestParameters: GetEncyclopediaCrewskillsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaCrewskillsResponse>>;
+
+    /**
+     * Method returns full description of all crew skills.
+     * Crew skills
+     */
+    getEncyclopediaCrewskills(requestParameters: GetEncyclopediaCrewskillsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaCrewskillsResponse>;
+
+    /**
+     * Method returns information about Tankopedia.
+     * @summary Tankopedia information
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaInfoRaw(requestParameters: GetEncyclopediaInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaInfoResponse>>;
+
+    /**
+     * Method returns information about Tankopedia.
+     * Tankopedia information
+     */
+    getEncyclopediaInfo(requestParameters: GetEncyclopediaInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaInfoResponse>;
+
+    /**
+     * Method returns list of available modules that can be installed on vehicles, such as engines, turrets, etc. At least one input filter parameter (module ID, type) is required to be indicated.
+     * @summary Modules
+     * @param {Array<'default_profile'>} [extra] Extra fields that will be added to the response.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {number} [limit] Number of returned entries.
+     * @param {Array<number>} [module_id] Module ID.
+     * @param {Array<string>} [nation] Nation.
+     * @param {number} [page_no] Result page number
+     * @param {Array<'vehicleRadio' | 'vehicleEngine' | 'vehicleGun' | 'vehicleChassis' | 'vehicleTurret'>} [type] Module type.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaModulesRaw(requestParameters: GetEncyclopediaModulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaModulesResponse>>;
+
+    /**
+     * Method returns list of available modules that can be installed on vehicles, such as engines, turrets, etc. At least one input filter parameter (module ID, type) is required to be indicated.
+     * Modules
+     */
+    getEncyclopediaModules(requestParameters: GetEncyclopediaModulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaModulesResponse>;
+
+    /**
+     * Method returns details on Personal Missions on the basis of specified campaign IDs, operation IDs, mission branch and tag IDs.
+     * @summary Personal Missions
+     * @param {Array<number>} [campaign_id] Campaign ID.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {Array<number>} [operation_id] Operation ID.
+     * @param {Array<number>} [set_id] Mission branch ID.
+     * @param {Array<string>} [tag] Mission tag.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaPersonalmissionsRaw(requestParameters: GetEncyclopediaPersonalmissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaPersonalmissionsResponse>>;
+
+    /**
+     * Method returns details on Personal Missions on the basis of specified campaign IDs, operation IDs, mission branch and tag IDs.
+     * Personal Missions
+     */
+    getEncyclopediaPersonalmissions(requestParameters: GetEncyclopediaPersonalmissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaPersonalmissionsResponse>;
+
+    /**
+     * Method returns a list of available equipment and consumables.
+     * @summary Equipment and Consumables
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {number} [limit] Number of returned entries.
+     * @param {number} [page_no] Result page number
+     * @param {Array<number>} [provision_id] Equipment or consumables ID.
+     * @param {Array<'equipment' | 'optionalDevice'>} [type] Type.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaProvisionsRaw(requestParameters: GetEncyclopediaProvisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaProvisionsResponse>>;
+
+    /**
+     * Method returns a list of available equipment and consumables.
+     * Equipment and Consumables
+     */
+    getEncyclopediaProvisions(requestParameters: GetEncyclopediaProvisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaProvisionsResponse>;
+
+    /**
+     * Method returns vehicle configuration characteristics based on the specified module IDs.
+     * @summary Vehicle characteristics
+     * @param {number} tank_id Vehicle ID
+     * @param {number} [engine_id] Engine ID. If module is not specified, standard module is used by default.
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {number} [gun_id] Gun ID. If module is not specified, standard module is used by default.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {string} [profile_id] Configuration ID. If specified, parameters of IDs of separate modules are ignored.
+     * @param {number} [radio_id] Radio ID. If module is not specified, standard module is used by default.
+     * @param {number} [suspension_id] Suspension ID. If module is not specified, standard module is used by default.
+     * @param {number} [turret_id] Turret ID. If module is not specified, standard module is used by default.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaVehicleprofileRaw(requestParameters: GetEncyclopediaVehicleprofileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaVehicleprofileResponse>>;
+
+    /**
+     * Method returns vehicle configuration characteristics based on the specified module IDs.
+     * Vehicle characteristics
+     */
+    getEncyclopediaVehicleprofile(requestParameters: GetEncyclopediaVehicleprofileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaVehicleprofileResponse>;
+
+    /**
+     * Method returns vehicle configuration characteristics.
+     * @summary Vehicle configurations
+     * @param {number} tank_id Vehicle ID
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {'price_credit' | '-price_credit'} [order_by] Sorting.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaVehicleprofilesRaw(requestParameters: GetEncyclopediaVehicleprofilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaVehicleprofilesResponse>>;
+
+    /**
+     * Method returns vehicle configuration characteristics.
+     * Vehicle configurations
+     */
+    getEncyclopediaVehicleprofiles(requestParameters: GetEncyclopediaVehicleprofilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaVehicleprofilesResponse>;
+
+    /**
+     * Method returns list of available vehicles.
+     * @summary Vehicles
+     * @param {Array<string>} [fields] Response field. Embedded fields are separated with dots. To exclude a field, use “-” in front of its name. In case the parameter is not defined, the method returns all fields.
+     * @param {'en' | 'ru' | 'pl' | 'de' | 'fr' | 'es' | 'zh-cn' | 'zh-tw' | 'tr' | 'cs' | 'th' | 'vi' | 'ko'} [language] Localization language.
+     * @param {number} [limit] Number of returned entries.
+     * @param {Array<string>} [nation] Nation.
+     * @param {number} [page_no] Result page number
+     * @param {Array<number>} [tank_id] Vehicle ID.
+     * @param {Array<number>} [tier] Tier.
+     * @param {Array<'heavyTank' | 'AT-SPG' | 'mediumTank' | 'lightTank' | 'SPG'>} [type] Vehicle type.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TankopediaApiInterface
+     */
+    getEncyclopediaVehiclesRaw(requestParameters: GetEncyclopediaVehiclesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaVehiclesResponse>>;
+
+    /**
+     * Method returns list of available vehicles.
+     * Vehicles
+     */
+    getEncyclopediaVehicles(requestParameters: GetEncyclopediaVehiclesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaVehiclesResponse>;
+
+}
+
+/**
+ * 
+ */
+export class TankopediaApi extends runtime.BaseAPI implements TankopediaApiInterface {
+
+    /**
+     * Method returns information about achievements.
+     * Achievements
+     */
+    async getEncyclopediaAchievementsRaw(requestParameters: GetEncyclopediaAchievementsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaAchievementsResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -191,14 +453,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaAchievements200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaAchievementsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information about achievements.
      * Achievements
      */
-    async getEncyclopediaAchievements(requestParameters: GetEncyclopediaAchievementsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaAchievements200Response> {
+    async getEncyclopediaAchievements(requestParameters: GetEncyclopediaAchievementsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaAchievementsResponse> {
         const response = await this.getEncyclopediaAchievementsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -207,7 +469,7 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns information about maps.
      * Maps
      */
-    async getEncyclopediaArenasRaw(requestParameters: GetEncyclopediaArenasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaArenas200Response>> {
+    async getEncyclopediaArenasRaw(requestParameters: GetEncyclopediaArenasRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaArenasResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -234,14 +496,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaArenas200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaArenasResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information about maps.
      * Maps
      */
-    async getEncyclopediaArenas(requestParameters: GetEncyclopediaArenasRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaArenas200Response> {
+    async getEncyclopediaArenas(requestParameters: GetEncyclopediaArenasRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaArenasResponse> {
         const response = await this.getEncyclopediaArenasRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -250,7 +512,7 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns list of available badges a player can gain in Ranked Battles.
      * Badges
      */
-    async getEncyclopediaBadgesRaw(requestParameters: GetEncyclopediaBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaBadges200Response>> {
+    async getEncyclopediaBadgesRaw(requestParameters: GetEncyclopediaBadgesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaBadgesResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -277,14 +539,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaBadges200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaBadgesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns list of available badges a player can gain in Ranked Battles.
      * Badges
      */
-    async getEncyclopediaBadges(requestParameters: GetEncyclopediaBadgesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaBadges200Response> {
+    async getEncyclopediaBadges(requestParameters: GetEncyclopediaBadgesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaBadgesResponse> {
         const response = await this.getEncyclopediaBadgesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -293,7 +555,7 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns information about Personal Reserves.
      * Personal Reserves
      */
-    async getEncyclopediaBoostersRaw(requestParameters: GetEncyclopediaBoostersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaBoosters200Response>> {
+    async getEncyclopediaBoostersRaw(requestParameters: GetEncyclopediaBoostersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaBoostersResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -320,14 +582,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaBoosters200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaBoostersResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information about Personal Reserves.
      * Personal Reserves
      */
-    async getEncyclopediaBoosters(requestParameters: GetEncyclopediaBoostersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaBoosters200Response> {
+    async getEncyclopediaBoosters(requestParameters: GetEncyclopediaBoostersRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaBoostersResponse> {
         const response = await this.getEncyclopediaBoostersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -336,7 +598,7 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns full description of all crew qualifications.
      * Crew qualifications
      */
-    async getEncyclopediaCrewrolesRaw(requestParameters: GetEncyclopediaCrewrolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaCrewroles200Response>> {
+    async getEncyclopediaCrewrolesRaw(requestParameters: GetEncyclopediaCrewrolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaCrewrolesResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -367,14 +629,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaCrewroles200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaCrewrolesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns full description of all crew qualifications.
      * Crew qualifications
      */
-    async getEncyclopediaCrewroles(requestParameters: GetEncyclopediaCrewrolesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaCrewroles200Response> {
+    async getEncyclopediaCrewroles(requestParameters: GetEncyclopediaCrewrolesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaCrewrolesResponse> {
         const response = await this.getEncyclopediaCrewrolesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -383,7 +645,7 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns full description of all crew skills.
      * Crew skills
      */
-    async getEncyclopediaCrewskillsRaw(requestParameters: GetEncyclopediaCrewskillsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaCrewskills200Response>> {
+    async getEncyclopediaCrewskillsRaw(requestParameters: GetEncyclopediaCrewskillsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaCrewskillsResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -418,14 +680,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaCrewskills200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaCrewskillsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns full description of all crew skills.
      * Crew skills
      */
-    async getEncyclopediaCrewskills(requestParameters: GetEncyclopediaCrewskillsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaCrewskills200Response> {
+    async getEncyclopediaCrewskills(requestParameters: GetEncyclopediaCrewskillsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaCrewskillsResponse> {
         const response = await this.getEncyclopediaCrewskillsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -434,7 +696,7 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns information about Tankopedia.
      * Tankopedia information
      */
-    async getEncyclopediaInfoRaw(requestParameters: GetEncyclopediaInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaInfo200Response>> {
+    async getEncyclopediaInfoRaw(requestParameters: GetEncyclopediaInfoRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaInfoResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -461,14 +723,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaInfo200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaInfoResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns information about Tankopedia.
      * Tankopedia information
      */
-    async getEncyclopediaInfo(requestParameters: GetEncyclopediaInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaInfo200Response> {
+    async getEncyclopediaInfo(requestParameters: GetEncyclopediaInfoRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaInfoResponse> {
         const response = await this.getEncyclopediaInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -477,7 +739,7 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns list of available modules that can be installed on vehicles, such as engines, turrets, etc. At least one input filter parameter (module ID, type) is required to be indicated.
      * Modules
      */
-    async getEncyclopediaModulesRaw(requestParameters: GetEncyclopediaModulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaModules200Response>> {
+    async getEncyclopediaModulesRaw(requestParameters: GetEncyclopediaModulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaModulesResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['extra'] != null) {
@@ -496,16 +758,16 @@ export class TankopediaApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['moduleId'] != null) {
-            queryParameters['module_id'] = requestParameters['moduleId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['module_id'] != null) {
+            queryParameters['module_id'] = requestParameters['module_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['nation'] != null) {
             queryParameters['nation'] = requestParameters['nation']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
         if (requestParameters['type'] != null) {
@@ -528,14 +790,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaModules200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaModulesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns list of available modules that can be installed on vehicles, such as engines, turrets, etc. At least one input filter parameter (module ID, type) is required to be indicated.
      * Modules
      */
-    async getEncyclopediaModules(requestParameters: GetEncyclopediaModulesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaModules200Response> {
+    async getEncyclopediaModules(requestParameters: GetEncyclopediaModulesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaModulesResponse> {
         const response = await this.getEncyclopediaModulesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -544,11 +806,11 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns details on Personal Missions on the basis of specified campaign IDs, operation IDs, mission branch and tag IDs.
      * Personal Missions
      */
-    async getEncyclopediaPersonalmissionsRaw(requestParameters: GetEncyclopediaPersonalmissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaPersonalmissions200Response>> {
+    async getEncyclopediaPersonalmissionsRaw(requestParameters: GetEncyclopediaPersonalmissionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaPersonalmissionsResponse>> {
         const queryParameters: any = {};
 
-        if (requestParameters['campaignId'] != null) {
-            queryParameters['campaign_id'] = requestParameters['campaignId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['campaign_id'] != null) {
+            queryParameters['campaign_id'] = requestParameters['campaign_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['fields'] != null) {
@@ -559,12 +821,12 @@ export class TankopediaApi extends runtime.BaseAPI {
             queryParameters['language'] = requestParameters['language'];
         }
 
-        if (requestParameters['operationId'] != null) {
-            queryParameters['operation_id'] = requestParameters['operationId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['operation_id'] != null) {
+            queryParameters['operation_id'] = requestParameters['operation_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['setId'] != null) {
-            queryParameters['set_id'] = requestParameters['setId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['set_id'] != null) {
+            queryParameters['set_id'] = requestParameters['set_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['tag'] != null) {
@@ -587,14 +849,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaPersonalmissions200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaPersonalmissionsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns details on Personal Missions on the basis of specified campaign IDs, operation IDs, mission branch and tag IDs.
      * Personal Missions
      */
-    async getEncyclopediaPersonalmissions(requestParameters: GetEncyclopediaPersonalmissionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaPersonalmissions200Response> {
+    async getEncyclopediaPersonalmissions(requestParameters: GetEncyclopediaPersonalmissionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaPersonalmissionsResponse> {
         const response = await this.getEncyclopediaPersonalmissionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -603,7 +865,7 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns a list of available equipment and consumables.
      * Equipment and Consumables
      */
-    async getEncyclopediaProvisionsRaw(requestParameters: GetEncyclopediaProvisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaProvisions200Response>> {
+    async getEncyclopediaProvisionsRaw(requestParameters: GetEncyclopediaProvisionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaProvisionsResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -618,12 +880,12 @@ export class TankopediaApi extends runtime.BaseAPI {
             queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
-        if (requestParameters['provisionId'] != null) {
-            queryParameters['provision_id'] = requestParameters['provisionId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['provision_id'] != null) {
+            queryParameters['provision_id'] = requestParameters['provision_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['type'] != null) {
@@ -646,14 +908,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaProvisions200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaProvisionsResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns a list of available equipment and consumables.
      * Equipment and Consumables
      */
-    async getEncyclopediaProvisions(requestParameters: GetEncyclopediaProvisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaProvisions200Response> {
+    async getEncyclopediaProvisions(requestParameters: GetEncyclopediaProvisionsRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaProvisionsResponse> {
         const response = await this.getEncyclopediaProvisionsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -662,50 +924,50 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns vehicle configuration characteristics based on the specified module IDs.
      * Vehicle characteristics
      */
-    async getEncyclopediaVehicleprofileRaw(requestParameters: GetEncyclopediaVehicleprofileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaVehicleprofile200Response>> {
-        if (requestParameters['tankId'] == null) {
+    async getEncyclopediaVehicleprofileRaw(requestParameters: GetEncyclopediaVehicleprofileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaVehicleprofileResponse>> {
+        if (requestParameters['tank_id'] == null) {
             throw new runtime.RequiredError(
-                'tankId',
-                'Required parameter "tankId" was null or undefined when calling getEncyclopediaVehicleprofile().'
+                'tank_id',
+                'Required parameter "tank_id" was null or undefined when calling getEncyclopediaVehicleprofile().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['tankId'] != null) {
-            queryParameters['tank_id'] = requestParameters['tankId'];
+        if (requestParameters['tank_id'] != null) {
+            queryParameters['tank_id'] = requestParameters['tank_id'];
         }
 
-        if (requestParameters['engineId'] != null) {
-            queryParameters['engine_id'] = requestParameters['engineId'];
+        if (requestParameters['engine_id'] != null) {
+            queryParameters['engine_id'] = requestParameters['engine_id'];
         }
 
         if (requestParameters['fields'] != null) {
             queryParameters['fields'] = requestParameters['fields']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['gunId'] != null) {
-            queryParameters['gun_id'] = requestParameters['gunId'];
+        if (requestParameters['gun_id'] != null) {
+            queryParameters['gun_id'] = requestParameters['gun_id'];
         }
 
         if (requestParameters['language'] != null) {
             queryParameters['language'] = requestParameters['language'];
         }
 
-        if (requestParameters['profileId'] != null) {
-            queryParameters['profile_id'] = requestParameters['profileId'];
+        if (requestParameters['profile_id'] != null) {
+            queryParameters['profile_id'] = requestParameters['profile_id'];
         }
 
-        if (requestParameters['radioId'] != null) {
-            queryParameters['radio_id'] = requestParameters['radioId'];
+        if (requestParameters['radio_id'] != null) {
+            queryParameters['radio_id'] = requestParameters['radio_id'];
         }
 
-        if (requestParameters['suspensionId'] != null) {
-            queryParameters['suspension_id'] = requestParameters['suspensionId'];
+        if (requestParameters['suspension_id'] != null) {
+            queryParameters['suspension_id'] = requestParameters['suspension_id'];
         }
 
-        if (requestParameters['turretId'] != null) {
-            queryParameters['turret_id'] = requestParameters['turretId'];
+        if (requestParameters['turret_id'] != null) {
+            queryParameters['turret_id'] = requestParameters['turret_id'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -724,14 +986,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaVehicleprofile200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaVehicleprofileResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns vehicle configuration characteristics based on the specified module IDs.
      * Vehicle characteristics
      */
-    async getEncyclopediaVehicleprofile(requestParameters: GetEncyclopediaVehicleprofileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaVehicleprofile200Response> {
+    async getEncyclopediaVehicleprofile(requestParameters: GetEncyclopediaVehicleprofileRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaVehicleprofileResponse> {
         const response = await this.getEncyclopediaVehicleprofileRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -740,18 +1002,18 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns vehicle configuration characteristics.
      * Vehicle configurations
      */
-    async getEncyclopediaVehicleprofilesRaw(requestParameters: GetEncyclopediaVehicleprofilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaVehicleprofiles200Response>> {
-        if (requestParameters['tankId'] == null) {
+    async getEncyclopediaVehicleprofilesRaw(requestParameters: GetEncyclopediaVehicleprofilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaVehicleprofilesResponse>> {
+        if (requestParameters['tank_id'] == null) {
             throw new runtime.RequiredError(
-                'tankId',
-                'Required parameter "tankId" was null or undefined when calling getEncyclopediaVehicleprofiles().'
+                'tank_id',
+                'Required parameter "tank_id" was null or undefined when calling getEncyclopediaVehicleprofiles().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['tankId'] != null) {
-            queryParameters['tank_id'] = requestParameters['tankId'];
+        if (requestParameters['tank_id'] != null) {
+            queryParameters['tank_id'] = requestParameters['tank_id'];
         }
 
         if (requestParameters['fields'] != null) {
@@ -762,8 +1024,8 @@ export class TankopediaApi extends runtime.BaseAPI {
             queryParameters['language'] = requestParameters['language'];
         }
 
-        if (requestParameters['orderBy'] != null) {
-            queryParameters['order_by'] = requestParameters['orderBy'];
+        if (requestParameters['order_by'] != null) {
+            queryParameters['order_by'] = requestParameters['order_by'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -782,14 +1044,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaVehicleprofiles200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaVehicleprofilesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns vehicle configuration characteristics.
      * Vehicle configurations
      */
-    async getEncyclopediaVehicleprofiles(requestParameters: GetEncyclopediaVehicleprofilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaVehicleprofiles200Response> {
+    async getEncyclopediaVehicleprofiles(requestParameters: GetEncyclopediaVehicleprofilesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaVehicleprofilesResponse> {
         const response = await this.getEncyclopediaVehicleprofilesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -798,7 +1060,7 @@ export class TankopediaApi extends runtime.BaseAPI {
      * Method returns list of available vehicles.
      * Vehicles
      */
-    async getEncyclopediaVehiclesRaw(requestParameters: GetEncyclopediaVehiclesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<GetEncyclopediaVehicles200Response>> {
+    async getEncyclopediaVehiclesRaw(requestParameters: GetEncyclopediaVehiclesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EncyclopediaVehiclesResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters['fields'] != null) {
@@ -817,12 +1079,12 @@ export class TankopediaApi extends runtime.BaseAPI {
             queryParameters['nation'] = requestParameters['nation']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
-        if (requestParameters['pageNo'] != null) {
-            queryParameters['page_no'] = requestParameters['pageNo'];
+        if (requestParameters['page_no'] != null) {
+            queryParameters['page_no'] = requestParameters['page_no'];
         }
 
-        if (requestParameters['tankId'] != null) {
-            queryParameters['tank_id'] = requestParameters['tankId']!.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['tank_id'] != null) {
+            queryParameters['tank_id'] = requestParameters['tank_id']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         if (requestParameters['tier'] != null) {
@@ -849,14 +1111,14 @@ export class TankopediaApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => GetEncyclopediaVehicles200ResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => EncyclopediaVehiclesResponseFromJSON(jsonValue));
     }
 
     /**
      * Method returns list of available vehicles.
      * Vehicles
      */
-    async getEncyclopediaVehicles(requestParameters: GetEncyclopediaVehiclesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<GetEncyclopediaVehicles200Response> {
+    async getEncyclopediaVehicles(requestParameters: GetEncyclopediaVehiclesRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EncyclopediaVehiclesResponse> {
         const response = await this.getEncyclopediaVehiclesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -864,294 +1126,294 @@ export class TankopediaApi extends runtime.BaseAPI {
 }
 
 /**
- * @export
- */
-export const GetEncyclopediaAchievementsLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaAchievementsLanguageEnum = typeof GetEncyclopediaAchievementsLanguageEnum[keyof typeof GetEncyclopediaAchievementsLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaAchievementsLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaArenasLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaArenasLanguageEnum = typeof GetEncyclopediaArenasLanguageEnum[keyof typeof GetEncyclopediaArenasLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaArenasLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaBadgesLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaBadgesLanguageEnum = typeof GetEncyclopediaBadgesLanguageEnum[keyof typeof GetEncyclopediaBadgesLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaBadgesLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaBoostersLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaBoostersLanguageEnum = typeof GetEncyclopediaBoostersLanguageEnum[keyof typeof GetEncyclopediaBoostersLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaBoostersLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaCrewrolesLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaCrewrolesLanguageEnum = typeof GetEncyclopediaCrewrolesLanguageEnum[keyof typeof GetEncyclopediaCrewrolesLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaCrewrolesLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaCrewskillsLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaCrewskillsLanguageEnum = typeof GetEncyclopediaCrewskillsLanguageEnum[keyof typeof GetEncyclopediaCrewskillsLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaCrewskillsLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaInfoLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaInfoLanguageEnum = typeof GetEncyclopediaInfoLanguageEnum[keyof typeof GetEncyclopediaInfoLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaInfoLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaModulesExtraEnum = {
-    DefaultProfile: 'default_profile'
-} as const;
-export type GetEncyclopediaModulesExtraEnum = typeof GetEncyclopediaModulesExtraEnum[keyof typeof GetEncyclopediaModulesExtraEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaModulesExtraEnum {
+    DefaultProfile = 'default_profile'
+}
 /**
- * @export
- */
-export const GetEncyclopediaModulesLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaModulesLanguageEnum = typeof GetEncyclopediaModulesLanguageEnum[keyof typeof GetEncyclopediaModulesLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaModulesLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaModulesTypeEnum = {
-    VehicleRadio: 'vehicleRadio',
-    VehicleEngine: 'vehicleEngine',
-    VehicleGun: 'vehicleGun',
-    VehicleChassis: 'vehicleChassis',
-    VehicleTurret: 'vehicleTurret'
-} as const;
-export type GetEncyclopediaModulesTypeEnum = typeof GetEncyclopediaModulesTypeEnum[keyof typeof GetEncyclopediaModulesTypeEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaModulesTypeEnum {
+    VehicleRadio = 'vehicleRadio',
+    VehicleEngine = 'vehicleEngine',
+    VehicleGun = 'vehicleGun',
+    VehicleChassis = 'vehicleChassis',
+    VehicleTurret = 'vehicleTurret'
+}
 /**
- * @export
- */
-export const GetEncyclopediaPersonalmissionsLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaPersonalmissionsLanguageEnum = typeof GetEncyclopediaPersonalmissionsLanguageEnum[keyof typeof GetEncyclopediaPersonalmissionsLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaPersonalmissionsLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaProvisionsLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaProvisionsLanguageEnum = typeof GetEncyclopediaProvisionsLanguageEnum[keyof typeof GetEncyclopediaProvisionsLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaProvisionsLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaProvisionsTypeEnum = {
-    Equipment: 'equipment',
-    OptionalDevice: 'optionalDevice'
-} as const;
-export type GetEncyclopediaProvisionsTypeEnum = typeof GetEncyclopediaProvisionsTypeEnum[keyof typeof GetEncyclopediaProvisionsTypeEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaProvisionsTypeEnum {
+    Equipment = 'equipment',
+    OptionalDevice = 'optionalDevice'
+}
 /**
- * @export
- */
-export const GetEncyclopediaVehicleprofileLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaVehicleprofileLanguageEnum = typeof GetEncyclopediaVehicleprofileLanguageEnum[keyof typeof GetEncyclopediaVehicleprofileLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaVehicleprofileLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaVehicleprofilesLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaVehicleprofilesLanguageEnum = typeof GetEncyclopediaVehicleprofilesLanguageEnum[keyof typeof GetEncyclopediaVehicleprofilesLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaVehicleprofilesLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaVehicleprofilesOrderByEnum = {
-    PriceCredit: 'price_credit',
-    PriceCredit2: '-price_credit'
-} as const;
-export type GetEncyclopediaVehicleprofilesOrderByEnum = typeof GetEncyclopediaVehicleprofilesOrderByEnum[keyof typeof GetEncyclopediaVehicleprofilesOrderByEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaVehicleprofilesOrderByEnum {
+    PriceCredit = 'price_credit',
+    MinusPriceCredit = '-price_credit'
+}
 /**
- * @export
- */
-export const GetEncyclopediaVehiclesLanguageEnum = {
-    En: 'en',
-    Ru: 'ru',
-    Pl: 'pl',
-    De: 'de',
-    Fr: 'fr',
-    Es: 'es',
-    ZhCn: 'zh-cn',
-    ZhTw: 'zh-tw',
-    Tr: 'tr',
-    Cs: 'cs',
-    Th: 'th',
-    Vi: 'vi',
-    Ko: 'ko'
-} as const;
-export type GetEncyclopediaVehiclesLanguageEnum = typeof GetEncyclopediaVehiclesLanguageEnum[keyof typeof GetEncyclopediaVehiclesLanguageEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaVehiclesLanguageEnum {
+    En = 'en',
+    Ru = 'ru',
+    Pl = 'pl',
+    De = 'de',
+    Fr = 'fr',
+    Es = 'es',
+    ZhMinusCn = 'zh-cn',
+    ZhMinusTw = 'zh-tw',
+    Tr = 'tr',
+    Cs = 'cs',
+    Th = 'th',
+    Vi = 'vi',
+    Ko = 'ko'
+}
 /**
- * @export
- */
-export const GetEncyclopediaVehiclesTypeEnum = {
-    HeavyTank: 'heavyTank',
-    AtSpg: 'AT-SPG',
-    MediumTank: 'mediumTank',
-    LightTank: 'lightTank',
-    Spg: 'SPG'
-} as const;
-export type GetEncyclopediaVehiclesTypeEnum = typeof GetEncyclopediaVehiclesTypeEnum[keyof typeof GetEncyclopediaVehiclesTypeEnum];
+  * @export
+  * @enum {string}
+  */
+export enum GetEncyclopediaVehiclesTypeEnum {
+    HeavyTank = 'heavyTank',
+    AtMinusSpg = 'AT-SPG',
+    MediumTank = 'mediumTank',
+    LightTank = 'lightTank',
+    Spg = 'SPG'
+}

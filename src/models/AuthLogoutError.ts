@@ -41,14 +41,13 @@ export interface AuthLogoutError {
     error: AccountListErrorErrorOneOf3;
 }
 
-
 /**
- * @export
- */
-export const AuthLogoutErrorStatusEnum = {
-    Error: 'error'
-} as const;
-export type AuthLogoutErrorStatusEnum = typeof AuthLogoutErrorStatusEnum[keyof typeof AuthLogoutErrorStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum AuthLogoutErrorStatusEnum {
+    Error = 'error'
+}
 
 
 /**
@@ -89,5 +88,22 @@ export function AuthLogoutErrorToJSONTyped(value?: AuthLogoutError | null, ignor
         'status': value['status'],
         'error': AccountListErrorErrorOneOf3ToJSON(value['error']),
     };
+}
+
+export const AuthLogoutErrorPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

@@ -54,14 +54,13 @@ export interface EncyclopediaInfoOk {
     data: EncyclopediaInfoData;
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaInfoOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaInfoOkStatusEnum = typeof EncyclopediaInfoOkStatusEnum[keyof typeof EncyclopediaInfoOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaInfoOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -105,5 +104,22 @@ export function EncyclopediaInfoOkToJSONTyped(value?: EncyclopediaInfoOk | null,
         'meta': EncyclopediaInfoMetaToJSON(value['meta']),
         'data': EncyclopediaInfoDataToJSON(value['data']),
     };
+}
+
+export const EncyclopediaInfoOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

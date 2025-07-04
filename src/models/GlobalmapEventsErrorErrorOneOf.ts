@@ -45,22 +45,20 @@ export interface GlobalmapEventsErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapEventsErrorErrorOneOfCodeEnum = {
-    NUMBER_404: 404
-} as const;
-export type GlobalmapEventsErrorErrorOneOfCodeEnum = typeof GlobalmapEventsErrorErrorOneOfCodeEnum[keyof typeof GlobalmapEventsErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventsErrorErrorOneOfCodeEnum {
+    NUMBER_404 = 404
+}
 /**
- * @export
- */
-export const GlobalmapEventsErrorErrorOneOfMessageEnum = {
-    EventNotFound: 'EVENT_NOT_FOUND'
-} as const;
-export type GlobalmapEventsErrorErrorOneOfMessageEnum = typeof GlobalmapEventsErrorErrorOneOfMessageEnum[keyof typeof GlobalmapEventsErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapEventsErrorErrorOneOfMessageEnum {
+    EventNotFound = 'EVENT_NOT_FOUND'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function GlobalmapEventsErrorErrorOneOfToJSONTyped(value?: GlobalmapEvent
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const GlobalmapEventsErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

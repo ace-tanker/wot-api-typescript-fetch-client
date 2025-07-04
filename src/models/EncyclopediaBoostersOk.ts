@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { EncyclopediaBoostersValue } from './EncyclopediaBoostersValue.js';
-import {
-    EncyclopediaBoostersValueFromJSON,
-    EncyclopediaBoostersValueFromJSONTyped,
-    EncyclopediaBoostersValueToJSON,
-    EncyclopediaBoostersValueToJSONTyped,
-} from './EncyclopediaBoostersValue.js';
 import type { EncyclopediaBoostersMeta } from './EncyclopediaBoostersMeta.js';
 import {
     EncyclopediaBoostersMetaFromJSON,
@@ -27,6 +20,13 @@ import {
     EncyclopediaBoostersMetaToJSON,
     EncyclopediaBoostersMetaToJSONTyped,
 } from './EncyclopediaBoostersMeta.js';
+import type { EncyclopediaBoostersDataValue } from './EncyclopediaBoostersDataValue.js';
+import {
+    EncyclopediaBoostersDataValueFromJSON,
+    EncyclopediaBoostersDataValueFromJSONTyped,
+    EncyclopediaBoostersDataValueToJSON,
+    EncyclopediaBoostersDataValueToJSONTyped,
+} from './EncyclopediaBoostersDataValue.js';
 
 /**
  * 
@@ -48,20 +48,19 @@ export interface EncyclopediaBoostersOk {
     meta: EncyclopediaBoostersMeta;
     /**
      * 
-     * @type {{ [key: string]: EncyclopediaBoostersValue; }}
+     * @type {{ [key: string]: EncyclopediaBoostersDataValue | undefined; }}
      * @memberof EncyclopediaBoostersOk
      */
-    data: { [key: string]: EncyclopediaBoostersValue; };
+    data: { [key: string]: EncyclopediaBoostersDataValue | undefined; };
 }
 
-
 /**
- * @export
- */
-export const EncyclopediaBoostersOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type EncyclopediaBoostersOkStatusEnum = typeof EncyclopediaBoostersOkStatusEnum[keyof typeof EncyclopediaBoostersOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum EncyclopediaBoostersOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function EncyclopediaBoostersOkFromJSONTyped(json: any, ignoreDiscriminat
         
         'status': json['status'],
         'meta': EncyclopediaBoostersMetaFromJSON(json['meta']),
-        'data': (mapValues(json['data'], EncyclopediaBoostersValueFromJSON)),
+        'data': (mapValues(json['data'], EncyclopediaBoostersDataValueFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function EncyclopediaBoostersOkToJSONTyped(value?: EncyclopediaBoostersOk
         
         'status': value['status'],
         'meta': EncyclopediaBoostersMetaToJSON(value['meta']),
-        'data': (mapValues(value['data'], EncyclopediaBoostersValueToJSON)),
+        'data': (mapValues(value['data'], EncyclopediaBoostersDataValueToJSON)),
     };
+}
+
+export const EncyclopediaBoostersOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

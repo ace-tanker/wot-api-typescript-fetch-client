@@ -13,13 +13,13 @@
  */
 
 import { mapValues } from '../runtime.js';
-import type { GlobalmapClanbattlesItem } from './GlobalmapClanbattlesItem.js';
+import type { GlobalmapClanbattlesDataItem } from './GlobalmapClanbattlesDataItem.js';
 import {
-    GlobalmapClanbattlesItemFromJSON,
-    GlobalmapClanbattlesItemFromJSONTyped,
-    GlobalmapClanbattlesItemToJSON,
-    GlobalmapClanbattlesItemToJSONTyped,
-} from './GlobalmapClanbattlesItem.js';
+    GlobalmapClanbattlesDataItemFromJSON,
+    GlobalmapClanbattlesDataItemFromJSONTyped,
+    GlobalmapClanbattlesDataItemToJSON,
+    GlobalmapClanbattlesDataItemToJSONTyped,
+} from './GlobalmapClanbattlesDataItem.js';
 import type { GlobalmapClanbattlesMeta } from './GlobalmapClanbattlesMeta.js';
 import {
     GlobalmapClanbattlesMetaFromJSON,
@@ -48,20 +48,19 @@ export interface GlobalmapClanbattlesOk {
     meta: GlobalmapClanbattlesMeta;
     /**
      * 
-     * @type {Array<GlobalmapClanbattlesItem>}
+     * @type {Array<GlobalmapClanbattlesDataItem>}
      * @memberof GlobalmapClanbattlesOk
      */
-    data: Array<GlobalmapClanbattlesItem>;
+    data: Array<GlobalmapClanbattlesDataItem>;
 }
 
-
 /**
- * @export
- */
-export const GlobalmapClanbattlesOkStatusEnum = {
-    Ok: 'ok'
-} as const;
-export type GlobalmapClanbattlesOkStatusEnum = typeof GlobalmapClanbattlesOkStatusEnum[keyof typeof GlobalmapClanbattlesOkStatusEnum];
+* @export
+* @enum {string}
+*/
+export enum GlobalmapClanbattlesOkStatusEnum {
+    Ok = 'ok'
+}
 
 
 /**
@@ -86,7 +85,7 @@ export function GlobalmapClanbattlesOkFromJSONTyped(json: any, ignoreDiscriminat
         
         'status': json['status'],
         'meta': GlobalmapClanbattlesMetaFromJSON(json['meta']),
-        'data': ((json['data'] as Array<any>).map(GlobalmapClanbattlesItemFromJSON)),
+        'data': ((json['data'] as Array<any>).map(GlobalmapClanbattlesDataItemFromJSON)),
     };
 }
 
@@ -103,7 +102,24 @@ export function GlobalmapClanbattlesOkToJSONTyped(value?: GlobalmapClanbattlesOk
         
         'status': value['status'],
         'meta': GlobalmapClanbattlesMetaToJSON(value['meta']),
-        'data': ((value['data'] as Array<any>).map(GlobalmapClanbattlesItemToJSON)),
+        'data': ((value['data'] as Array<any>).map(GlobalmapClanbattlesDataItemToJSON)),
     };
+}
+
+export const GlobalmapClanbattlesOkPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 

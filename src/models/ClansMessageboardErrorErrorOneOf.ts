@@ -45,22 +45,20 @@ export interface ClansMessageboardErrorErrorOneOf {
     value: string | null;
 }
 
-
 /**
- * @export
- */
-export const ClansMessageboardErrorErrorOneOfCodeEnum = {
-    NUMBER_404: 404
-} as const;
-export type ClansMessageboardErrorErrorOneOfCodeEnum = typeof ClansMessageboardErrorErrorOneOfCodeEnum[keyof typeof ClansMessageboardErrorErrorOneOfCodeEnum];
-
+* @export
+* @enum {string}
+*/
+export enum ClansMessageboardErrorErrorOneOfCodeEnum {
+    NUMBER_404 = 404
+}
 /**
- * @export
- */
-export const ClansMessageboardErrorErrorOneOfMessageEnum = {
-    ClanNotFound: 'CLAN_NOT_FOUND'
-} as const;
-export type ClansMessageboardErrorErrorOneOfMessageEnum = typeof ClansMessageboardErrorErrorOneOfMessageEnum[keyof typeof ClansMessageboardErrorErrorOneOfMessageEnum];
+* @export
+* @enum {string}
+*/
+export enum ClansMessageboardErrorErrorOneOfMessageEnum {
+    ClanNotFound = 'CLAN_NOT_FOUND'
+}
 
 
 /**
@@ -107,5 +105,22 @@ export function ClansMessageboardErrorErrorOneOfToJSONTyped(value?: ClansMessage
         'field': value['field'],
         'value': value['value'],
     };
+}
+
+export const ClansMessageboardErrorErrorOneOfPropertyValidationAttributesMap: {
+    [property: string]: {
+        maxLength?: number,
+        minLength?: number,
+        pattern?: string,
+        maximum?: number,
+        exclusiveMaximum?: boolean,
+        minimum?: number,
+        exclusiveMinimum?: boolean,
+        multipleOf?: number,
+        maxItems?: number,
+        minItems?: number,
+        uniqueItems?: boolean
+    }
+} = {
 }
 
